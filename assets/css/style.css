@@ -56,7 +56,7 @@ a:hover {
     text-decoration: underline;
 }
 
-#hero {
+#hero { /* 450px */
     text-align: center;
     position: fixed;
     top: 50%;
@@ -68,8 +68,24 @@ a:hover {
     /*aspect-ratio: 5 / 4;*/
     padding: 4em;
     background: #00000044;
-    border-radius: 1em;
-        
+    border-radius: 1em;    
+}
+
+/* This CSS will apply only when the screen width is less than 450 pixels */
+@media screen and (max-width: 450px) {
+    #hero h1 {
+        font-size: 2.2em;
+    }
+
+    #hero {
+        border-radius: 0;
+    }
+}
+
+@media screen and (min-width: 450px) {
+    #hero h1 {
+        font-size: 3em;
+    }
 }
 
 #hero h1 {
@@ -78,7 +94,6 @@ a:hover {
     margin: 0;
     /* offset-x | offset-y | blur-radius | color */
     text-shadow: 0 0 0.3em #000;
-    font-size: 3em;
     white-space: nowrap;
 }
 
