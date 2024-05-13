@@ -1,35 +1,124 @@
+/* FONTS */
+
+@font-face {
+    /* Copyright 1990-2003 Bitstream Inc. All rights reserved. */
+    font-family: 'Square721BdExBT';
+    src: url('../fonts/SQR721BE.TTF') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    /* Copyright HTF Gotham  Copr. 2000 The Hoefler Type Foundry, Inc. Info: www.typography.com */
+    font-family: 'GothamBook';
+    src: url('../fonts/GothamBook.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LetterGothik';
+    src: url('../fonts/LetterGothicStdMedium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    height: 100%;
+}
+
 body {
+    margin: 0;
+    padding: 0;
     background-color: #000;
+    font-family: 'GothamBook';
+    background-image: url('../images/bg-car.jpg');
+    background-size: cover; /* Scale the background image to fit while maintaining aspect ratio */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+}
+
+h1 {
+    font-family: 'Square721BdExBT';
+}
+
+h2 {
+    font-family: 'LetterGothik';
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(203, 36, 36);
+    text-decoration: underline;
 }
 
 #hero {
-    background-color: #fff;
-    padding: 20px;
     text-align: center;
     position: fixed;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    min-width: 20em;
+    /*min-width: 10em;*/
+    /*width: 65%;*/
+    /*aspect-ratio: 5 / 4;*/
+    padding: 4em;
+    background: #00000044;
+    border-radius: 1em;
+        
 }
 
 #hero h1 {
+    color: #fff;
     padding: 0;
     margin: 0;
-    background-color: blue;
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 0 0 0.3em #000;
+    font-size: 3em;
+    white-space: nowrap;
 }
 
-#hero ul {
+#live {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+#live h2 {
+    color: #fff;
+    font-size: 1.8em;
+    text-shadow: 0 0 0.3em #000;
+}
+
+#live a {
+    font-size: 1.2em;
+    text-shadow: 0 0 0.3em #000;
+}
+
+#links {
+    /*padding: 2em;*/
+    /*background-color: #fff;*/
+    /*border-radius: 1em;*/
+    line-height: 5em;
+}
+
+
+
+#links ul {
     list-style-type: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
-#hero li {
+#links li {
     display: inline;
+    padding: 0.5em;
 }
 
-#hero li a {
-    text-decoration: none;
+#links li a {
+    font-size: 2.5em;
+    text-shadow: 0 0 0.3em #000;
 }
