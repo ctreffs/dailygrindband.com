@@ -33,6 +33,6 @@ jobs:
       - name: Deploy
         if: ${{ github.event.release || contains( github.event.pull_request.labels.*.name, 'release') }}
         run: |
-          rsync -crvzh --progress -e 'ssh -i ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}' ./* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}
+          rsync -crvzh --progress -e 'ssh -p ${{ secrets.DEPLOY_PORT }} -i ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}' --delete-during ./* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}
           rm -rdf ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}
 
