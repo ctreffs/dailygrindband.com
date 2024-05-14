@@ -1,0 +1,38 @@
+name: Publish
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  release:
+    types: [published]
+  workflow_dispatch:
+    
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.5
+
+      - name: Build info
+        run: |
+          JSON_STRING='{"job":"'"$GITHUB_JOB"'","ref":"'"$GITHUB_REF"'","run_id":"'"$GITHUB_RUN_ID"'","sha":"'"$GITHUB_SHA"'","runner_name":"'"$RUNNER_NAME"'","date":"'"$(date +'%Y-%m-%dT%H:%M:%S')"'"}'
+          echo $JSON_STRING | jq > .build_info
+
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2.7.0
+        if: ${{ github.event.release || contains( github.event.pull_request.labels.*.name, 'release') }}
+        with:
+          key: ${{ secrets.DEPLOY_KEY }}
+          name: ${{ secrets.DEPLOY_KEY_NAME }}
+          known_hosts: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+          if_key_exists: fail
+
+      - name: Deploy
+        if: ${{ github.event.release || contains( github.event.pull_request.labels.*.name, 'release') }}
+        run: |
+          rsync -crvzh --progress -e 'ssh -i ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}' ./* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}
+          rm -rdf ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}
+
