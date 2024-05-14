@@ -32,7 +32,7 @@ body {
     padding: 0;
     background-color: #000;
     font-family: 'GothamBook';
-    background-image: url('../images/bg-car.jpg');
+    background-image: url('../images/bg-car.webp');
     background-size: cover; /* Scale the background image to fit while maintaining aspect ratio */
     background-position: center; /* Center the background image */
     background-repeat: no-repeat; /* Prevent the background image from repeating */
