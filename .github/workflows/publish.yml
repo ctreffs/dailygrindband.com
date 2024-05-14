@@ -44,3 +44,11 @@ jobs:
         run: |
           rsync -crvzh --progress -e 'ssh -p ${{ secrets.DEPLOY_PORT }} -i ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}' --delete-during ./* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}
           rm -rdf ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.3.3
+        if: ${{ success() }}
+        with:
+          name: dailygrindband.com
+          path: ./*
+          retention-days: 3
