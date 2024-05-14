@@ -8,13 +8,22 @@ on:
   release:
     types: [published]
   workflow_dispatch:
-    
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.5
+
+# Config Mapping
+#
+# - `DEPLOY_HOST` : host ssh URL
+# - `DEPLOY_KEY` : ssh private key (see `authorized_keys` on host)
+# - `DEPLOY_KEY_NAME` : ssh key file name 
+# - `DEPLOY_KNOWN_HOSTS` : list of known hosts generated with `ssh-keyscan <YOUR_HOST>`
+# - `DEPLOY_PATH` : path to folder on host machine
+# - `DEPLOY_PORT` : ssh port
+# - `DEPLOY_USER` : user name of deployer (user or domain)
 
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2.7.0
@@ -35,4 +44,3 @@ jobs:
         run: |
           rsync -crvzh --progress -e 'ssh -p ${{ secrets.DEPLOY_PORT }} -i ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}' --delete-during ./* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}
           rm -rdf ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}
-
