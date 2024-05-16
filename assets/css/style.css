@@ -30,12 +30,21 @@ html {
 body {
     margin: 0;
     padding: 0;
+    color: #fff;
     background-color: #000;
     font-family: 'GothamBook';
     background-image: url('../images/bg-car.webp');
     background-size: cover; /* Scale the background image to fit while maintaining aspect ratio */
     background-position: center; /* Center the background image */
     background-repeat: no-repeat; /* Prevent the background image from repeating */
+}
+
+body>footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 2em;
 }
 
 h1 {
