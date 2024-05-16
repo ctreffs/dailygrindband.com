@@ -2,5 +2,5 @@
 
 - [ ] Favicon
 - [ ] HTTPS
-- [ ] Imprint
 - [ ] Link preview
+- [ ] Background fader animation
