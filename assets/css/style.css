@@ -44,7 +44,7 @@ body>footer {
     bottom: 0;
     width: 100%;
     text-align: center;
-    padding: 2em;
+    padding: 2em 0 2em 0;
 }
 
 h1 {
