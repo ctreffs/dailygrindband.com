@@ -1,28 +1,3 @@
-/* FONTS */
-
-@font-face {
-    /* Copyright 1990-2003 Bitstream Inc. All rights reserved. */
-    font-family: 'Square721BdExBT';
-    src: url('../fonts/SQR721BE.TTF') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    /* Copyright HTF Gotham  Copr. 2000 The Hoefler Type Foundry, Inc. Info: www.typography.com */
-    font-family: 'GothamBook';
-    src: url('../fonts/GothamBook.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'LetterGothik';
-    src: url('../fonts/LetterGothicStdMedium.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 html {
     height: 100%;
 }
@@ -32,7 +7,7 @@ body {
     padding: 0;
     color: #fff;
     background-color: #000;
-    font-family: 'GothamBook';
+    font-family: "Gotham Book", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
     background-image: url('../images/bg-car.webp');
     background-size: cover; /* Scale the background image to fit while maintaining aspect ratio */
     background-position: center; /* Center the background image */
@@ -45,14 +20,6 @@ body>footer {
     width: 100%;
     text-align: center;
     padding: 2em 0 2em 0;
-}
-
-h1 {
-    font-family: 'Square721BdExBT';
-}
-
-h2 {
-    font-family: 'LetterGothik';
 }
 
 a {
