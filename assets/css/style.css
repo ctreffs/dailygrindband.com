@@ -8,10 +8,10 @@ body {
     color: #fff;
     background-color: #000;
     font-family: "Gotham Book", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-    background-image: url('../images/bg-car.webp');
-    background-size: cover; /* Scale the background image to fit while maintaining aspect ratio */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Prevent the background image from repeating */
+}
+
+ul {
+    list-style-type: none;
 }
 
 body>footer {
@@ -39,9 +39,6 @@ a:hover {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    /*min-width: 10em;*/
-    /*width: 65%;*/
-    /*aspect-ratio: 5 / 4;*/
     padding: 4em;
     background: #00000044;
     border-radius: 1em;    
