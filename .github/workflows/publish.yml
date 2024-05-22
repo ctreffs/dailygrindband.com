@@ -42,10 +42,10 @@ jobs:
 
       - name: Assemble contents
         run: |
-          - mkdir ./_PUBLISH
-          - cp build_info ./_PUBLISH
-          - cp *.html ./_PUBLISH
-          - cp -r assets ./_PUBLISH
+          mkdir -p ./_PUBLISH
+          cp build_info ./_PUBLISH
+          cp *.html ./_PUBLISH
+          cp -r assets ./_PUBLISH
 
       - name: Deploy
         if: ${{ github.event.release || contains( github.event.pull_request.labels.*.name, 'release') }}
