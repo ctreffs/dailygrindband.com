@@ -42,7 +42,7 @@ jobs:
 
       - name: Assemble contents
         run: |
-          - mkdir -p ./_PUBLISH
+          - mkdir ./_PUBLISH
           - cp build_info ./_PUBLISH
           - cp *.html ./_PUBLISH
           - cp -r assets ./_PUBLISH
