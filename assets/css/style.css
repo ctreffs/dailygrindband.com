@@ -24,7 +24,7 @@ body>footer {
 
 a {
     color: #fff;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 a:hover {
@@ -42,6 +42,12 @@ a:hover {
     padding: 4em;
     background: #00000044;
     border-radius: 1em;    
+}
+
+#hero img {
+    min-width: 19em;
+    max-width: 100%;
+    height: auto;
 }
 
 /* This CSS will apply only when the screen width is less than 450 pixels */
