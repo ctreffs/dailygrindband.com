@@ -54,7 +54,7 @@ jobs:
           rm -rdf ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}
 
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4.3.3
+        uses: actions/upload-artifact@v4.3.4
         if: ${{ success() }}
         with:
           name: dailygrindband.com
