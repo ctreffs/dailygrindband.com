@@ -20,6 +20,22 @@ setup-env:
 install:
 	bundle install
 
+.PHONY: update
+update:
+	bundle update
+
+.PHONY: clean
+clean:
+	bundle exec jekyll clean
+
 .PHONY: serve
 serve:
 	bundle exec jekyll serve
+
+.PHONY: build
+build: clean
+	bundle exec jekyll build
+
+.PHONY: doctor
+doctor:
+	bundle exec jekyll doctor
