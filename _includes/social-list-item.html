@@ -1,0 +1,3 @@
+<li>{% assign entry = include.item %}
+    <a target="_blank" title="{{ entry.title | default: entry.href }}" href="{{ entry.href }}"><i class="{{ entry.icon-class }}"></i></a>
+</li>

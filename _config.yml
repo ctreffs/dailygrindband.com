@@ -35,6 +35,39 @@ twitter:
   image: "https://dailygrindband.com/assets/images/dg-og.jpg"
   username: DailyGrindMusic
 
+social_links:
+  - title: Daily Grind bei Facebook
+    href: https://www.facebook.com/DailyGrindBand
+    icon-class: "fa-brands fa-facebook"
+  - title: Daily Grind bei Instagram
+    href: https://www.instagram.com/dailygrind.rocks
+    icon-class: "fa-brands fa-instagram"
+  - title: Daily Grind bei X / Twitter
+    href: https://twitter.com/DailyGrindMusic
+    icon-class: "fa-brands fa-x-twitter"
+  - title: Daily Grind bei YouTube
+    href: https://www.youtube.com/@DailyGrindBand
+    icon-class: "fa-brands fa-youtube"
+  - title: E-Mail an Daily Grind
+    href: "mailto:info@dailygrindband.com"
+    icon-class: "fa-solid fa-envelope"
+  - title: Daily Grind Director's Cut bei Spotify
+    href: https://open.spotify.com/album/1708ydctLfPKrHyBhyln8V
+    icon-class: "fa-brands fa-spotify"
+  - title: Daily Grind Director's Cut bei Apple Music
+    href: https://music.apple.com/de/album/directors-cut/658375303
+    icon-class: "fa-brands fa-apple"
+  - title: Daily Grind Director's Cut bei Amazon Music
+    href: https://amazon.de/music/player/albums/B00D8D9U2U
+    icon-class: "fa-brands fa-amazon"
+  - title: Daily Grind Director's Cut bei Deezer
+    href: https://www.deezer.com/album/6658364 
+    icon-class: "fa-brands fa-deezer"
+  - title: Daily Grind bei Soundcloud
+    href: https://soundcloud.com/dailygrindband
+    icon-class: "fa-brands fa-soundcloud"
+  
+
 # -- Build settings ----
 
 # Theme
