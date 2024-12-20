@@ -1,7 +1,10 @@
-.DS_Store
+_keep_local
 _site
-.sass-cache
+.bundle
+.DS_Store
 .jekyll-cache
 .jekyll-metadata
+.sass-cache
+*.gem
+Gemfile.lock
 vendor
-_keep_local
