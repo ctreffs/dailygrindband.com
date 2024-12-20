@@ -31,8 +31,12 @@ github_username:  jekyll
 
 # TODO: https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 
-# Build settings
-theme: minima
+# -- Build settings ----
+
+# Theme
+# theme: minima
+
+# Plugins
 plugins:
    - jekyll-feed
    - jekyll-seo-tag
