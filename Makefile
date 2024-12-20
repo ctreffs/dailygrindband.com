@@ -15,3 +15,11 @@ setup-env:
 	gem install bundler --quiet
 	bundle install --quiet
 	git lfs install
+
+.PHONY: install
+install:
+	bundle install
+
+.PHONY: serve
+serve:
+	bundle exec jekyll serve
