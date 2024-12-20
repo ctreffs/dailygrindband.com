@@ -29,7 +29,7 @@ clean:
 	bundle exec jekyll clean
 
 .PHONY: serve
-serve:
+serve: clean
 	bundle exec jekyll serve
 
 .PHONY: build
