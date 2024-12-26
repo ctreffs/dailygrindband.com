@@ -1,6 +1,7 @@
 INSTALLED_RUBY_VERSION := $(shell rbenv version | awk '{print $$1}')
 REQUIRED_RUBY_VERSION := $(shell cat .ruby-version)
 BOOTSTRAP_PATH := $(shell bundle info bootstrap | grep "Path:" | awk '{print $$2}')
+POPPER_PATH := $(shell bundle info popper | grep "Path:" | awk '{print $$2}')
 
 .PHONY: setup-env
 setup-env:
@@ -26,6 +27,12 @@ install:
 setup-bootstrap:
 	mkdir -p _sass/bootstrap
 	cp -r ${BOOTSTRAP_PATH}/assets/stylesheets/* _sass/bootstrap/
+
+	mkdir -p assets/js/bootstrap
+	cp -r ${BOOTSTRAP_PATH}/assets/javascripts/* assets/js/bootstrap/
+
+	mkdir -p assets/js/popper
+	cp -r ${POPPER_PATH}/assets/javascripts/* assets/js/popper/
 
 .PHONY: update
 update:
