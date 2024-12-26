@@ -1,4 +1,19 @@
-<footer>
-    {% include social-list.html %}
-    Copyright © 2006-{{ site.time | date: '%Y' }} Daily Grind | <a href="imprint.html">Impressum</a>
+<footer class="footer mt-auto py-3 bg-body-tertiary">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    
+        <p class="col-md-4 mb-0 text-body-secondary">Copyright © 2006-{{ site.time | date: '%Y' }} Daily Grind | <a href="imprint.html">Impressum</a></p>
+
+        <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <img src="assets/images/dg-logo.webp" width="250" height="30" alt="DAILY GRIND" />
+        </a>
+    
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            {%- for entry in site.social_links -%}
+                <li class="ms-3">
+                    <a class="text-body-secondary" target="_blank" title="{{ entry.title | default: entry.href }}" href="{{ entry.href }}"><i class="{{ entry.icon-class }}"></i></a>
+                </li>
+            {%- endfor -%}
+        </ul>
+    
+  </div>
 </footer>
