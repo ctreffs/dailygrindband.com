@@ -1,5 +1,6 @@
 INSTALLED_RUBY_VERSION := $(shell rbenv version | awk '{print $$1}')
 REQUIRED_RUBY_VERSION := $(shell cat .ruby-version)
+BOOTSTRAP_PATH := $(shell bundle info bootstrap | grep "Path:" | awk '{print $$2}')
 
 .PHONY: setup-env
 setup-env:
@@ -13,12 +14,18 @@ setup-env:
 	fi
 
 	gem install bundler --quiet
+	bundle config set --local path 'vendor/bundle'
 	bundle install --quiet
 	git lfs install
 
 .PHONY: install
 install:
 	bundle install
+
+.PHONY: setup-bootstrap
+setup-bootstrap:
+	mkdir -p _sass/bootstrap
+	cp -r ${BOOTSTRAP_PATH}/assets/stylesheets/* _sass/bootstrap/
 
 .PHONY: update
 update:
