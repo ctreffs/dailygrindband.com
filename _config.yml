@@ -23,7 +23,7 @@ tagline: Offizielle Homepage der Nürnberger Rock und Pop Band Daily Grind.
 description: >- # this means to ignore newlines until "baseurl:"
   Offizielle Homepage der Nürnberger Rock und Pop Band Daily Grind.
 
-email: your-email@example.com
+email: info@dailygrindband.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://dailygrindband.com" # the base hostname & protocol for your site, e.g. http://example.com
 
