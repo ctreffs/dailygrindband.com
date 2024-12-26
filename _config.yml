@@ -48,9 +48,6 @@ social_links:
   - title: Daily Grind bei YouTube
     href: https://www.youtube.com/@DailyGrindBand
     icon-class: "fa-brands fa-youtube"
-  - title: E-Mail an Daily Grind
-    href: "mailto:info@dailygrindband.com"
-    icon-class: "fa-solid fa-envelope"
   - title: Daily Grind Director's Cut bei Spotify
     href: https://open.spotify.com/album/1708ydctLfPKrHyBhyln8V
     icon-class: "fa-brands fa-spotify"
