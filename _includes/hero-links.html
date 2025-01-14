@@ -1,11 +1,11 @@
 <!-- HERO LINKS -->
-<div class="container text-center">
+<div class="container mt-4 text-center">
   <div class="row gap-2 justify-content-center">
     {%- for entry in site.social_links -%}
     <div class="col">
       {% assign entry = include.item %}
       <a
-        class="btn btn-primary rounded-circle p-3 lh-1"
+        class="btn btn-primary btn-circle p-3 lh-1 justify-center items-center"
         target="_blank"
         title="{{ entry.title | default: entry.href }}"
         href="{{ entry.href }}"
