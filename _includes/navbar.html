@@ -1,30 +1,41 @@
-
+<!-- NAV -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="{{ site.url }}">{{ site.title }}</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-        <span class="navbar-toggler-icon"></span>
-        </button>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ site.url }}">{{ site.title }}</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarContent"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            {% for page in site.pages %}
-            {% if page.title %}
-            <li class="nav-item">
-                <a class="nav-link{% if page.url == page.url %} active{% endif %}" href="{{ page.url }}">{{ page.title }}</a>
-            </li>
-            {% endif %}
-            {% endfor %}
-        </ul>
-        <ul class="navbar-nav mb-lg-0 justify-content-end">
-            {%- for entry in site.social_links -%}
-                <li class="ms-3">
-                    <a target="_blank" title="{{ entry.title | default: entry.href }}" href="{{ entry.href }}"><i class="{{ entry.icon-class }}"></i></a>
-                </li>
-            {%- endfor -%}
-        </ul>
-        </div>
-        
-        
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {% for page in site.pages %} {% if page.title %}
+        <li class="nav-item">
+          <a
+            class="nav-link{% if page.url == page.url %} active{% endif %}"
+            href="{{ page.url }}"
+            >{{ page.title }}</a
+          >
+        </li>
+        {% endif %} {% endfor %}
+      </ul>
+      <ul class="navbar-nav mb-lg-0 justify-content-end">
+        {%- for entry in site.social_links -%}
+        <li class="ms-3">
+          <a
+            target="_blank"
+            title="{{ entry.title | default: entry.href }}"
+            href="{{ entry.href }}"
+            ><i class="{{ entry.icon-class }}"></i
+          ></a>
+        </li>
+        {%- endfor -%}
+      </ul>
     </div>
+  </div>
 </nav>
+<!-- NAV END -->

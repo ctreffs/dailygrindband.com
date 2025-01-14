@@ -2,25 +2,13 @@
 layout: base
 ---
 
-<div id="hero">
-  <img src="assets/images/dg-logo.webp" width="500" height="60" alt="DAILY GRIND" />
-  
-  <div id="live">
-      <h2>LIVE</h2>
-      <p>
-          <ul>
-              <li><a href="https://www.kofferfabrik.cc/termine.html?TYP=DETAIL&VERANSTALTUNGID=295001&DATUM=2025-02-22">22.02.2025 20:00h Kofferfabrik Fürth</a></li>
-          </ul>
-      </p>
-      <p>
-          <a href="archive.html">Archiv</a>
-      </p>
-  </div>
-
-  {% include social-list.html %}
-
-</div>
-
+{% include hero.html %}
+{% include hero-links.html %}
+{% include news.html %}
+{% include live.html %}
+{% include bio.html %}
+{% include music.html %}
+{% include videos.html %}
+<!-- SOCIAL_FEED -->
+<!-- CONTACT/BOOKING -->
 {% include footer.html %}
-
-</body>

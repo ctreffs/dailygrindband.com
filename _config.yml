@@ -27,6 +27,17 @@ email: info@dailygrindband.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://dailygrindband.com" # the base hostname & protocol for your site, e.g. http://example.com
 
+# Soundlcoud player
+player:
+  playlist: 3863122
+  color: ff5500
+  auto_play: false
+  hide_related: false
+  show_comments: true
+  show_user: true
+  show_reposts: true
+  show_teaser: true
+
 # Social
 twitter:
   card: summary_large_image
@@ -64,6 +75,15 @@ social_links:
     href: https://soundcloud.com/dailygrindband
     icon-class: "fa-brands fa-soundcloud"
   
+videos:
+  - title: "Rational (Music Video)"
+    youtube-id: t5VTuIia7-Y
+  - title: "Kelly (Remote Session)"
+    youtube-id: 634TIKTeRcs
+  - title: "Last Christmas (Wham! cover)"
+    youtube-id: nrM1gk_yeDs
+  - title: "Hold On To Me (Music Video)"
+    youtube-id: Dc67fxkikUE
 
 # -- Build settings ----
 
