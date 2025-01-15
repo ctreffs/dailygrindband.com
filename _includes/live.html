@@ -3,7 +3,7 @@ site.data.live | where_exp:"item", "item.date >= current_year" %} {% assign
 archive_events = site.data.live | where_exp:"item", "item.date < current_year"
 %}
 <section id="live">
-  <div class="container text-center">
+  <div class="container mt-5 text-center">
     <h1>Live</h1>
     <div class="row">{%- include live-table.html events = live_events -%}</div>
   </div>
