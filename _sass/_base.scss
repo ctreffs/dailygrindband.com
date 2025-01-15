@@ -77,8 +77,13 @@ $primary: $Daily-Grind-Plymouth-Dark-1-hsla;
 #carouselHero .carousel-item img {
     object-fit: cover;
     object-position: center;
-    height: 900px;
+    height:820px;
+    aspect-ratio: 1/1;
     overflow: hidden;
+}
+
+#carouselHero .carousel-caption {
+    height: 90%;
 }
 
 .btn-circle {
@@ -108,3 +113,4 @@ img.album {
     min-width: 250px; 
     aspect-ratio: 1/1;
 }
+

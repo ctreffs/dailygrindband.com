@@ -2,18 +2,10 @@
 <section id="hero">
   <div
     id="carouselHero"
-    class="carousel slide mb-6 position-relative"
+    class="carousel slide"
     data-bs-ride="carousel"
   >
-    <div class="carousel-indicators">
-      <a
-        type="button"
-        class="btn btn-primary position-absolute bottom-0 start-50 translate-middle fs-2 p-3 lh-1 z-3"
-        href="#main-content"
-      >
-        <i class="fa-solid fa-chevron-down"></i>
-      </a>
-    </div>
+
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="assets/images/bg-02.webp" class="d-block w-100" />
@@ -26,13 +18,35 @@
       </div>
     </div>
 
-    <div class="carousel-caption" style="height: 90%">
+    <div class="carousel-caption">
+
+      <div>
       <img
         class="img-fluid mb-4"
         alt="DAILY GRIND"
         src="assets/images/dg-logo.webp"
       />
+      </div>
+
+      <div class="animate-bounce position-absolute bottom-0 start-50 translate-middle-x">
+        <a
+          class="btn p-3 lh-1 z-3 fs-5"
+          href="#news"
+        >
+          <i class="fa-solid fa-chevron-down fa-lg"></i>
+        </a>
+      </div>
+
     </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselHero" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselHero" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
 </section>
 <!-- HERO END -->
