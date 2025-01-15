@@ -74,6 +74,10 @@ $primary: $Daily-Grind-Plymouth-Dark-1-hsla;
 // Utilities
 @import "bootstrap/bootstrap/utilities/api";
 
+nav.navbar-solid {
+    background-color: $body-bg-dark;
+}
+
 #carouselHero .carousel-item img {
     object-fit: cover;
     object-position: center;
