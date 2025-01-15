@@ -1,67 +1,28 @@
 <!-- LIVE -->
 {% assign current_year = 'now' | date: "%Y" %}
+{% assign live_events = site.data.live | where_exp:"item", "item.date >= current_year"  %}
+{% assign archive_events = site.data.live | where_exp:"item", "item.date < current_year"  %}
 <div class="container text-center">
   <h1>Live</h1>
   <div class="row">
-    {% for event in site.data.live %} {% if event.date >= current_year %}
-    <a href="{{ event.url }}" target="_blank"
-      >{{ event.date }} - {{ event.name | append: event.venue }}</a
-    >
-    {% endif %} {% endfor %}
-  </div>
-  <div class="row">
-    <button
-      class="btn btn-primary"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapseExample"
-      aria-expanded="false"
-      aria-controls="collapseExample"
-    >
-      <h1>Archive</h1>
-    </button>
-    <div class="collapse" id="collapseExample">
-      {% for event in site.data.live %} {% if event.date < current_year %}
-      <a href="{{ event.url }}" target="_blank"
-        >{{ event.date }} - {{ event.name | append: event.venue }}</a
-      >
-      {% endif %} {% endfor %}
-    </div>
+    {%- include live-table.html events = live_events -%}
   </div>
 </div>
 <!-- LIVE END -->
-
-{% assign last_year = 0 %}
+<!-- ARCHIVE -->
 <div class="container text-center">
-  <h1>Live</h1>
-  <div class="row">
-    <table class="table table-dark table-hover table-striped align-middle">
-      {% for event in site.data.live %} {% assign current_year = event.date |
-      date: "%Y" %} {% assign href = event.url | default: "#" %} {% if
-      current_year != last_year == true %}
-      <thead>
-        <tr>
-          <th class="col-12 p-4" colspan="3"><h3>{{ current_year }}</h3></th>
-        </tr>
-      </thead>
-      {% endif %}
-      <tbody>
-        <tr>
-          <td class="col-2">{{ event.date | date: "%d.%m." }}</td>
-          <td class="col-8">{{ event.name }} {{ event.venue }}</td>
-          <td class="col-2">
-            {% if href != "#" == true %}<a
-              href="{{ href }}"
-              class="btn btn-outline-primary"
-              role="button"
-              target="_blank"
-            >
-              Info / Tickets </a
-            >{% endif %}
-          </td>
-        </tr>
-      </tbody>
-      {% assign last_year = event.date | date: "%Y" %} {% endfor %}
-    </table>
+  <button
+      class="btn"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#event-archive"
+      aria-expanded="false"
+      aria-controls="event-archive"
+    >
+      <h2>Archive</h2>
+    </button>
+  <div class="row collapse" id="event-archive">
+    {%- include live-table.html events = archive_events -%}
   </div>
 </div>
+<!-- ARCHIVE END -->
