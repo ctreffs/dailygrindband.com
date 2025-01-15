@@ -27,19 +27,15 @@ email: info@dailygrindband.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://dailygrindband.com" # the base hostname & protocol for your site, e.g. http://example.com
 
-bs-theme: "dark" # bootstrap theme
-
-# Soundlcoud player
-player:
-  playlist: 3863122
-  color: ff5500
-  auto_play: false
-  hide_related: false
-  show_comments: true
-  show_user: true
-  show_reposts: true
-  show_teaser: true
-
+# Hero
+hero-carousel:
+  - image-url: "assets/images/bg-02.webp"
+    alt: "Daily Grind band standing before a wall"
+  - image-url: "assets/images/bg-01.webp"
+    alt: "Image of a Plymouth Barracuda parked at a stree curb"
+  - image-url: "assets/images/bg-04.webp"
+    alt: "Daily Grind band group picture"
+  
 # Social
 twitter:
   card: summary_large_image
@@ -77,6 +73,7 @@ social_links:
     href: https://soundcloud.com/dailygrindband
     icon-class: "fa-brands fa-soundcloud"
   
+# Videos in the video section
 videos:
   - title: "Rational (Music Video)"
     youtube-id: t5VTuIia7-Y
