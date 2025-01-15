@@ -1,8 +1,8 @@
 <!-- HERO LINKS -->
-<div class="container mt-4 text-center">
-  <div class="row gap-2 justify-content-center">
-    {%- for entry in site.social_links -%}
-      {% assign entry = include.item %}
+<section id="hero-links">
+  <div class="container mt-4 text-center">
+    <div class="row gap-2 justify-content-center">
+      {%- for entry in site.social_links -%} {% assign entry = include.item %}
       <a
         class="btn btn-primary btn-circle m-1 justify-center items-center"
         target="_blank"
@@ -10,7 +10,8 @@
         href="{{ entry.href }}"
         ><i class="{{ entry.icon-class }}"></i
       ></a>
-    {%- endfor -%}
+      {%- endfor -%}
+    </div>
   </div>
-</div>
+</section>
 <!-- HERO LINKS END -->
