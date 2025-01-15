@@ -1,30 +1,32 @@
 <!-- VIDEOS -->
 {% assign columns = 2 %} {% assign endColumn = columns | minus: 1 %}
-<div class="container text-center">
-  <h1>Videos</h1>
+<section id="videos">
+  <div class="container text-center">
+    <h1>Videos</h1>
 
-  {%- for video in site.videos -%} {% assign remainder = forloop.index0 |
-  modulo: columns %} {% if remainder == 0 %}
-  <div class="row">
-    {% endif %}
-    <div class="col embed-responsive embed-responsive-16by9">
-      <iframe
-        class="embed-responsive-item"
-        width="540"
-        height="303"
-        frameborder="0"
-        allowfullscreen
-        allow="fullscreen; autoplay; encrypted-media; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        title="{{ video.title }}"
-        src="https://www.youtube-nocookie.com/embed/{{ video.youtube-id }}"
-      ></iframe>
-      <p>
-        <strong>{{ video.title }}</strong>
-      </p>
+    {%- for video in site.videos -%} {% assign remainder = forloop.index0 |
+    modulo: columns %} {% if remainder == 0 %}
+    <div class="row">
+      {% endif %}
+      <div class="col embed-responsive embed-responsive-16by9">
+        <iframe
+          class="embed-responsive-item"
+          width="540"
+          height="303"
+          frameborder="0"
+          allowfullscreen
+          allow="fullscreen; autoplay; encrypted-media; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          title="{{ video.title }}"
+          src="https://www.youtube-nocookie.com/embed/{{ video.youtube-id }}"
+        ></iframe>
+        <p>
+          <strong>{{ video.title }}</strong>
+        </p>
+      </div>
+      {% if remainder == endColumn or forloop.last %}
     </div>
-    {% if remainder == endColumn or forloop.last %}
+    {% endif %} {%- endfor -%}
   </div>
-  {% endif %} {%- endfor -%}
-</div>
+</section>
 <!-- container end -->
