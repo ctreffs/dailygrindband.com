@@ -1,4 +1,3 @@
-<!-- LIVE -->
 {% assign current_year = 'now' | date: "%Y" %} {% assign live_events =
 site.data.live | where_exp:"item", "item.date >= current_year" %} {% assign
 archive_events = site.data.live | where_exp:"item", "item.date < current_year"
@@ -26,4 +25,3 @@ archive_events = site.data.live | where_exp:"item", "item.date < current_year"
     </div>
   </div>
 </section>
-<!-- ARCHIVE END -->

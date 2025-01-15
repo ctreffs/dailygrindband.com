@@ -88,13 +88,13 @@ $primary: $Daily-Grind-Plymouth-Dark-1-hsla;
 
 .btn-circle {
     aspect-ratio: 1 / 1;
-    max-height: 110px;
-    max-width: 110px;
+    max-height: 6rem;
+    max-width: 6rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 60px;
+    font-size: 3.5rem;
 }
 
 .table>:not(caption)>*>* {
