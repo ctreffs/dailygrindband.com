@@ -27,6 +27,8 @@ email: info@dailygrindband.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://dailygrindband.com" # the base hostname & protocol for your site, e.g. http://example.com
 
+bs-theme: "dark" # bootstrap theme
+
 # Soundlcoud player
 player:
   playlist: 3863122

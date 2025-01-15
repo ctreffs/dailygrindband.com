@@ -1,127 +1,78 @@
-@use "bootstrap/bootstrap";
+// https://getbootstrap.com/docs/5.3/customize/sass/
+// Configuration
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "bootstrap/bootstrap/functions";
 
-html {
-    height: 100%;
-}
+// 2. Include any default variable overrides here
+// Default variable overrides
 
-body {
-    margin: 0;
-    padding: 0;
-    color: #fff;
-    background-color: #000;
-    font-family: "Gotham Book", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
-}
+/* Color Theme Swatches in HSLA */
+/* https://color.adobe.com/Daily-Grind-Plymouth-Dark-color-theme-090abd25-b9c8-4c93-b3d1-c0d0d99468cf */
+$Daily-Grind-Plymouth-Dark-1-hsla: hsla(351, 83, 21, 1);
+$Daily-Grind-Plymouth-Dark-2-hsla: hsla(66, 9, 61, 1);
+$Daily-Grind-Plymouth-Dark-3-hsla: hsla(40, 8, 13, 1);
+$Daily-Grind-Plymouth-Dark-4-hsla: hsla(33, 19, 29, 1);
+$Daily-Grind-Plymouth-Dark-5-hsla: #0c0a09;
 
-ul {
-    list-style-type: none;
-}
-
-body>footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding: 2em 0 2em 0;
-}
-
-#hero { /* 450px */
-    text-align: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    padding: 4em;
-    background: #00000044;
-    border-radius: 1em;    
-}
-
-#hero img {
-    min-width: 19em;
-    max-width: 100%;
-    height: auto;
-}
-
-/* This CSS will apply only when the screen width is less than 450 pixels */
-@media screen and (max-width: 450px) {
-    #hero h1 {
-        font-size: 2.2em;
-    }
-
-    #hero {
-        border-radius: 0;
-    }
-}
-
-@media screen and (min-width: 450px) {
-    #hero h1 {
-        font-size: 3em;
-    }
-}
-
-#hero h1 {
-    color: #fff;
-    padding: 0;
-    margin: 0;
-    /* offset-x | offset-y | blur-radius | color */
-    text-shadow: 0 0 0.3em #000;
-    white-space: nowrap;
-}
-
-#live {
-    padding-top: 2em;
-    padding-bottom: 2em;
-}
-
-#live h2 {
-    color: #fff;
-    font-size: 1.8em;
-    text-shadow: 0 0 0.3em #000;
-}
-
-#live a {
-    font-size: 1.2em;
-    text-shadow: 0 0 0.3em #000;
-}
-
-#links {
-    /*padding: 2em;*/
-    /*background-color: #fff;*/
-    /*border-radius: 1em;*/
-    line-height: 5em;
-}
+$body-color-dark: $Daily-Grind-Plymouth-Dark-2-hsla;
+$body-bg-dark: $Daily-Grind-Plymouth-Dark-5-hsla;
+$primary: $Daily-Grind-Plymouth-Dark-1-hsla;
 
 
+// TODO: font-family: "Gotham Book", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
 
-#links ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
+// 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
+@import "bootstrap/bootstrap/variables";
+@import "bootstrap/bootstrap/variables-dark";
 
-#links li {
-    display: inline;
-    padding: 0.5em;
-}
+// 4. Include any default map overrides here
 
-#links li a {
-    font-size: 2.5em;
-    text-shadow: 0 0 0.3em #000;
-}
+// 5. Include remainder of required parts
+@import "bootstrap/bootstrap/maps";
+@import "bootstrap/bootstrap/mixins";
+@import "bootstrap/bootstrap/utilities";
 
-#archive {
-    margin: 0;
-    padding: 0;
-    text-align: left;
-    font-family: monospace;
-    line-height: 1.4em;
-}
+// Layout & components
+@import "bootstrap/bootstrap/root";
 
-@media screen and (min-width: 450px) {
-    #archive {
-        min-width: 40em;
-    }
-}
+// 6. Optionally include any other parts as needed
+@import "bootstrap/bootstrap/reboot";
+@import "bootstrap/bootstrap/type";
+@import "bootstrap/bootstrap/images";
+@import "bootstrap/bootstrap/containers";
+@import "bootstrap/bootstrap/grid";
+@import "bootstrap/bootstrap/tables";
+@import "bootstrap/bootstrap/forms";
+@import "bootstrap/bootstrap/buttons";
+@import "bootstrap/bootstrap/transitions";
+// @import "bootstrap/bootstrap/dropdown";
+// @import "bootstrap/bootstrap/button-group";
+@import "bootstrap/bootstrap/nav";
+@import "bootstrap/bootstrap/navbar";
+@import "bootstrap/bootstrap/card";
+@import "bootstrap/bootstrap/accordion";
+// @import "bootstrap/bootstrap/breadcrumb";
+// @import "bootstrap/bootstrap/pagination";
+@import "bootstrap/bootstrap/badge";
+// @import "bootstrap/bootstrap/alert";
+// @import "bootstrap/bootstrap/progress";
+@import "bootstrap/bootstrap/list-group";
+@import "bootstrap/bootstrap/close";
+// @import "bootstrap/bootstrap/toasts";
+// @import "bootstrap/bootstrap/modal";
+// @import "bootstrap/bootstrap/tooltip";
+// @import "bootstrap/bootstrap/popover";
+@import "bootstrap/bootstrap/carousel";
+// @import "bootstrap/bootstrap/spinners";
+// @import "bootstrap/bootstrap/offcanvas";
+// @import "bootstrap/bootstrap/placeholders";
+
+// Helpers
+@import "bootstrap/bootstrap/helpers";
+
+// 7. Include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+// Utilities
+@import "bootstrap/bootstrap/utilities/api";
 
 #carouselHero .carousel-item img {
     object-fit: cover;
@@ -139,4 +90,14 @@ body>footer {
     align-items: center;
     justify-content: center;
     font-size: 60px;
+}
+
+.table>:not(caption)>*>* {
+    background-color: #00000000;
+}
+
+iframe.music-player {
+    border-radius: 16px;
+    height: 360px;
+    max-width: 500px;
 }
