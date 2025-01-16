@@ -107,24 +107,21 @@ plugins:
 # their entries' file path in the `include:` list.
 #
 exclude:
-  - .sass-cache/
   - .jekyll-cache/
-  - gemfiles/
+  - .sass-cache/
   - Gemfile
   - Gemfile.lock
+  - gemfiles/
+  - Icon.png
+  - LICENSE
+  - Makefile
   - node_modules/
+  - README.md
+  - renovate.json
   - vendor/bundle/
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-  - renovate.json
-  - _keep_local/
-  - Makefile
-  - Icon.png
-  - README.md
-  - old_index.html
-  - test.html
-  
 
 sass:
   load_paths:
