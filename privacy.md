@@ -335,14 +335,14 @@ verpflichtet, diese an Facebook weiterzuleiten.
 <p>
 Die Datenübertragung in die USA wird auf die Standardvertragsklauseln der EU-Kommission gestützt.
 Details finden Sie hier:
-https://www.facebook.com/legal/EU_data_transfer_addendum,
-https://privacycenter.instagram.com/policy/ und
-https://de-de.facebook.com/help/566994660333381.
+<a href="https://www.facebook.com/legal/EU_data_transfer_addendum">https://www.facebook.com/legal/EU_data_transfer_addendum</a>,
+<a href="https://privacycenter.instagram.com/policy/">https://privacycenter.instagram.com/policy/</a> und
+<a href="https://de-de.facebook.com/help/566994660333381">https://de-de.facebook.com/help/566994660333381</a>.
 </p>
 
 <p>
 Weitere Informationen hierzu finden Sie in der Datenschutzerklärung von Instagram:
-https://privacycenter.instagram.com/policy/.
+<a href="https://privacycenter.instagram.com/policy/">https://privacycenter.instagram.com/policy/</a>.
 </p>
 
 <p>
@@ -351,7 +351,7 @@ DPF ist ein Übereinkommen zwischen der Europäischen Union und den USA, der die
 europäischer Datenschutzstandards bei Datenverarbeitungen in den USA gewährleisten soll. Jedes nach
 dem DPF zertifizierte Unternehmen verpflichtet sich, diese Datenschutzstandards einzuhalten. Weitere
 Informationen hierzu erhalten Sie vom Anbieter unter folgendem Link:
-https://www.dataprivacyframework.gov/participant/4452.
+<a href="https://www.dataprivacyframework.gov/participant/4452">https://www.dataprivacyframework.gov/participant/4452</a>.
 </p>
 
 <h2>6. Plugins und Tools</h2>
@@ -379,7 +379,7 @@ personalisiert. Im erweiterten Datenschutzmodus werden keine Cookies gesetzt. St
 jedoch sogenannte Local Storage Elemente im Browser des Users gespeichert, die ähnlich wie Cookies
 personenbezogene Daten beinhalten und zur Wiedererkennung eingesetzt werden können. Details zum
 erweiterten Datenschutzmodus finden Sie hier:
-https://support.google.com/youtube/answer/171780.
+<a href="https://support.google.com/youtube/answer/171780">https://support.google.com/youtube/answer/171780</a>.
 Gegebenenfalls können nach der Aktivierung eines YouTube-Videos weitere Datenverarbeitungsvorgänge
 ausgelöst werden, auf die wir keinen Einfluss haben.
 </p>
@@ -395,7 +395,7 @@ Einwilligung ist jederzeit widerrufbar.
 
 <p>
 Weitere Informationen über Datenschutz bei YouTube finden Sie in deren Datenschutzerklärung unter:
-https://policies.google.com/privacy?hl=de.
+<a href="https://policies.google.com/privacy?hl=de">https://policies.google.com/privacy?hl=de</a>.
 </p>
 
 <p>
@@ -404,7 +404,7 @@ DPF ist ein Übereinkommen zwischen der Europäischen Union und den USA, der die
 europäischer Datenschutzstandards bei Datenverarbeitungen in den USA gewährleisten soll. Jedes nach
 dem DPF zertifizierte Unternehmen verpflichtet sich, diese Datenschutzstandards einzuhalten. Weitere
 Informationen hierzu erhalten Sie vom Anbieter unter folgendem Link:
-https://www.dataprivacyframework.gov/participant/5780.
+<a href="https://www.dataprivacyframework.gov/participant/5780">https://www.dataprivacyframework.gov/participant/5780</a>.
 </p>
 
 <h4>Font Awesome (lokales Hosting)</h4>
@@ -419,4 +419,44 @@ Weitere Informationen zu Font Awesome finden Sie in der Datenschutzerklärung f�
 https://fontawesome.com/privacy.
 </p>
 
+<h4>Spotify</h4>
+
+<p>
+Auf dieser Website sind Funktionen des Musik-Dienstes Spotify eingebunden. Anbieter ist die Spotify AB,
+Birger Jarlsgatan 61, 113 56 Stockholm in Schweden. Die Spotify Plugins erkennen Sie an dem grünen Logo
+auf dieser Website. Eine Übersicht über die Spotify-Plugins finden Sie unter:
+<a href="https://developer.spotify.com">https://developer.spotify.com</a>.
+</p>
+
+<p>
+Dadurch kann beim Besuch dieser Website über das Plugin eine direkte Verbindung zwischen Ihrem
+Browser und dem Spotify-Server hergestellt werden. Spotify erhält dadurch die Information, dass Sie mit
+Ihrer IP-Adresse diese Website besucht haben. Wenn Sie den Spotify Button anklicken, während Sie in
+Ihrem Spotify-Account eingeloggt sind, können Sie die Inhalte dieser Website auf Ihrem Spotify Profil
+verlinken. Dadurch kann Spotify den Besuch dieser Website Ihrem Benutzerkonto zuordnen.
+</p>
+
+<p>
+Wir weisen darauf hin, dass bei der Nutzung von Spotify Cookies von Google Analytics eingesetzt werden,
+sodass Ihre Nutzungsdaten bei der Nutzung von Spotify auch an Google weitergegeben werden können.
+Google Analytics ist ein Tool des Google-Konzerns zur Analyse des Nutzerverhaltens mit Sitz in den USA.
+Für diese Einbindung ist allein Spotify verantwortlich. Wir als Websitebetreiber haben auf diese
+Verarbeitung keinen Einfluss.
+</p>
+
+<p>
+Die Speicherung und Analyse der Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der
+Websitebetreiber hat ein berechtigtes Interesse an der ansprechenden akustischen Ausgestaltung seiner
+Website. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich
+auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG, soweit die Einwilligung die
+Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers (z. B. Device-
+Fingerprinting) im Sinne des TDDDG umfasst. Die Einwilligung ist jederzeit widerrufbar.
+</p>
+
+<p>Weitere Informationen hierzu finden Sie in der Datenschutzerklärung von Spotify: <a href="https://www.spotify.com/de/legal/privacy-policy/">https://www.spotify.com/de/legal/privacy-policy/</a>.
+Wenn Sie nicht wünschen, dass Spotify den Besuch dieser Website Ihrem Spotify-Nutzerkonto zuordnen
+kann, loggen Sie sich bitte aus Ihrem Spotify-Benutzerkonto aus.
+</p>
+
+<!--Generiert mit: https://www.e-recht24.de - Stand 16.01.2025-->
 </article>
