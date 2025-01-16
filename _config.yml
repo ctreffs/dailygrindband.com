@@ -117,6 +117,14 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - renovate.json
+  - _keep_local/
+  - Makefile
+  - Icon.png
+  - README.md
+  - old_index.html
+  - test.html
+  
 
 sass:
   load_paths:
