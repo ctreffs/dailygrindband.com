@@ -130,5 +130,6 @@ sass:
   load_paths:
       - _sass
   style: compressed
+  quiet_deps: true
 
 incremental: false
