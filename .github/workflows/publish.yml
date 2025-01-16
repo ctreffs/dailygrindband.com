@@ -65,6 +65,6 @@ jobs:
         uses: actions/upload-artifact@v4
         if: ${{ success() }}
         with:
-          name: "dailygrindband.com-${{ env.GITHUB_REF }}"
+          name: dailygrindband.com
           path: _site/*
           retention-days: 3
