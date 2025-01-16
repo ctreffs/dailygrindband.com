@@ -19,9 +19,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.2.2
 
-      - name: Setup dependencies
+      - name: Setup env
         run: |
-          make install
+          make setup-env
 
       # Config Mapping
       #
