@@ -12,6 +12,9 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    env:
+      PAGE_ROOT: ./_site
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
@@ -40,17 +43,18 @@ jobs:
           JSON_STRING='{"job":"'"$GITHUB_JOB"'","ref":"'"$GITHUB_REF"'","run_id":"'"$GITHUB_RUN_ID"'","sha":"'"$GITHUB_SHA"'","runner_name":"'"$RUNNER_NAME"'","date":"'"$(date +'%Y-%m-%dT%H:%M:%S')"'"}'
           echo $JSON_STRING | jq > build_info
 
-      - name: Assemble contents
+      - name: Check page
         run: |
-          mkdir -p ./_PUBLISH
-          cp build_info ./_PUBLISH
-          cp *.html ./_PUBLISH
-          cp -r assets ./_PUBLISH
+          make doctor
+      
+      - name: Build page
+        run: |
+          make build
 
       - name: Deploy
         if: ${{ github.event.release || contains( github.event.pull_request.labels.*.name, 'release') }}
         run: |
-          rsync -crvzh --progress -e 'ssh -p ${{ secrets.DEPLOY_PORT }} -i ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}' --delete-during ./_PUBLISH/* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}
+          rsync -crvzh --progress -e 'ssh -p ${{ secrets.DEPLOY_PORT }} -i ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}' --delete-during $PAGE_ROOT/* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}
           rm -rdf ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}
 
       - name: Upload a Build Artifact
@@ -58,5 +62,5 @@ jobs:
         if: ${{ success() }}
         with:
           name: dailygrindband.com
-          path: ./_PUBLISH/*
+          path: $PAGE_ROOT/*
           retention-days: 3
