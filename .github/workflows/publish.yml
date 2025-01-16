@@ -12,8 +12,6 @@ on:
 jobs:
   build-publish:
     runs-on: macos-latest
-    env:
-      PAGE_ROOT: ./_site
 
     steps:
       - name: Checkout
@@ -60,7 +58,7 @@ jobs:
       - name: Publish
         if: ${{ github.event.release || contains( github.event.pull_request.labels.*.name, 'release') }}
         run: |
-          rsync -crvzh --progress -e 'ssh -p ${{ secrets.DEPLOY_PORT }} -i ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}' --delete-during $PAGE_ROOT/* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}
+          rsync -crvzh --progress -e 'ssh -p ${{ secrets.DEPLOY_PORT }} -i ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}' --delete-during _site/* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}
           rm -rdf ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}
 
       - name: Upload a Build Artifact
@@ -68,5 +66,5 @@ jobs:
         if: ${{ success() }}
         with:
           name: dailygrindband.com
-          path: $PAGE_ROOT/*
+          path: _site/*
           retention-days: 3
