@@ -1,4 +1,4 @@
-name: Publish
+name: Build & Publish
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  publish:
+  build-publish:
     runs-on: ubuntu-latest
     env:
       PAGE_ROOT: ./_site
@@ -19,16 +19,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.2.2
 
-# Config Mapping
-#
-# - `DEPLOY_HOST` : host ssh URL
-# - `DEPLOY_KEY` : ssh private key (see `authorized_keys` on host)
-# - `DEPLOY_KEY_NAME` : ssh key file name 
-# - `DEPLOY_KNOWN_HOSTS` : list of known hosts generated with `ssh-keyscan <YOUR_HOST>`
-# - `DEPLOY_PATH` : path to folder on host machine
-# - `DEPLOY_PORT` : ssh port
-# - `DEPLOY_USER` : user name of deployer (user or domain)
+      - name: Setup dependencies
+        run: |
+          make install
 
+      # Config Mapping
+      #
+      # - `DEPLOY_HOST` : host ssh URL
+      # - `DEPLOY_KEY` : ssh private key (see `authorized_keys` on host)
+      # - `DEPLOY_KEY_NAME` : ssh key file name
+      # - `DEPLOY_KNOWN_HOSTS` : list of known hosts generated with `ssh-keyscan <YOUR_HOST>`
+      # - `DEPLOY_PATH` : path to folder on host machine
+      # - `DEPLOY_PORT` : ssh port
+      # - `DEPLOY_USER` : user name of deployer (user or domain)
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2.7.0
         if: ${{ github.event.release || contains( github.event.pull_request.labels.*.name, 'release') }}
@@ -38,20 +41,17 @@ jobs:
           known_hosts: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
           if_key_exists: fail
 
-      - name: Build info
+      - name: Check
+        run: |
+          make doctor
+
+      - name: Build
         run: |
           JSON_STRING='{"job":"'"$GITHUB_JOB"'","ref":"'"$GITHUB_REF"'","run_id":"'"$GITHUB_RUN_ID"'","sha":"'"$GITHUB_SHA"'","runner_name":"'"$RUNNER_NAME"'","date":"'"$(date +'%Y-%m-%dT%H:%M:%S')"'"}'
           echo $JSON_STRING | jq > build_info
-
-      - name: Check page
-        run: |
-          make doctor
-      
-      - name: Build page
-        run: |
           make build
 
-      - name: Deploy
+      - name: Publish
         if: ${{ github.event.release || contains( github.event.pull_request.labels.*.name, 'release') }}
         run: |
           rsync -crvzh --progress -e 'ssh -p ${{ secrets.DEPLOY_PORT }} -i ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}' --delete-during $PAGE_ROOT/* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}
