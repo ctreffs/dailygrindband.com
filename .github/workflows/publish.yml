@@ -23,7 +23,9 @@ jobs:
         uses: ruby/setup-ruby@v1.208.0
         with:
           bundler-cache: true
-      - run: |
+
+      - name: Bundle install
+        run: |
           bundle config set --local path 'vendor/bundle'
           bundle install --quiet
 
