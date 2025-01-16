@@ -52,7 +52,7 @@ jobs:
       - name: Build
         run: |
           JSON_STRING='{"job":"'"$GITHUB_JOB"'","ref":"'"$GITHUB_REF"'","run_id":"'"$GITHUB_RUN_ID"'","sha":"'"$GITHUB_SHA"'","runner_name":"'"$RUNNER_NAME"'","date":"'"$(date +'%Y-%m-%dT%H:%M:%S')"'"}'
-          echo $JSON_STRING | jq > build_info
+          echo $JSON_STRING | jq > .build_info
           make build
 
       - name: Publish
@@ -65,6 +65,6 @@ jobs:
         uses: actions/upload-artifact@v4.4.3
         if: ${{ success() }}
         with:
-          name: dailygrindband.com
+          name: "dailygrindband.com-$(date +'%Y-%m-%dT%H:%M:%S')"
           path: _site/*
           retention-days: 3
