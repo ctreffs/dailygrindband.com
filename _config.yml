@@ -20,7 +20,7 @@
 
 title: Daily Grind Band
 tagline: Offizielle Homepage der Nürnberger Rock und Pop Band Daily Grind.
-description: >- # this means to ignore newlines until "baseurl:"
+description: >- # ignore newlines
   Offizielle Homepage der Nürnberger Rock und Pop Band Daily Grind.
 
 email: info@dailygrindband.com
@@ -90,13 +90,10 @@ videos:
 
 # -- Build settings ----
 
-# Theme
-# theme: minima
-
 # Plugins
-plugins:
-   - jekyll-feed
-   #- jekyll-seo-tag
+# plugins:
+  # - jekyll-feed
+  # - jekyll-sitemap
 
 # Exclude from processing.
 # The following items will not be processed, by default.
