@@ -44,8 +44,8 @@ jobs:
         with:
           name: dailygrindband.com
           path: |
+            !_site/posts/*  
             _site/*
-            !_site/20*/**/*
           retention-days: 3
   test:
     needs: build
