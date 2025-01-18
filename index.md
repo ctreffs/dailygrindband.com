@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: main
 ---
 
 {% include hero.html %}

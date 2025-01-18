@@ -1,3 +1,4 @@
+{% assign show_navlinks = include.show_navlinks %}
 <nav id="navbar-main" class="navbar navbar-expand-lg fixed-top navbar-dark shadow-5-strong data-mdb-navbar-init">
   <div class="container-fluid">
     
@@ -19,15 +20,15 @@
 
     <div class="collapse navbar-collapse" id="navbarContent">
       
-
       <div class="navbar-nav me-auto mb-2 mb-lg-0">
+        {%- if show_navlinks -%}
         <a class="nav-link" href="#news">News</a>
         <a class="nav-link" href="#live">Live</a>
         <a class="nav-link" href="#bio">Bio</a>
         <a class="nav-link" href="#music">Music</a>
         <a class="nav-link" href="#videos">Videos</a>
+        {%- endif -%}
       </div>
-
 
       <div class="navbar-nav mb-lg-0 justify-content-end">
         {%- for entry in site.social_links -%}

@@ -66,7 +66,6 @@ jobs:
           path: _site
       - name: Test site
         run: |
-          ls -la
           make check
   publish:
     if: ${{ github.event.release || contains( github.event.pull_request.labels.*.name, 'release') }}
