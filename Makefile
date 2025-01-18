@@ -21,6 +21,7 @@ setup-env:
 
 .PHONY: install
 install:
+	bundle config set --local path 'vendor/bundle'
 	bundle install
 
 .PHONY: setup-bootstrap
@@ -53,3 +54,7 @@ build: clean
 .PHONY: doctor
 doctor:
 	bundle exec jekyll doctor
+
+.PHONY: check
+check: build
+	bundle exec htmlproofer ./_site
