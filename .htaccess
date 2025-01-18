@@ -1,0 +1,43 @@
+# Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Redirect www to non-www
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# Enable caching for static files
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType font/ttf "access plus 1 week"
+    ExpiresByType font/woff "access plus 1 week"
+    ExpiresByType font/woff2 "access plus 1 week"
+    ExpiresByType image/gif "access plus 1 week"
+    ExpiresByType image/jpeg "access plus 1 week"
+    ExpiresByType image/png "access plus 1 week"
+    ExpiresByType image/webp "access plus 1 week"
+    ExpiresByType image/x-icon "access plus 1 week"
+    ExpiresByType text/css "access plus 1 day"
+    ExpiresByType text/html "access plus 1 day"
+</IfModule>
+
+# Enable Gzip compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json
+</IfModule>
+
+# Disable directory listing
+Options -Indexes
+
+# Custom 404 page
+ErrorDocument 404 /404.html
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "DENY"
+    Header set X-XSS-Protection "1; mode=block"
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</IfModule>
