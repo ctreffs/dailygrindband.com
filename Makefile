@@ -58,5 +58,5 @@ doctor: set-local-path
 	bundle exec jekyll doctor
 
 .PHONY: check
-check: set-local-path
+check: install
 	bundle exec htmlproofer ./_site
