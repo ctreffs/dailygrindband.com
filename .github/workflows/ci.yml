@@ -46,6 +46,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: dailygrindband.com
+          path: _site
       - name: Checkout ruby version
         uses: actions/checkout@v4
         with:
