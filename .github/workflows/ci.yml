@@ -42,20 +42,15 @@ jobs:
     needs: build
     runs-on: macos-latest
     steps:
-      - name: Download site artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: dailygrindband.com
-          path: _site
       - name: Checkout ruby version
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
           sparse-checkout: |
-           .ruby-version
-           Gemfile
-           Gemfile.lock
-           Makefile
+            .ruby-version
+            Gemfile
+            Gemfile.lock
+            Makefile
       - name: Setup env
         uses: ruby/setup-ruby@v1.208.0
         with:
@@ -64,8 +59,14 @@ jobs:
         run: |
           bundle config set --local path 'vendor/bundle'
           bundle install --quiet
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dailygrindband.com
+          path: _site
       - name: Test site
         run: |
+          ls -la
           make check
   publish:
     needs: build
