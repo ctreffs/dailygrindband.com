@@ -100,9 +100,9 @@ möglich.</p>
 
 <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
 
-<p>Christian Treffs<br/>
-Benekestraße 20<br/>
-90409 Nürnberg</p>
+<p>Daily Grind Band GbR<br/>
+Löffelholzstraße 20<br/>
+90441 Nürnberg</p>
 
 <p>E-Mail: info@dailygrindband.com</p>
 
