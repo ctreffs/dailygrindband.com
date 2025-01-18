@@ -86,7 +86,7 @@ jobs:
         if: ${{ success() }}
         run: |
           rsync -crvzh --progress -e 'ssh -p ${{ secrets.DEPLOY_PORT }} -i ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}' --delete-during _site/* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PREVIEW_PATH }}
-          rm -rdf ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}
+
   publish:
     if: ${{ success() && (github.event.release || contains( github.event.pull_request.labels.*.name, 'release')) }}
     needs: [build, test]
@@ -107,4 +107,4 @@ jobs:
       - name: Publish
         run: |
           rsync -crvzh --progress -e 'ssh -p ${{ secrets.DEPLOY_PORT }} -i ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}' --delete-during _site/* ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}
-          rm -rdf ~/.ssh/${{ secrets.DEPLOY_KEY_NAME }}
+
