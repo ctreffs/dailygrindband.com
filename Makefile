@@ -3,6 +3,9 @@ REQUIRED_RUBY_VERSION := $(shell cat .ruby-version)
 BOOTSTRAP_PATH := $(shell bundle info bootstrap | grep "Path:" | awk '{print $$2}')
 POPPER_PATH := $(shell bundle info popper | grep "Path:" | awk '{print $$2}')
 
+.PHONY: set-local-path
+set-local-path:
+	bundle config set --local path 'vendor/bundle'
 .PHONY: setup-env
 setup-env:
 	brew install rbenv ruby-build git-lfs --quiet
@@ -20,8 +23,7 @@ setup-env:
 	git lfs install
 
 .PHONY: install
-install:
-	bundle config set --local path 'vendor/bundle'
+install: set-local-path
 	bundle install
 
 .PHONY: setup-bootstrap
@@ -40,7 +42,7 @@ update:
 	bundle update
 
 .PHONY: clean
-clean:
+clean: set-local-path
 	bundle exec jekyll clean
 
 .PHONY: serve
@@ -52,9 +54,9 @@ build: clean
 	bundle exec jekyll build
 
 .PHONY: doctor
-doctor:
+doctor: set-local-path
 	bundle exec jekyll doctor
 
 .PHONY: check
-check:
+check: set-local-path
 	bundle exec htmlproofer ./_site
