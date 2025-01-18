@@ -39,13 +39,13 @@ jobs:
           JSON_STRING='{"job":"'"$GITHUB_JOB"'","ref":"'"$GITHUB_REF"'","run_id":"'"$GITHUB_RUN_ID"'","sha":"'"$GITHUB_SHA"'","runner_name":"'"$RUNNER_NAME"'","date":"'"$(date +'%Y-%m-%dT%H:%M:%S')"'"}'
           echo $JSON_STRING | jq > .build_info
           make build
+          # remove posts folder
+          rm -rdf _site/posts
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4
         with:
           name: dailygrindband.com
-          path: |
-            !_site/posts/*  
-            _site/*
+          path: _site/*
           retention-days: 3
   test:
     needs: build
