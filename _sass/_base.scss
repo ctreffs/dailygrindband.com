@@ -18,7 +18,6 @@ $body-color-dark: $Daily-Grind-Plymouth-Dark-2-hsla;
 $body-bg-dark: $Daily-Grind-Plymouth-Dark-5-hsla;
 $primary: $Daily-Grind-Plymouth-Dark-1-hsla;
 
-
 // TODO: font-family: "Gotham Book", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
 
 // 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
@@ -75,46 +74,55 @@ $primary: $Daily-Grind-Plymouth-Dark-1-hsla;
 @import "bootstrap/bootstrap/utilities/api";
 
 nav.navbar-solid {
-    background-color: $body-bg-dark;
+  background-color: $body-bg-dark;
 }
 
 #carouselHero .carousel-item img {
-    object-fit: cover;
-    object-position: center;
-    height:820px;
-    aspect-ratio: 1/1;
-    overflow: hidden;
+  object-fit: cover;
+  object-position: center;
+  height: 820px;
+  aspect-ratio: 1/1;
+  overflow: hidden;
 }
 
 #carouselHero .carousel-caption {
-    height: 90%;
+  height: 90%;
 }
 
 .btn-circle {
-    aspect-ratio: 1 / 1;
-    max-height: 6rem;
-    max-width: 6rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3.5rem;
+  aspect-ratio: 1 / 1;
+  max-height: 6rem;
+  max-width: 6rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
 }
 
-.table>:not(caption)>*>* {
-    background-color: #00000000;
+.table > :not(caption) > * > * {
+  background-color: #00000000;
 }
 
 iframe.music-player {
-    border-radius: 16px;
-    height: 360px;
-    max-width: 450px;
+  border-radius: 16px;
+  height: 360px;
+  max-width: 450px;
 }
 
 img.album {
-    max-height: 450px; 
-    min-height: 250px; 
-    min-width: 250px; 
-    aspect-ratio: 1/1;
+  max-height: 450px;
+  min-height: 250px;
+  min-width: 250px;
+  aspect-ratio: 1/1;
 }
 
+#cb-cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  border-radius: 0;
+  display: none;
+}
