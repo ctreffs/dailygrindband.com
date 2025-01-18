@@ -5,8 +5,10 @@
     <div class="row g-5 py-5">
       <div class="col-8 col-lg-6 col-sm-12">
         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">NEWS</h1>
-        <h3>{{ post.title }}</h3>
-        <p class="lead">{{ post.content }}</p>
+        <article>
+        <h3 class="mb-3">{{ post.title }}</h3>
+        {{ post.content }}
+        </article>
       </div>
 
       <div class="col-4 col-lg-6 col-sm-12">
