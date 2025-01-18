@@ -1,0 +1,11 @@
+---
+layout: base
+---
+
+{%- include navbar.html show_navlinks = true -%}
+
+<main data-bs-spy="scroll" data-bs-target="#navbar-main" data-bs-smooth-scroll="true">
+{{ content }}
+</main>
+
+{% include footer.html %}

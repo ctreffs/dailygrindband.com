@@ -1,0 +1,27 @@
+{% assign current_year = 'now' | date: "%Y" %} {% assign live_events =
+site.data.live | where_exp:"item", "item.date >= current_year" %} {% assign
+archive_events = site.data.live | where_exp:"item", "item.date < current_year"
+%}
+<section id="live">
+  <div class="container mt-5 text-center">
+    <h1>Live</h1>
+    <div class="row">{%- include live-table.html events = live_events -%}</div>
+  </div>
+  <!-- LIVE END -->
+  <!-- ARCHIVE -->
+  <div class="container text-center">
+    <button
+      class="btn"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#event-archive"
+      aria-expanded="false"
+      aria-controls="event-archive"
+    >
+      <h2>Archive</h2>
+    </button>
+    <div class="row collapse" id="event-archive">
+      {%- include live-table.html events = archive_events -%}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+{% assign spotify-uri = include.spotify-uri %}
+<iframe
+  title="Spotify Music Player"
+  class="music-player my-3"
+  src="https://open.spotify.com/embed/{{ spotify-uri }}?&theme=0"
+  width="100%"
+  height="100%"
+  allow="autoplay; encrypted-media"
+  loading="lazy"
+></iframe>

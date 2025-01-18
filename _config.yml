@@ -1,0 +1,130 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+title: Daily Grind Band
+tagline: Offizielle Homepage der Nürnberger Rock und Pop Band Daily Grind.
+description: >- # ignore newlines
+  Offizielle Homepage der Nürnberger Rock und Pop Band Daily Grind.
+
+email: info@dailygrindband.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://dailygrindband.com" # the base hostname & protocol for your site, e.g. http://example.com
+permalink: posts/:year/:month/:day/:title:output_ext
+
+# Hero
+hero-carousel:
+  - image-url: "assets/images/bg-02.webp"
+    alt: "Daily Grind band standing before a wall"
+  - image-url: "assets/images/bg-01.webp"
+    alt: "Image of a Plymouth Barracuda parked at a stree curb"
+  - image-url: "assets/images/bg-04.webp"
+    alt: "Daily Grind band group picture"
+  
+# Social
+twitter:
+  card: summary_large_image
+  domain: dailygrindband.com
+  url: "https://dailygrindband.com"
+  image: "https://dailygrindband.com/assets/images/dg-og.jpg"
+  username: DailyGrindMusic
+
+social_links:
+  - title: Daily Grind bei Facebook
+    href: https://www.facebook.com/DailyGrindBand
+    icon-class: "fa-brands fa-facebook"
+  - title: Daily Grind bei Instagram
+    href: https://www.instagram.com/dailygrind.rocks
+    icon-class: "fa-brands fa-instagram"
+  - title: Daily Grind bei X / Twitter
+    href: https://twitter.com/DailyGrindMusic
+    icon-class: "fa-brands fa-x-twitter"
+  - title: Daily Grind bei YouTube
+    href: https://www.youtube.com/@DailyGrindBand
+    icon-class: "fa-brands fa-youtube"
+  - title: Daily Grind Director's Cut bei Spotify
+    href: https://open.spotify.com/album/1708ydctLfPKrHyBhyln8V
+    icon-class: "fa-brands fa-spotify"
+  - title: Daily Grind Director's Cut bei Apple Music
+    href: https://music.apple.com/de/album/directors-cut/658375303
+    icon-class: "fa-brands fa-apple"
+  - title: Daily Grind Director's Cut bei Amazon Music
+    href: https://amazon.de/music/player/albums/B00D8D9U2U
+    icon-class: "fa-brands fa-amazon"
+  - title: Daily Grind Director's Cut bei Deezer
+    href: https://www.deezer.com/album/6658364 
+    icon-class: "fa-brands fa-deezer"
+  - title: Daily Grind bei Soundcloud
+    href: https://soundcloud.com/dailygrindband
+    icon-class: "fa-brands fa-soundcloud"
+  
+# Videos in the video section
+videos:
+  - title: "Rational (Music Video)"
+    youtube-id: t5VTuIia7-Y
+  - title: "Kelly (Remote Session)"
+    youtube-id: 634TIKTeRcs
+  - title: "Last Christmas (Wham! cover)"
+    youtube-id: nrM1gk_yeDs
+  - title: "Hold On To Me (Music Video)"
+    youtube-id: Dc67fxkikUE
+  - title: "Drive"
+    youtube-id: YH54iQB1IaQ
+  - title: "Cheer Me Up (Live)"
+    youtube-id: omcVLglzb7U
+
+# -- Build settings ----
+
+# Plugins
+# plugins:
+  # - jekyll-feed
+  # - jekyll-sitemap
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+exclude:
+  - .jekyll-cache/
+  - .sass-cache/
+  - Gemfile
+  - Gemfile.lock
+  - gemfiles/
+  - Icon.png
+  - LICENSE
+  - Makefile
+  - node_modules/
+  - README.md
+  - renovate.json
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+sass:
+  load_paths:
+      - _sass
+  style: compressed
+  quiet_deps: true
+
+incremental: false

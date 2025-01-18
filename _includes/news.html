@@ -1,0 +1,49 @@
+{% assign post = site.posts | first %}
+{% assign images = site.static_files | where_exp:"file", "file.path contains 'assets/images/news'" %}
+<section id="news">
+  <div class="container mt-5">
+    <div class="row g-5 py-5">
+      <div class="col-8 col-lg-6 col-sm-12">
+        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">NEWS</h1>
+        <article>
+        {{ post.content }}
+        </article>
+      </div>
+
+      <div class="col-4 col-lg-6 col-sm-12">
+        <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            {% for image in images %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+              <img
+                src="{{ site.baseurl }}{{ image.path }}"
+                class="d-block w-100"
+                alt="News image '{{ image.basename }}'"
+                loading="lazy"
+              />
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#newsCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#newsCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

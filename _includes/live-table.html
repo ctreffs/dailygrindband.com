@@ -1,0 +1,30 @@
+{% assign last_year = 0 %}
+{% assign events = include.events %}
+<table class="table table-dark table-hover align-middle">
+  {% for event in events %} {% assign current_year = event.date | date:
+  "%Y" %} {% assign href = event.url | default: "#" %} {% if current_year !=
+  last_year == true %}
+  <thead>
+    <tr>
+      <th class="col-12 p-4" colspan="3"><h3>{{ current_year }}</h3></th>
+    </tr>
+  </thead>
+  {% endif %}
+  <tbody>
+    <tr>
+      <td class="col-2">{{ event.date | date: "%d.%m." }}</td>
+      <td class="col-8">{{ event.name }} {{ event.venue }}</td>
+      <td class="col-2">
+        {% if href != "#" == true %}<a
+          href="{{ href }}"
+          class="btn btn-outline-primary"
+          role="button"
+          target="_blank"
+        >
+          Info / Tickets </a
+        >{% endif %}
+      </td>
+    </tr>
+  </tbody>
+  {% assign last_year = event.date | date: "%Y" %} {% endfor %}
+</table>
