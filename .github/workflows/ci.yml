@@ -1,4 +1,4 @@
-name: Build | Test | Publish
+name: CI
 # Config Mapping
 # - `DEPLOY_HOST` : host ssh URL
 # - `DEPLOY_KEY` : ssh private key (see `authorized_keys` on host)
