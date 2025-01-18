@@ -1,36 +1,12 @@
-{% assign images = site.static_files | where_exp:"file", "file.path contains
-'assets/images/news'" %}
+{% assign post = site.posts | first %}
+{% assign images = site.static_files | where_exp:"file", "file.path contains 'assets/images/news'" %}
 <section id="news">
   <div class="container mt-5">
     <div class="row g-5 py-5">
       <div class="col-8 col-lg-6 col-sm-12">
         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">NEWS</h1>
-        <p class="lead">
-          Beim letzten Gig in 2024 hatten wir die Ehre, als
-          <a
-            href="https://www.fuerth-festival.com/kirchenplatz-st-michael/freitag#c210"
-            >Headliner der KIRCHENPLATZ-Bühne auf dem Fürth Festival</a
-          >
-          zu spielen.<br />
-          Es war ein großartiges Erlebnis, vor euch allen zu performen! 🎸 Einen
-          tollen Artikel der Nürnberger Nachrichten zum Festival findet ihr
-          hier:
-          <a
-            href="https://www.nn.de/fuerth/nach-dem-em-dampfer-prachtige-stimmung-und-reichlich-musik-beim-furth-festival-1.14333301"
-            >Zum Artikel</a
-          >.<br />
-          <br />
-          Besonders an diesem Gig war auch, dass Martin uns erstmals am Bass
-          unterstützt hat – das rockt! 🤘<br />
-          <br />
-          Für 2025 haben wir schon einiges geplant: Los geht's mit unserem
-          nächsten Gig am Freitag, den
-          <a href="#live">22.02. in der Kofferfabrik in Fürth</a>.<br />
-          Außerdem arbeiten wir fleißig an unserem zweiten Album, das wir euch
-          bald präsentieren wollen.<br />
-          <br />
-          Stay tuned und rock on! 🔥
-        </p>
+        <h3>{{ post.title }}</h3>
+        <p class="lead">{{ post.content }}</p>
       </div>
 
       <div class="col-4 col-lg-6 col-sm-12">
