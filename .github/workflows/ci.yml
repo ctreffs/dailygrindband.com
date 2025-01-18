@@ -43,7 +43,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dailygrindband.com
-          path: _site/*
+          path: |
+            _site/*
+            !_site/20*/**/*
           retention-days: 3
   test:
     needs: build

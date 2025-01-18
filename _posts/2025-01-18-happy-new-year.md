@@ -1,5 +1,4 @@
 ---
-title:  "Happy new year 2025"
 layout: page
 ---
 
