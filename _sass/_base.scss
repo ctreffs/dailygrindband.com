@@ -126,3 +126,45 @@ img.album {
   border-radius: 0;
   display: none;
 }
+
+
+.yt-video {
+  width: 528px;
+  height: 297px;
+  aspect-ratio: 16/9;
+}
+
+@media (max-width: 1200px) {
+  .yt-video {
+    width: 400px;
+    height: 252px;
+  }  
+}
+
+@media (max-width: 980px) {
+  .yt-video {
+    width: 640px;
+    height: 360px;
+  }  
+}
+
+@media (max-width: 760px) {
+  .yt-video {
+    width: 528px;
+    height: 297px;
+  }
+}
+
+@media (max-width: 560px) {
+  .yt-video {
+    width: 400px;
+    height: 252px;
+  }
+}
+
+@media (max-width: 460px) {
+  .yt-video {
+    width: 320px;
+    height: 180px;
+  }
+}

@@ -7,20 +7,18 @@
     modulo: columns %} {% if remainder == 0 %}
     <div class="row">
       {% endif %}
-      <div class="col embed-responsive embed-responsive-16by9">
-        <iframe
-          class="embed-responsive-item"
-          width="540"
-          height="303"
-          frameborder="0"
-          allow="fullscreen; autoplay; encrypted-media; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          title="{{ video.title }}"
-          src="https://www.youtube-nocookie.com/embed/{{ video.youtube-id }}"
-        ></iframe>
-        <p>
-          <strong>{{ video.title }}</strong>
-        </p>
+      <div class="col-12 col-lg-6 mb-3">
+          <iframe
+            class="yt-video"
+            allow="fullscreen; autoplay; encrypted-media; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            title="{{ video.title }}"
+            src="https://www.youtube-nocookie.com/embed/{{ video.youtube-id }}"
+            loading="lazy"
+          ></iframe>
+          <p>
+            <strong>{{ video.title }}</strong>
+          </p>
       </div>
       {% if remainder == endColumn or forloop.last %}
     </div>
