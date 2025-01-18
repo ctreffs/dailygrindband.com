@@ -56,5 +56,5 @@ doctor:
 	bundle exec jekyll doctor
 
 .PHONY: check
-check: build
+check:
 	bundle exec htmlproofer ./_site
