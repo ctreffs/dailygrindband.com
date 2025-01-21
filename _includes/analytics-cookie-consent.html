@@ -27,30 +27,22 @@
     const cookieConsent = getCookie("cookieconsent_status");
 
     // Start analytics if user consented or did not deny
-    if (cookieConsent === "allow" || cookieConsent === "") {
-      console.log("Analytics consent given.");
+    if (cookieConsent === "allow") {
       googleAnalytics();
-    } else {
-      console.log("Analytics consent denied.");
-    }
-
+    } 
+    
     // Initialise cookie consent banner
     window.cookieconsent.initialise({
-      palette: {
-        popup: {
-          background: "#efefef",
-          text: "#404040",
-        },
-        button: {
-          background: "#8ec760",
-          text: "#ffffff",
-        },
-      },
       type: "opt-out",
       content: {
-        allow: "Approve",
-        dismiss: "Approve",
-        deny: "Reject",
+        message: "Diese Website verwendet Cookies, um sicherzustellen, dass du die beste Erfahrung auf unserer Website hast. 🍪",
+        dismiss: "Got it!",
+        allow: "Annehmen",
+        deny: "Ablehnen",
+        link: "Erfahre mehr",
+        href: "privacy.html",
+        policy: "Cookie Richtlinie",
+        target: "_blank",
       },
       // Reload the page on user choice to make sure cookie is set
       onStatusChange: function (status, chosenBefore) {
