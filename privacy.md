@@ -1,6 +1,7 @@
 ---
 layout: page
 ---
+
 <article class="text-start mb-4">
 <h1>Datenschutzerklärung</h1>
 
@@ -364,6 +365,87 @@ jede Art von Daten an Soziale Netzwerke weitergeben.
 </p>
 
 <h2>6. Plugins und Tools</h2>
+
+<h4>Google Analytics 4</h4>
+
+<p>
+Diese Website verwendet Google Analytics 4, einen Webanalysedienst der Google LLC (1600 Amphitheatre Parkway, Mountain View, CA 94043, USA, „Google“).
+</p>
+<p>
+Google Analytics 4 ermöglicht es uns, die Nutzung unserer Website zu analysieren, um diese kontinuierlich zu verbessern und benutzerfreundlicher zu gestalten. Dabei werden pseudonymisierte Nutzungsdaten erhoben und verarbeitet.
+</p>
+
+<h5>Rechtsgrundlage der Verarbeitung</h5>
+
+<p>
+Die Nutzung von Google Analytics 4 erfolgt nur auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO. Sie können Ihre Einwilligung jederzeit widerrufen, indem Sie Ihre Cookie-Einstellungen anpassen.
+</p>
+
+<h5>Anonymisierung der IP-Adresse</h5>
+
+<p>
+Wir haben Google Analytics 4 so konfiguriert, dass Ihre IP-Adresse anonymisiert wird. Hierzu wird die IP-Adresse innerhalb der Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum gekürzt, bevor sie an Google übertragen wird. Eine vollständige IP-Adresse wird nur in Ausnahmefällen an einen Server von Google in den USA übertragen und dort gekürzt.
+</p>
+
+<h5>Welche Daten werden verarbeitet?</h5>
+
+<p>
+Im Rahmen der Nutzung von Google Analytics 4 können folgende Daten verarbeitet werden:
+<ul>
+<li>Informationen über Ihre Nutzung der Website (z. B. besuchte Seiten, Verweildauer, Klicks).</li>
+<li>Technische Daten (z. B. Browsertyp, Betriebssystem, Bildschirmauflösung).</li>
+<li>Standortdaten (sofern von Ihrem Gerät freigegeben).</li>
+<li>Pseudonymisierte Nutzerkennungen (z. B. Cookie-IDs, Gerätekennungen).</li>
+</ul>
+</p>
+
+<h5>Datenweitergabe</h5>
+
+<p>
+Google verarbeitet die Daten in unserem Auftrag und ist vertraglich verpflichtet, die Daten ausschließlich gemäß unseren Weisungen zu verwenden. Eine Übermittlung der Daten in die USA kann nicht ausgeschlossen werden. Google hat sich jedoch durch die Teilnahme am EU-US Data Privacy Framework verpflichtet, ein angemessenes Datenschutzniveau sicherzustellen.
+</p>
+
+<h5>Speicherdauer</h5>
+
+<p>
+Die von Google Analytics 4 erhobenen Daten werden für maximal [z. B. 14 Monate] gespeichert. Nach Ablauf dieser Frist werden die Daten automatisch gelöscht.
+</p>
+
+<h5>Ihre Rechte</h5>
+
+<p>
+Sie haben folgende Rechte in Bezug auf Ihre personenbezogenen Daten:
+<ul>
+<li>Auskunft über die von uns gespeicherten Daten (Art. 15 DSGVO).</li>
+<li>Berichtigung unrichtiger oder unvollständiger Daten (Art. 16 DSGVO).</li>
+<li>Löschung Ihrer Daten, sofern diese nicht mehr erforderlich sind (Art. 17 DSGVO).</li>
+<li>Einschränkung der Verarbeitung Ihrer Daten (Art. 18 DSGVO).</li>
+<li>Datenübertragbarkeit (Art. 20 DSGVO).</li>
+<li>Widerspruch gegen die Verarbeitung Ihrer Daten (Art. 21 DSGVO).</li>
+<li>Widerruf Ihrer Einwilligung mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO).</li>
+</ul>
+Um diese Rechte auszuüben, kontaktieren Sie uns bitte unter den oben genannten Kontaktdaten.
+</p>
+
+<h5>Opt-out und Cookie-Einstellungen</h5>
+
+<p>
+Sie können die Erfassung Ihrer Daten durch Google Analytics 4 verhindern, indem Sie die Verwendung von Cookies ablehnen oder Ihre Einwilligung widerrufen. Dies können Sie über unser [Cookie-Banner oder die Cookie-Einstellungen] tun.
+</p>
+<p>
+Zusätzlich bietet Google ein Browser-Add-on zur Deaktivierung von Google Analytics, das Sie hier herunterladen können:
+<a href="https://tools.google.com/dlpage/gaoptout">https://tools.google.com/dlpage/gaoptout</a>
+</p>
+
+<h5>Weitere Informationen</h5>
+
+<p>
+Weitere Informationen zur Datenverarbeitung durch Google finden Sie in der Datenschutzerklärung von Google:
+<a href="https://policies.google.com/privacy?hl=de">https://policies.google.com/privacy?hl=de</a>
+</p>
+<p>
+Diese Datenschutzerklärung bietet eine gute Grundlage, um die Anforderungen der DSGVO zu erfüllen. Stellen Sie sicher, dass die Erklärung regelmäßig überprüft und an Änderungen der rechtlichen oder technischen Rahmenbedingungen angepasst wird.
+</p>
 
 <h3>YouTube mit erweitertem Datenschutz</h3>
 
