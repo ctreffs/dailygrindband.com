@@ -27,6 +27,7 @@ email: info@dailygrindband.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://dailygrindband.com" # the base hostname & protocol for your site, e.g. http://example.com
 permalink: posts/:year/:month/:day/:title:output_ext
+google-analytics-id: G-WP4DSSB93G
 
 # Hero
 hero-carousel:

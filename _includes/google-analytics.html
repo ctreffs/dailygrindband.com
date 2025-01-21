@@ -1,0 +1,16 @@
+{% assign id = site.google-analytics-id %}
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id={{ id }}"
+></script>
+<script>
+  function googleAnalytics() {
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "{{ id }}", { anonymize_ip: true });
+    console.log("Google Analytics is running");
+  }
+</script>

@@ -116,17 +116,6 @@ img.album {
 }
 
 
-#cb-cookie-banner {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  border-radius: 0;
-  display: none;
-}
-
-
 .yt-video {
   width: 528px;
   height: 297px;
@@ -166,4 +155,13 @@ img.album {
     width: 320px;
     height: 180px;
   }
+}
+
+.cc-window.cc-banner {
+  background-color: $body-bg-dark;
+  color: $body-color-dark;
+}
+
+.cc-link {
+  color: $primary !important;
 }
