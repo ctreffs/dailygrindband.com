@@ -9,8 +9,8 @@ Es war ein großartiges Erlebnis, vor euch allen zu performen! 🎸 Einen tollen
 Besonders an diesem Gig war auch, dass Martin uns erstmals am Bass unterstützt hat – das rockt! 🤘   
 
 Für 2025 haben wir schon einiges geplant: Los geht's mit unserem
-nächsten Gig am Freitag, den
-[22.02. in der Kofferfabrik in Fürth]({{ site.url }}#live).   
+nächsten Gig am Samstag, den
+[22.02.25 in der Kofferfabrik in Fürth]({{ site.url }}#live).   
 Außerdem arbeiten wir fleißig an unserem zweiten Album, das wir euch
 bald präsentieren wollen.   
 
