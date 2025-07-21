@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup env
-        uses: ruby/setup-ruby@v1.211.0
+        uses: ruby/setup-ruby@v1.248.0
         with:
           bundler-cache: true
       - name: Bundle install
@@ -61,7 +61,7 @@ jobs:
             Gemfile.lock
             Makefile
       - name: Setup env
-        uses: ruby/setup-ruby@v1.211.0
+        uses: ruby/setup-ruby@v1.248.0
         with:
           bundler-cache: true
       - name: Bundle install
