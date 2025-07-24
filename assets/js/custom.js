@@ -108,7 +108,30 @@ document.addEventListener("DOMContentLoaded", function () {
     checkScroll(); // Initial check on page load
   };
 
+  /**
+   * Closes the responsive navbar on mobile when a nav link is clicked.
+   */
+  const handleNavbarAutoclose = () => {
+    const navbarContent = document.getElementById("navbarContent");
+    if (!navbarContent) return;
+
+    const navLinks = navbarContent.querySelectorAll(".nav-link");
+    const navbarToggler = document.querySelector(".navbar-toggler");
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        // Check if the navbar toggler is visible (mobile view) and the menu is expanded
+        const isMobileView = navbarToggler && getComputedStyle(navbarToggler).display !== "none";
+        if (isMobileView && navbarContent.classList.contains("show")) {
+          const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navbarContent);
+          bsCollapse.hide();
+        }
+      });
+    });
+  };
+
   loadMoreNews();
   handleCarouselVideos();
   handleNavbarBrandVisibility();
+  handleNavbarAutoclose();
 });
