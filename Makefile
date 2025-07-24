@@ -61,15 +61,29 @@ doctor: set-local-path
 check: install
 	bundle exec htmlproofer --enforce_https --ignore-status-codes "301,403,405,429" ./_site
 
-.PHONY: import-news-asset
-import-news-asset:
+.PHONY: import-video-asset
+import-video-asset:
 	@if [ -z "$(FILE)" ]; then \
-		echo "Usage: make import-asset FILE=\"path/to/your/video.mp4\""; \
+		echo "Usage: make import-video-asset FILE=\"path/to/your/video.mp4\""; \
 		exit 1; \
 	fi
-	@echo "Importing and converting asset: $(FILE)"; \
+	@echo "Importing and converting video asset: $(FILE)"; \
 	mkdir -p assets/videos/news; \
 	OUTPUT_FILENAME=$$(basename "$(FILE)"); \
 	ffmpeg -i "$(FILE)" -vf "scale=1024:-1" -c:v libx264 -preset slow -crf 26 -c:a aac -b:a 128k "assets/videos/news/$${OUTPUT_FILENAME}"; \
 	echo "\n✅ Successfully converted and moved to assets/videos/news/$${OUTPUT_FILENAME}"; \
 	echo "You can now reference '/assets/videos/news/$${OUTPUT_FILENAME}' in your post's assets."
+
+.PHONY: import-image-asset
+import-image-asset:
+	@if [ -z "$(FILE)" ]; then \
+		echo "Usage: make import-image-asset FILE=\"path/to/your/image.jpg\""; \
+		exit 1; \
+	fi
+	@echo "Importing and converting image asset: $(FILE)"; \
+	mkdir -p assets/images/news; \
+	BASENAME=$$(basename "$(FILE)"); \
+	OUTPUT_FILENAME="$${BASENAME%.*}.webp"; \
+	ffmpeg -i "$(FILE)" -vf "scale=1024:-1" "assets/images/news/$${OUTPUT_FILENAME}"; \
+	echo "\n✅ Successfully converted and moved to assets/images/news/$${OUTPUT_FILENAME}"; \
+	echo "You can now reference '/assets/images/news/$${OUTPUT_FILENAME}' in your post's assets."
