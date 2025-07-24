@@ -1,8 +1,8 @@
 {% assign show_navlinks = include.show_navlinks %}
-<nav id="navbar-main" class="navbar navbar-expand-lg fixed-top navbar-dark shadow-5-strong data-mdb-navbar-init">
+<nav id="navbar-main" class="navbar navbar-expand-lg fixed-top" data-bs-theme="dark">
   <div class="container-fluid">
     
-    <a class="navbar-brand" href="{{ site.url }}">
+    <a class="navbar-brand" href="{{ "/" | relative_url }}">
       <img class="d-inline-block align-text-top" src="assets/images/dg-logo.webp" alt="{{ site.title }}" height="24">
     </a>
 
@@ -35,10 +35,10 @@
           <a
             class="nav-link"
             target="_blank"
+            rel="noopener noreferrer"
             title="{{ entry.title | default: entry.href }}"
             href="{{ entry.href }}"
-            ><i class="{{ entry.icon-class }}"></i
-          ></a>
+            ><i class="{{ entry.icon-class }}"></i></a>
         {%- endfor -%}
       </div>
     </div>
