@@ -72,29 +72,38 @@ document.addEventListener("DOMContentLoaded", function () {
     const navbarBrand = document.querySelector("#navbar-main .navbar-brand");
     const heroTitle = document.getElementById("hero-title-image");
     const navLinks = document.getElementById("main-nav-links");
+    const navbarContent = document.getElementById("navbarContent");
 
-    if (!navbarBrand || !heroTitle || !navLinks) return;
+    if (!navbarBrand || !heroTitle || !navLinks || !navbarContent) return;
 
-    const checkScroll = () => {
+    const checkVisibility = () => {
       const toggler = document.querySelector(".navbar-toggler");
       const isMobileView = toggler && getComputedStyle(toggler).display !== "none";
 
+      const heroTitleBottom = heroTitle.getBoundingClientRect().bottom;
+      const navbarHeight = navbarBrand.closest(".navbar").offsetHeight;
+      const isHeroScrolledPast = heroTitleBottom < navbarHeight;
+
       if (isMobileView) {
-        // On mobile, reset styles so nav links are always visible in the menu.
-        navbarBrand.classList.add("is-visible");
+        // On mobile, reset transform and handle brand visibility.
         navLinks.style.transform = "";
+        const isMenuOpen = navbarContent.classList.contains("show");
+
+        if (isMenuOpen || isHeroScrolledPast) {
+          navbarBrand.classList.add("is-visible");
+        } else {
+          navbarBrand.classList.remove("is-visible");
+        }
         return;
       }
 
-      const heroTitleBottom = heroTitle.getBoundingClientRect().bottom;
-      const navbarHeight = navbarBrand.closest(".navbar").offsetHeight;
-
+      // Desktop logic
       const brandStyle = window.getComputedStyle(navbarBrand);
       const brandWidth = navbarBrand.offsetWidth;
       const brandMargin = parseFloat(brandStyle.marginRight);
       const brandSpace = brandWidth + brandMargin;
 
-      if (heroTitleBottom < navbarHeight) {
+      if (isHeroScrolledPast) {
         navbarBrand.classList.add("is-visible");
         navLinks.style.transform = "";
       } else {
@@ -103,9 +112,11 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     };
 
-    window.addEventListener("scroll", checkScroll);
-    window.addEventListener("resize", checkScroll);
-    checkScroll(); // Initial check on page load
+    window.addEventListener("scroll", checkVisibility);
+    window.addEventListener("resize", checkVisibility);
+    navbarContent.addEventListener("shown.bs.collapse", checkVisibility);
+    navbarContent.addEventListener("hidden.bs.collapse", checkVisibility);
+    checkVisibility(); // Initial check on page load
   };
 
   /**
