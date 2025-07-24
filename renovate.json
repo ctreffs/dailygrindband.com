@@ -1,6 +1,52 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    ":combinePatchMinorReleases",
+    ":rebaseStalePrs",
+    ":renovatePrefix",
+    "customManagers:githubActionsVersions"
+  ],
+  "prConcurrentLimit": 5,
+  "packageRules": [
+    {
+      "groupName": "Jekyll non-major dependencies",
+      "description": "Group all Jekyll package minor and patch updates together",
+      "matchManagers": [
+        "bundle"
+      ],
+      "packagePatterns": [
+        "^jekyll"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "labels": [
+        "dependencies",
+        "renovate",
+        "jekyll"
+      ]
+    },
+    {
+      "groupName": "GitHub Actions non-major dependencies",
+      "description": "Group all GitHub Actions minor and patch updates together",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "labels": [
+        "dependencies",
+        "renovate",
+        "ci"
+      ]
+    }
+  ],
+  "labels": [
+    "dependencies",
+    "renovate"
   ]
 }
