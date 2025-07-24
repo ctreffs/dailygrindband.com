@@ -36,7 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     videos.forEach((video) => {
       video.addEventListener("ended", () => {
-        carousel.next();
+        // Only advance the carousel if the video is not set to loop
+        if (!video.hasAttribute("loop")) {
+          carousel.next();
+        }
       });
 
       // Add hover listeners to the parent carousel item to show/hide controls
