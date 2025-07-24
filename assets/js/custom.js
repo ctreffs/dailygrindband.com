@@ -4,18 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
    */
   const loadMoreNews = () => {
     const loadMoreBtn = document.getElementById("load-more-news");
-    if (!loadMoreBtn) return;
+    const olderNewsContainer = document.getElementById("older-news-container");
+    if (!loadMoreBtn || !olderNewsContainer) return;
 
     loadMoreBtn.addEventListener("click", function () {
-      const hiddenPost = document.querySelector(".news-post.d-none");
-      if (hiddenPost) {
-        hiddenPost.classList.remove("d-none");
-      }
-
-      // Hide button if no more posts are hidden
-      if (!document.querySelector(".news-post.d-none")) {
-        loadMoreBtn.classList.add("d-none");
-      }
+      // Show the container with all older news posts
+      olderNewsContainer.classList.remove("d-none");
+      // Hide the button after it's clicked
+      loadMoreBtn.classList.add("d-none");
     });
   };
 

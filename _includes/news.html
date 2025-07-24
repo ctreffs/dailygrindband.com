@@ -8,22 +8,12 @@
     <div class="row g-5 py-5">
       <div class="col-12 {% if has_assets %}col-lg-6{% endif %}">
         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">NEWS</h1>
-        <div id="news-posts">
-          {% for post in site.posts %}
-          <article class="news-post {% unless forloop.first %}d-none{% endunless %}">
-            {%- unless forloop.first -%}
-            <h5 class="fw-bold">{{ post.title }}</h5>
-            <p class="text-body-secondary mb-3">{{ post.date | date: "%d.%m.%Y" }}</p>
-            {%- endunless -%}
-            {{ post.content }}
-            {% unless forloop.last %}<hr class="my-4" />{% endunless %}
-          </article>
-          {% endfor %}
-        </div>
-        {% if site.posts.size > 1 %}
-        <button id="load-more-news" class="btn btn-primary mt-3">Ältere News laden</button>
-        {% endif %}
+        <article class="news-post">
+          {{ latest_post.content }}
+        </article>
       </div>
+
+      <!-- Carousel for the latest post -->
       {%- if has_assets -%}
       <div class="col-12 col-lg-6">
         <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -64,6 +54,25 @@
         </div>
       </div>
       {%- endif -%}
+    </div>
+
+    <!-- Older news section -->
+    <div class="row">
+      {% if site.posts.size > 1 %}
+      <div class="col-12 text-center">
+        <button id="load-more-news" class="btn btn-primary mb-5">Ältere News laden</button>
+      </div>
+      <div id="older-news-container" class="col-12 d-none">
+        {% for post in site.posts offset:1 %}
+        <article class="news-post">
+          <hr class="my-4" />
+          <h5 class="fw-bold">{{ post.title }}</h5>
+          <p class="text-body-secondary mb-3">{{ post.date | date: "%d.%m.%Y" }}</p>
+          {{ post.content }}
+        </article>
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
   </div>
 </section>
