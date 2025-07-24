@@ -28,14 +28,16 @@
       <div class="col-12 col-lg-6">
         <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
-            {% for asset_path in latest_post.assets %}
+            {% for asset_path in latest_post.assets %} {% assign asset_ext = asset_path | split: '.' | last | downcase %}
             <div class="carousel-item {% if forloop.first %}active{% endif %}">
-              <img
-                src="{{ asset_path | relative_url }}"
-                class="d-block w-100"
-                alt="News asset for {{ latest_post.title }}"
-                loading="lazy"
-              />
+              {%- if asset_ext == 'mp4' or asset_ext == 'webm' or asset_ext == 'ogv' -%}
+              <video class="d-block w-100 news-carousel-video" autoplay muted playsinline>
+                <source src="{{ asset_path | relative_url }}" type="video/{{ asset_ext }}" />
+                Your browser does not support the video tag.
+              </video>
+              {%- else -%}
+              <img src="{{ asset_path | relative_url }}" class="d-block w-100" alt="News asset for {{ latest_post.title }}" loading="lazy" />
+              {%- endif -%}
             </div>
             {% endfor %}
           </div>

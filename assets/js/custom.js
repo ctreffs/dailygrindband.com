@@ -19,5 +19,38 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
+  /**
+   * Handles video playback in the news carousel.
+   * - Advances to the next slide when a video ends.
+   * - Pauses non-visible videos and plays the active one when slides change.
+   */
+  const handleCarouselVideos = () => {
+    const newsCarouselElement = document.getElementById("newsCarousel");
+    if (!newsCarouselElement) return;
+
+    const carousel = bootstrap.Carousel.getOrCreateInstance(newsCarouselElement);
+    if (!carousel) return;
+
+    const videos = newsCarouselElement.querySelectorAll(".news-carousel-video");
+
+    videos.forEach((video) => {
+      video.addEventListener("ended", () => {
+        carousel.next();
+      });
+    });
+
+    newsCarouselElement.addEventListener("slid.bs.carousel", (event) => {
+      // Pause all videos to ensure only the active one plays
+      videos.forEach((v) => v.pause());
+
+      // Play the video in the newly active slide, if there is one
+      const activeVideo = event.relatedTarget.querySelector(".news-carousel-video");
+      if (activeVideo) {
+        activeVideo.play().catch((e) => console.error("Video autoplay failed:", e));
+      }
+    });
+  };
+
   loadMoreNews();
+  handleCarouselVideos();
 });
