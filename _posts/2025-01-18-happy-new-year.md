@@ -1,5 +1,11 @@
 ---
 layout: page
+title: Happy new year
+assets:
+  - /assets/images/news/01.webp
+  - /assets/images/news/02.webp
+  - /assets/images/news/03.webp
+  - /assets/images/news/04.webp
 ---
 
 Beim letzten Gig in 2024 hatten wir die Ehre, als [Headliner der KIRCHENPLATZ-Bühne auf dem Fürth Festival](https://www.fuerth-festival.com/kirchenplatz-st-michael/freitag#c210) zu spielen.   

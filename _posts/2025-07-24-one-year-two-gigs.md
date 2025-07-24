@@ -1,5 +1,8 @@
 ---
 layout: page
+title: "One Year Two Gigs"
+assets:
+  - /assets/images/news/01.webp
 ---
 
 Am **22. Februar 2025** haben wir zusammen mit **[BAMM (Bender and the Mighty Machines)](https://www.instagram.com/bendermm2023/)** die Bühne der **Kofferfabrik in Fürth** gerockt – was für ein Abend! 🤘 Vielen Dank an alle, die dabei waren und mit uns gefeiert haben.  
