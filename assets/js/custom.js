@@ -1,12 +1,23 @@
-// Change navbar background color on scroll
-window.addEventListener("scroll", function () {
-  const navbar = document.querySelector(".navbar");
-  const targetSection = document.querySelector("#hero");
-  const homeBottom = targetSection.offsetTop + targetSection.offsetHeight; // Bottom position of #home section
+document.addEventListener("DOMContentLoaded", function () {
+  /**
+   * Handles loading more news posts on button click.
+   */
+  const loadMoreNews = () => {
+    const loadMoreBtn = document.getElementById("load-more-news");
+    if (!loadMoreBtn) return;
 
-  if (window.scrollY > homeBottom) {
-    navbar.classList.add("navbar-solid");
-  } else {
-    navbar.classList.remove("navbar-solid");
-  }
+    loadMoreBtn.addEventListener("click", function () {
+      const hiddenPost = document.querySelector(".news-post.d-none");
+      if (hiddenPost) {
+        hiddenPost.classList.remove("d-none");
+      }
+
+      // Hide button if no more posts are hidden
+      if (!document.querySelector(".news-post.d-none")) {
+        loadMoreBtn.classList.add("d-none");
+      }
+    });
+  };
+
+  loadMoreNews();
 });

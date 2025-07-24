@@ -1,11 +1,24 @@
-{% assign post = site.posts | first %} {% assign images = site.static_files |
-where_exp:"file", "file.path contains 'assets/images/news'" %}
+{% assign images = site.static_files | where_exp:"file", "file.path contains 'assets/images/news'" %}
 <section id="news">
   <div class="container mt-5">
     <div class="row g-5 py-5">
       <div class="col-12 col-lg-6">
         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">NEWS</h1>
-        <article>{{ post.content }}</article>
+        <div id="news-posts">
+          {% for post in site.posts %}
+          <article class="news-post {% unless forloop.first %}d-none{% endunless %}">
+            {%- unless forloop.first -%}
+            <h5 class="fw-bold">{{ post.title }}</h5>
+            <p class="text-body-secondary mb-3">{{ post.date | date: "%d.%m.%Y" }}</p>
+            {%- endunless -%}
+            {{ post.content }}
+            {% unless forloop.last %}<hr class="my-4" />{% endunless %}
+          </article>
+          {% endfor %}
+        </div>
+        {% if site.posts.size > 1 %}
+        <button id="load-more-news" class="btn btn-primary mt-3">Ältere News laden</button>
+        {% endif %}
       </div>
 
       <div class="col-12 col-lg-6">
