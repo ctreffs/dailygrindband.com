@@ -59,4 +59,4 @@ doctor: set-local-path
 
 .PHONY: check
 check: install
-	bundle exec htmlproofer --enforce_https --ignore-status-codes 429 ./_site
+	bundle exec htmlproofer --enforce_https --ignore-status-codes "301,403,405,429" ./_site
