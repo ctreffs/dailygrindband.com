@@ -60,3 +60,16 @@ doctor: set-local-path
 .PHONY: check
 check: install
 	bundle exec htmlproofer --enforce_https --ignore-status-codes "301,403,405,429" ./_site
+
+.PHONY: import-news-asset
+import-news-asset:
+	@if [ -z "$(FILE)" ]; then \
+		echo "Usage: make import-asset FILE=\"path/to/your/video.mp4\""; \
+		exit 1; \
+	fi
+	@echo "Importing and converting asset: $(FILE)"; \
+	mkdir -p assets/videos/news; \
+	OUTPUT_FILENAME=$$(basename "$(FILE)"); \
+	ffmpeg -i "$(FILE)" -vf "scale=1024:-1" -c:v libx264 -preset slow -crf 26 -c:a aac -b:a 128k "assets/videos/news/$${OUTPUT_FILENAME}"; \
+	echo "\n✅ Successfully converted and moved to assets/videos/news/$${OUTPUT_FILENAME}"; \
+	echo "You can now reference '/assets/videos/news/$${OUTPUT_FILENAME}' in your post's assets."
