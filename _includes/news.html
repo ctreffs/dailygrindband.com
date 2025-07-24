@@ -1,47 +1,69 @@
-{% assign post = site.posts | first %} {% assign images = site.static_files |
-where_exp:"file", "file.path contains 'assets/images/news'" %}
+{%- assign latest_post = site.posts | first -%}
+{%- assign has_assets = false -%}
+{%- if latest_post.assets and latest_post.assets.size > 0 -%}
+  {%- assign has_assets = true -%}
+{%- endif -%}
 <section id="news">
   <div class="container mt-5">
     <div class="row g-5 py-5">
-      <div class="col-12 col-lg-6">
+      <div class="col-12 {% if has_assets %}col-lg-6{% endif %}">
         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">NEWS</h1>
-        <article>{{ post.content }}</article>
+        <div id="news-posts">
+          {% for post in site.posts %}
+          <article class="news-post {% unless forloop.first %}d-none{% endunless %}">
+            {%- unless forloop.first -%}
+            <h5 class="fw-bold">{{ post.title }}</h5>
+            <p class="text-body-secondary mb-3">{{ post.date | date: "%d.%m.%Y" }}</p>
+            {%- endunless -%}
+            {{ post.content }}
+            {% unless forloop.last %}<hr class="my-4" />{% endunless %}
+          </article>
+          {% endfor %}
+        </div>
+        {% if site.posts.size > 1 %}
+        <button id="load-more-news" class="btn btn-primary mt-3">Ältere News laden</button>
+        {% endif %}
       </div>
-
+      {%- if has_assets -%}
       <div class="col-12 col-lg-6">
         <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
-            {% for image in images %}
+            {% for asset_path in latest_post.assets %} {% assign asset_ext = asset_path | split: '.' | last | downcase %}
             <div class="carousel-item {% if forloop.first %}active{% endif %}">
-              <img
-                src="{{ site.baseurl }}{{ image.path }}"
-                class="d-block w-100"
-                alt="News image '{{ image.basename }}'"
-                loading="lazy"
-              />
+              {%- if asset_ext == 'mp4' or asset_ext == 'webm' or asset_ext == 'ogv' -%}
+              <video class="d-block w-100 news-carousel-video" autoplay muted playsinline {%- if latest_post.assets.size == 1 %} loop{% endif %}>
+                <source src="{{ asset_path | relative_url }}" type="video/{{ asset_ext }}" />
+                Your browser does not support the video tag.
+              </video>
+              {%- else -%}
+              <img src="{{ asset_path | relative_url }}" class="d-block w-100" alt="News asset for {{ latest_post.title }}" loading="lazy" />
+              {%- endif -%}
             </div>
             {% endfor %}
           </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#newsCarousel"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#newsCarousel"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+          {%- if latest_post.assets.size > 1 -%}
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#newsCarousel"
+              data-bs-slide="prev"
+            >
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#newsCarousel"
+              data-bs-slide="next"
+            >
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          {%- endif -%}
         </div>
       </div>
+      {%- endif -%}
     </div>
   </div>
 </section>
