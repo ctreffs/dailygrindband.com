@@ -67,6 +67,42 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
+  /**
+   * Shows or hides the navbar brand based on the hero section's visibility.
+   * The brand becomes visible when the hero section is scrolled out of view,
+   * and the nav links shift to the right to make space for it.
+   */
+  const handleNavbarBrandVisibility = () => {
+    const navbarBrand = document.querySelector("#navbar-main .navbar-brand");
+    const heroTitle = document.getElementById("hero-title-image");
+    const navLinks = document.querySelector("#navbarContent .navbar-nav:first-child");
+
+    if (!navbarBrand || !heroTitle || !navLinks) return;
+
+    const checkScroll = () => {
+      const heroTitleBottom = heroTitle.getBoundingClientRect().bottom;
+      const navbarHeight = navbarBrand.closest(".navbar").offsetHeight;
+
+      // Get the space occupied by the navbar brand to shift the nav links
+      const brandStyle = window.getComputedStyle(navbarBrand);
+      const brandWidth = navbarBrand.offsetWidth;
+      const brandMargin = parseFloat(brandStyle.marginRight);
+      const brandSpace = brandWidth + brandMargin;
+
+      if (heroTitleBottom < navbarHeight) {
+        navbarBrand.classList.add("is-visible");
+        navLinks.style.transform = "translateX(0)";
+      } else {
+        navbarBrand.classList.remove("is-visible");
+        navLinks.style.transform = `translateX(-${brandSpace}px)`;
+      }
+    };
+
+    window.addEventListener("scroll", checkScroll);
+    checkScroll(); // Initial check on page load
+  };
+
   loadMoreNews();
   handleCarouselVideos();
+  handleNavbarBrandVisibility();
 });

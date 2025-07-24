@@ -1,0 +1,40 @@
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/*
+ * Force carousel control icons to be white in dark mode.
+ */
+[data-bs-theme="dark"] .carousel .carousel-control-prev-icon,
+[data-bs-theme="dark"] .carousel .carousel-control-next-icon {
+  filter: invert(1) grayscale(100);
+}
+
+/*
+ * Hide navbar brand initially and fade it in on scroll.
+ */
+.navbar-brand {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.navbar-brand.is-visible {
+  opacity: 1;
+}
+
+/*
+ * Smoothly transition nav links when the brand appears/disappears.
+ */
+#navbarContent .navbar-nav:first-child {
+  transition: transform 0.4s ease-in-out;
+}
