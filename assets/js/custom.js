@@ -4,18 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
    */
   const loadMoreNews = () => {
     const loadMoreBtn = document.getElementById("load-more-news");
-    if (!loadMoreBtn) return;
+    const olderNewsContainer = document.getElementById("older-news-container");
+    if (!loadMoreBtn || !olderNewsContainer) return;
 
     loadMoreBtn.addEventListener("click", function () {
-      const hiddenPost = document.querySelector(".news-post.d-none");
-      if (hiddenPost) {
-        hiddenPost.classList.remove("d-none");
-      }
-
-      // Hide button if no more posts are hidden
-      if (!document.querySelector(".news-post.d-none")) {
-        loadMoreBtn.classList.add("d-none");
-      }
+      // Show the container with all older news posts
+      olderNewsContainer.classList.remove("d-none");
+      // Hide the button after it's clicked
+      loadMoreBtn.classList.add("d-none");
     });
   };
 
@@ -67,6 +63,86 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
+  /**
+   * Shows or hides the navbar brand based on the hero section's visibility.
+   * The brand becomes visible when the hero section is scrolled out of view,
+   * and the nav links shift to the right to make space for it.
+   */
+  const handleNavbarBrandVisibility = () => {
+    const navbarBrand = document.querySelector("#navbar-main .navbar-brand");
+    const heroTitle = document.getElementById("hero-title-image");
+    const navLinks = document.getElementById("main-nav-links");
+    const navbarContent = document.getElementById("navbarContent");
+
+    if (!navbarBrand || !heroTitle || !navLinks || !navbarContent) return;
+
+    const checkVisibility = () => {
+      const toggler = document.querySelector(".navbar-toggler");
+      const isMobileView = toggler && getComputedStyle(toggler).display !== "none";
+
+      const heroTitleBottom = heroTitle.getBoundingClientRect().bottom;
+      const navbarHeight = navbarBrand.closest(".navbar").offsetHeight;
+      const isHeroScrolledPast = heroTitleBottom < navbarHeight;
+
+      if (isMobileView) {
+        // On mobile, reset transform and handle brand visibility.
+        navLinks.style.transform = "";
+        const isMenuOpen = navbarContent.classList.contains("show");
+
+        if (isMenuOpen || isHeroScrolledPast) {
+          navbarBrand.classList.add("is-visible");
+        } else {
+          navbarBrand.classList.remove("is-visible");
+        }
+        return;
+      }
+
+      // Desktop logic
+      const brandStyle = window.getComputedStyle(navbarBrand);
+      const brandWidth = navbarBrand.offsetWidth;
+      const brandMargin = parseFloat(brandStyle.marginRight);
+      const brandSpace = brandWidth + brandMargin;
+
+      if (isHeroScrolledPast) {
+        navbarBrand.classList.add("is-visible");
+        navLinks.style.transform = "";
+      } else {
+        navbarBrand.classList.remove("is-visible");
+        navLinks.style.transform = `translateX(-${brandSpace}px)`;
+      }
+    };
+
+    window.addEventListener("scroll", checkVisibility);
+    window.addEventListener("resize", checkVisibility);
+    navbarContent.addEventListener("shown.bs.collapse", checkVisibility);
+    navbarContent.addEventListener("hidden.bs.collapse", checkVisibility);
+    checkVisibility(); // Initial check on page load
+  };
+
+  /**
+   * Closes the responsive navbar on mobile when a nav link is clicked.
+   */
+  const handleNavbarAutoclose = () => {
+    const navbarContent = document.getElementById("navbarContent");
+    if (!navbarContent) return;
+
+    const navLinks = navbarContent.querySelectorAll(".nav-link");
+    const navbarToggler = document.querySelector(".navbar-toggler");
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        // Check if the navbar toggler is visible (mobile view) and the menu is expanded
+        const isMobileView = navbarToggler && getComputedStyle(navbarToggler).display !== "none";
+        if (isMobileView && navbarContent.classList.contains("show")) {
+          const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navbarContent);
+          bsCollapse.hide();
+        }
+      });
+    });
+  };
+
   loadMoreNews();
   handleCarouselVideos();
+  handleNavbarBrandVisibility();
+  handleNavbarAutoclose();
 });
