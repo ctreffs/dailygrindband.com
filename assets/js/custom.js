@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
    * Handles video playback in the news carousel.
    * - Advances to the next slide when a video ends.
    * - Pauses non-visible videos and plays the active one when slides change.
+   * - Shows video controls on hover.
    */
   const handleCarouselVideos = () => {
     const newsCarouselElement = document.getElementById("newsCarousel");
@@ -36,6 +37,18 @@ document.addEventListener("DOMContentLoaded", function () {
     videos.forEach((video) => {
       video.addEventListener("ended", () => {
         carousel.next();
+      });
+
+      // Add hover listeners to the parent carousel item to show/hide controls
+      const parentItem = video.closest(".carousel-item");
+      if (!parentItem) return;
+
+      parentItem.addEventListener("mouseenter", () => {
+        video.setAttribute("controls", "true");
+      });
+
+      parentItem.addEventListener("mouseleave", () => {
+        video.removeAttribute("controls");
       });
     });
 
