@@ -13,14 +13,6 @@
 }
 
 /*
- * Force carousel control icons to be white in dark mode.
- */
-[data-bs-theme="dark"] .carousel .carousel-control-prev-icon,
-[data-bs-theme="dark"] .carousel .carousel-control-next-icon {
-  filter: invert(1) grayscale(100);
-}
-
-/*
  * Hide navbar brand initially and fade it in on scroll.
  */
 .navbar-brand {
@@ -35,6 +27,40 @@
 /*
  * Smoothly transition nav links when the brand appears/disappears.
  */
-#navbarContent .navbar-nav:first-child {
+#main-nav-links {
   transition: transform 0.4s ease-in-out;
+}
+
+/*
+ * Mobile navbar improvements
+ */
+@media (max-width: 991.98px) {
+  .navbar-collapse.show,
+  .navbar-collapse.collapsing {
+    padding: 1rem;
+    margin-top: 0.5rem;
+    background-color: var(--bs-body-bg);
+    border-radius: var(--bs-border-radius);
+    // Add a subtle shadow for visual distinction
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+
+  #navbarContent .navbar-nav:last-child {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    // Add spacing between icons
+    gap: 0.5rem;
+  }
+
+  // Target the social icon links specifically
+  #navbarContent .navbar-nav:last-child .nav-link {
+    // Ensure a minimum size for touch targets
+    min-width: 32px;
+    min-height: 32px;
+    // Center the icon inside the link
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

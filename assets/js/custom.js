@@ -71,15 +71,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const handleNavbarBrandVisibility = () => {
     const navbarBrand = document.querySelector("#navbar-main .navbar-brand");
     const heroTitle = document.getElementById("hero-title-image");
-    const navLinks = document.querySelector("#navbarContent .navbar-nav:first-child");
+    const navLinks = document.getElementById("main-nav-links");
 
     if (!navbarBrand || !heroTitle || !navLinks) return;
 
     const checkScroll = () => {
+      const toggler = document.querySelector(".navbar-toggler");
+      const isMobileView = toggler && getComputedStyle(toggler).display !== "none";
+
+      if (isMobileView) {
+        // On mobile, reset styles so nav links are always visible in the menu.
+        navbarBrand.classList.add("is-visible");
+        navLinks.style.transform = "";
+        return;
+      }
+
       const heroTitleBottom = heroTitle.getBoundingClientRect().bottom;
       const navbarHeight = navbarBrand.closest(".navbar").offsetHeight;
 
-      // Get the space occupied by the navbar brand to shift the nav links
       const brandStyle = window.getComputedStyle(navbarBrand);
       const brandWidth = navbarBrand.offsetWidth;
       const brandMargin = parseFloat(brandStyle.marginRight);
@@ -87,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (heroTitleBottom < navbarHeight) {
         navbarBrand.classList.add("is-visible");
-        navLinks.style.transform = "translateX(0)";
+        navLinks.style.transform = "";
       } else {
         navbarBrand.classList.remove("is-visible");
         navLinks.style.transform = `translateX(-${brandSpace}px)`;
@@ -95,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     window.addEventListener("scroll", checkScroll);
+    window.addEventListener("resize", checkScroll);
     checkScroll(); // Initial check on page load
   };
 
