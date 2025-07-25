@@ -74,7 +74,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const navLinks = document.getElementById("main-nav-links");
     const navbarContent = document.getElementById("navbarContent");
 
-    if (!navbarBrand || !heroTitle || !navLinks || !navbarContent) return;
+    if (!navbarBrand || !navLinks || !navbarContent) return;
+
+    // If heroTitle doesn't exist, we are on a sub-page.
+    // In this case, just make the brand logo permanently visible and stop.
+    if (!heroTitle) {
+      navbarBrand.classList.add("is-visible");
+      return;
+    }
+
+    // The rest of the logic only applies to the main page where the hero title exists.
 
     const checkVisibility = () => {
       const toggler = document.querySelector(".navbar-toggler");
