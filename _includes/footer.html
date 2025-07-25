@@ -1,30 +1,35 @@
 <div class="container text-center">
   <footer class="py-3 my-4 border-top">
-    <div class="row py-3 mb-2">
-      <div class="col-12 text-body-secondary">
-        <a href="imprint.html">Impressum</a> |
-        <a href="privacy.html">Datenschutz</a>
+    <!-- Social Icons -->
+    <div class="row mb-3">
+      <div class="col">
+        <ul class="nav justify-content-center list-unstyled d-flex">
+          {%- for entry in site.social_links -%}
+          <li class="mx-3">
+            <a
+              class="text-body-secondary"
+              target="_blank"
+              title="{{ entry.title | default: entry.href }}"
+              href="{{ entry.href }}"
+              ><i class="{{ entry.icon-class }} fa-2x"></i
+            ></a>
+          </li>
+          {%- endfor -%}
+        </ul>
       </div>
     </div>
 
-    <div class="row py-3 mb-4">
-      <div class="col-7 d-flex align-items-center">
-        Copyright © 2006-{{ site.time | date: '%Y' }} Daily Grind
+    <!-- Copyright and Legal Links -->
+    <div class="row align-items-center">
+      <div class="col-md-7 text-center text-md-start mb-2 mb-md-0">
+        <small class="text-body-secondary">Copyright © 2006-{{ site.time | date: '%Y' }} Daily Grind</small>
       </div>
-
-      <ul class="nav col-5 justify-content-end list-unstyled d-flex">
-        {%- for entry in site.social_links -%}
-        <li class="ms-3">
-          <a
-            class="text-body-secondary"
-            target="_blank"
-            title="{{ entry.title | default: entry.href }}"
-            href="{{ entry.href }}"
-            ><i class="{{ entry.icon-class }}"></i
-          ></a>
-        </li>
-        {%- endfor -%}
-      </ul>
+      <div class="col-md-5 text-center text-md-end">
+        <small class="text-body-secondary">
+          <a href="{{ '/imprint.html' | relative_url }}" class="text-body-secondary text-decoration-none">Impressum</a> &bull;
+          <a href="{{ '/privacy.html' | relative_url }}" class="text-body-secondary text-decoration-none">Datenschutz</a>
+        </small>
+      </div>
     </div>
   </footer>
 </div>
