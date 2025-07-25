@@ -150,8 +150,67 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
+  /**
+   * Manages the hero section's scroll-down chevron.
+   * - It is positioned relative to the bottom of the hero section on page load.
+   * - It becomes "sticky" to the bottom of the viewport when the user scrolls down
+   *   as long as the hero section is in view.
+   * - It hides as soon as the content below the hero section becomes visible.
+   * - It provides smooth scrolling to the #news section.
+   */
+  const handleHeroChevron = () => {
+    const chevronContainer = document.getElementById("scroll-down-chevron");
+    const heroSection = document.getElementById("hero");
+    const newsSection = document.getElementById("news"); // The section below hero
+
+    // If any element is missing, do nothing. This also prevents errors on sub-pages.
+    if (!chevronContainer || !heroSection || !newsSection) {
+      if (chevronContainer) chevronContainer.style.display = "none";
+      return;
+    }
+
+    const chevronLink = chevronContainer.querySelector("a");
+    if (chevronLink) {
+      chevronLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        const targetId = this.getAttribute("href");
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    }
+
+    // Add transition for smooth effects
+    chevronContainer.style.transition = "opacity 0.3s ease, bottom 0.1s linear";
+
+    const checkChevronState = () => {
+      const heroRect = heroSection.getBoundingClientRect();
+      const newsRect = newsSection.getBoundingClientRect();
+
+      // --- Positioning Logic ---
+      // Calculate how far the hero's bottom is from the viewport's bottom.
+      const heroBottomOffset = heroRect.bottom - window.innerHeight;
+      // The chevron's 'bottom' should be this offset, but never less than 0.
+      // This makes it stick to the hero bottom, then to the viewport bottom.
+      const chevronBottomPosition = Math.max(0, heroBottomOffset);
+      chevronContainer.style.bottom = `${chevronBottomPosition}px`;
+
+      // --- Visibility Logic ---
+      // Hide the chevron if the top of the news section is visible in the viewport.
+      const isNewsVisible = newsRect.top < window.innerHeight;
+      chevronContainer.style.opacity = isNewsVisible ? "0" : "1";
+      chevronContainer.style.pointerEvents = isNewsVisible ? "none" : "auto";
+    };
+
+    window.addEventListener("scroll", checkChevronState);
+    window.addEventListener("resize", checkChevronState);
+    checkChevronState(); // Initial check on page load
+  };
+
   loadMoreNews();
   handleCarouselVideos();
   handleNavbarBrandVisibility();
   handleNavbarAutoclose();
+  handleHeroChevron();
 });
