@@ -42,7 +42,7 @@ jobs:
           # remove posts folder
           rm -rdf _site/posts
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: dailygrindband.com
           path: _site/*
@@ -69,7 +69,7 @@ jobs:
           bundle config set --local path 'vendor/bundle'
           bundle install --quiet
       - name: Download site artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: dailygrindband.com
           path: _site
@@ -90,7 +90,7 @@ jobs:
           known_hosts: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
           if_key_exists: fail
       - name: Download site artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: dailygrindband.com
           path: _site
