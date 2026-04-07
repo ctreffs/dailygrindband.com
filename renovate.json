@@ -15,9 +15,6 @@
       "matchManagers": [
         "bundle"
       ],
-      "packagePatterns": [
-        "^jekyll"
-      ],
       "matchUpdateTypes": [
         "minor",
         "patch"
@@ -26,6 +23,9 @@
         "dependencies",
         "renovate",
         "jekyll"
+      ],
+      "matchPackageNames": [
+        "/^jekyll/"
       ]
     },
     {
