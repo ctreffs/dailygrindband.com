@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Setup env
-        uses: ruby/setup-ruby@v1.269.0
+        uses: ruby/setup-ruby@v1.300.0
         with:
           bundler-cache: true
       - name: Bundle install
@@ -42,7 +42,7 @@ jobs:
           # remove posts folder
           rm -rdf _site/posts
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: dailygrindband.com
           path: _site/*
@@ -61,7 +61,7 @@ jobs:
             Gemfile.lock
             Makefile
       - name: Setup env
-        uses: ruby/setup-ruby@v1.269.0
+        uses: ruby/setup-ruby@v1.300.0
         with:
           bundler-cache: true
       - name: Bundle install
@@ -69,7 +69,7 @@ jobs:
           bundle config set --local path 'vendor/bundle'
           bundle install --quiet
       - name: Download site artifact
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v8
         with:
           name: dailygrindband.com
           path: _site
@@ -78,19 +78,19 @@ jobs:
           make check
 
   publish:
-    if: ${{ success() && (github.event.release || contains( github.event.pull_request.labels.*.name, 'release')) }}
+    if: ${{ success() && github.event.release }}
     needs: [build, test]
     runs-on: macos-latest
     steps:
       - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2.7.0
+        uses: shimataro/ssh-key-action@v2.8.1
         with:
           key: ${{ secrets.DEPLOY_KEY }}
           name: ${{ secrets.DEPLOY_KEY_NAME }}
           known_hosts: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
           if_key_exists: fail
       - name: Download site artifact
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v8
         with:
           name: dailygrindband.com
           path: _site
