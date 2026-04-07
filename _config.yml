@@ -93,9 +93,8 @@ videos:
 # -- Build settings ----
 
 # Plugins
-# plugins:
-  # - jekyll-feed
-  # - jekyll-sitemap
+plugins:
+  - jekyll-sitemap
 
 # Exclude from processing.
 # The following items will not be processed, by default.
