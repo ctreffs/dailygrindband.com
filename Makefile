@@ -1,4 +1,4 @@
-INSTALLED_RUBY_VERSION := $(shell rbenv version | awk '{print $$1}')
+INSTALLED_RUBY_VERSION := $(shell rbenv version 2>/dev/null | awk '{print $$1}')
 REQUIRED_RUBY_VERSION := $(shell cat .ruby-version)
 BOOTSTRAP_PATH := $(shell bundle info bootstrap | grep "Path:" | awk '{print $$2}')
 POPPER_PATH := $(shell bundle info popper | grep "Path:" | awk '{print $$2}')
@@ -8,19 +8,26 @@ set-local-path:
 	bundle config set --local path 'vendor/bundle'
 .PHONY: setup-env
 setup-env:
-	brew install rbenv ruby-build git-lfs --quiet
-	brew link rbenv ruby-build git-lfs --quiet
+	@command -v rbenv >/dev/null 2>&1 || (brew install rbenv --quiet && brew link rbenv --quiet)
+	@command -v ruby-build >/dev/null 2>&1 || (brew install ruby-build --quiet && brew link ruby-build --quiet)
+	@command -v git-lfs >/dev/null 2>&1 || (brew install git-lfs --quiet && brew link git-lfs --quiet)
 	
 	@if [ "$(INSTALLED_RUBY_VERSION)" != "$(REQUIRED_RUBY_VERSION)" ]; then \
-		echo "Updating ruby"; \
+		echo "Updating ruby and cleaning vendor/bundle to ensure compatibility"; \
 		brew upgrade ruby-build; \
 		rbenv install -s; \
+		rm -rf vendor/bundle; \
 	fi
 
 	gem install bundler --quiet
 	bundle config set --local path 'vendor/bundle'
 	bundle install --quiet
 	git lfs install
+
+.PHONY: clean-vendor
+clean-vendor:
+	rm -rf vendor/bundle
+	rm -rf .bundle/config
 
 .PHONY: install
 install: set-local-path
@@ -59,7 +66,11 @@ doctor: set-local-path
 
 .PHONY: check
 check: install
-	bundle exec htmlproofer --enforce_https --ignore-status-codes "301,403,405,429" ./_site
+	bundle exec htmlproofer \
+		--enforce_https \
+		--ignore-status-codes "301,403,405,429" \
+		--typhoeus '{"timeout": 60, "connecttimeout": 30}' \
+		./_site
 
 .PHONY: import-video-asset
 import-video-asset:
