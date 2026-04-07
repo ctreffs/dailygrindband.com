@@ -8,7 +8,7 @@ assets:
   - /assets/images/news/04.webp
 ---
 
-Beim letzten Gig in 2024 hatten wir die Ehre, als [Headliner der KIRCHENPLATZ-Bühne auf dem Fürth Festival](https://www.fuerth-festival.com/kirchenplatz-st-michael/freitag#c210) zu spielen.   
+Beim letzten Gig in 2024 hatten wir die Ehre, als [Headliner der KIRCHENPLATZ-Bühne auf dem Fürth Festival](https://web.archive.org/web/20240804113203/https://www.fuerth-festival.com/kirchenplatz-st-michael/freitag#c210) zu spielen.   
 
 Es war ein großartiges Erlebnis, vor euch allen zu performen! 🎸 Einen tollen Artikel der Nürnberger Nachrichten zum Festival findet ihr hier: [Zum Artikel](https://www.nn.de/fuerth/nach-dem-em-dampfer-prachtige-stimmung-und-reichlich-musik-beim-furth-festival-1.14333301).   
 
