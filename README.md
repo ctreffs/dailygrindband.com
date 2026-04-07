@@ -57,7 +57,6 @@ The site is automatically built and tested on every push to `main`.
 
 **To trigger a deployment to production:**
 1.  **Publish a GitHub Release** in the repository.
-2.  *OR* Add the **'release' label** to a Pull Request before it is merged.
 
 The deployment job will use `rsync` to sync the `_site/` directory with the production server.
 
