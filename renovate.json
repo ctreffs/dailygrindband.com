@@ -48,5 +48,10 @@
   "labels": [
     "dependencies",
     "renovate"
+  ],
+  "reviewers": [],
+  "addReviewers": false,
+  "assignees": [
+    "ctreffs"
   ]
 }
