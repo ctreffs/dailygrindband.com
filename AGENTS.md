@@ -36,9 +36,10 @@ Key commands are provided via the `Makefile`:
 
 - `_config.yml`: Core site settings and data.
 - `index.md`: Homepage component assembly.
-- `Makefile`: Build, serve, check, and asset import automation.
+- `Makefile`: Build, serve, check, news automation, and asset import tasks.
 - `Gemfile` / `.ruby-version`: Ruby dependency definitions.
 - `_data/live.csv`: Live concert schedule data.
-- `_includes/`: Reusable HTML components.
+- `_includes/`: Reusable HTML components (e.g. `head.html`, `hero.html`, `social-feed.html`).
 - `_layouts/`: Page templates (`base.html`, `main.html`, `page.html`).
+- `scripts/`: Shell and Ruby automation scripts for media imports and content tooling.
 - `conductor/site-improvements-plan.md`: Roadmap and feature specifications.

@@ -11,9 +11,10 @@ Address user experience and content management pain points on `dailygrindband.co
     *   `_includes/google-analytics.html` (Delete)
     *   `_includes/analytics-cookie-consent.html` (Delete)
     *   `_config.yml` (Remove `google-analytics-id`)
-    *   `_layouts/base.html` / `_includes/head-meta.html` (Remove includes)
+    *   `_includes/head.html` (Remove include of analytics cookie consent)
 *   **Outcome:** The site will no longer set tracking cookies, making the banner obsolete. This vastly improves page load speed and UX.
 *   **Strato Stats Guide:** Traffic will be monitored via Strato's built-in tools.
+*   **Status:** [ ] Pending
 
 ### Phase 2: Live Events CSV Cleanup & Hero Indicator (Points 2 & 6)
 *   **Action (Data):** Audit and clean `_data/live.csv`. Ensure dates are standard (`YYYY-MM-DD`), remove empty columns, and sort correctly.
@@ -23,6 +24,7 @@ Address user experience and content management pain points on `dailygrindband.co
     *   `_data/live.csv`
     *   `_includes/hero.html`
     *   `assets/css/style.scss` / `_sass/_base.scss` (if custom CSS is needed)
+*   **Status:** [ ] Pending
 
 ### Phase 3: News Automation CLI Tool (Point 4)
 *   **Action:** Create a bash script `scripts/new_post.sh` and link it to the `Makefile`.
@@ -34,6 +36,7 @@ Address user experience and content management pain points on `dailygrindband.co
 *   **Files Affected:**
     *   `Makefile` (New target)
     *   `scripts/new_post.sh` (New file)
+*   **Status:** [ ] Pending
 
 ### Phase 4: Native Social Feed (Point 3)
 *   **Action:** Remove the Juicer iframe integration.
@@ -43,6 +46,7 @@ Address user experience and content management pain points on `dailygrindband.co
     *   `_includes/social-feed.html`
     *   `scripts/fetch_social.rb` (New file)
     *   `_data/social.json` (New file)
+*   **Status:** [ ] Pending
 
 ## Verification
 1.  Run `make serve` and verify no cookies are set and no banner appears.

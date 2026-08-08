@@ -1,30 +1,31 @@
 ---
 type: project
-status: paused
+status: active
 priority: medium
 category: app
-languages: [HTML/CSS, JavaScript]
+languages: [HTML/CSS, Ruby, Sass, JavaScript]
 description: "Jekyll-based rock band static website with GHA auto-deployment pipeline."
-last_active: 2026-04-07
+last_active: 2026-08-08
 git_branch: main
 ---
 # dailygrind-2024
 
 ## 🛠️ Project Blueprint & Architecture
-*   **Target Profile:** Directory / Files Collection
-*   **Primary Frameworks:** None detected
-*   **Platforms:** Not specified
-*   **Dependencies:** None specified
+*   **Target Profile:** Jekyll Static Web Application
+*   **Primary Frameworks:** Jekyll 4.4.x, Bootstrap 5.3 (Sass)
+*   **Platforms:** Web (GitHub Pages / Web Server via rsync deployment)
+*   **Dependencies:** Bundler (Ruby), HTMLProofer, FFmpeg, Git LFS
 
 ### 📂 Directory Structure
 ```text
 ├── 404.html
-├── GEMINI.md
+├── AGENTS.md
 ├── Gemfile
 ├── Gemfile.lock
 ├── Icon.png
 ├── LICENSE
 ├── Makefile
+├── PROJECT.md
 ├── README.md
 ├── _config.yml
 ├── _data/
@@ -42,15 +43,19 @@ git_branch: main
 ├── privacy.md
 ├── renovate.json
 ├── robots.txt
-├── vendor/
+├── scripts/
+└── vendor/
 ```
 
 <!-- DESCRIPTION_START -->
 ## 📝 AI Context & Core Purpose
-* <Describe the main role of this project/package here>
+Official Jekyll static website for the Nuremberg-based rock & pop band **Daily Grind** (dailygrindband.com). Serves band information, live concert dates, news, music, media galleries, and social media links.
 <!-- DESCRIPTION_END -->
 
 <!-- BACKLOG_START -->
 ## 📋 Current State & Backlog
-- [ ] Initial setup & analysis
+- [ ] Phase 1: Analytics & Cookie Banner Cleanup (Remove GA4 and Osano consent banner)
+- [ ] Phase 2: Live Events CSV Audit & Hero Next-Gig Indicator
+- [ ] Phase 3: News Automation CLI Tool (`make new-post` / `scripts/new_post.sh`)
+- [ ] Phase 4: Native Social Feed (`_data/social.json` + `scripts/fetch_social.rb`)
 <!-- BACKLOG_END -->
