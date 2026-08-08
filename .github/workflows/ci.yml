@@ -22,9 +22,9 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Setup env
-        uses: ruby/setup-ruby@v1.310.0
+        uses: ruby/setup-ruby@v1.321.0
         with:
           bundler-cache: true
       - name: Bundle install
@@ -52,7 +52,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout ruby version
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
           sparse-checkout: |
@@ -61,7 +61,7 @@ jobs:
             Gemfile.lock
             Makefile
       - name: Setup env
-        uses: ruby/setup-ruby@v1.310.0
+        uses: ruby/setup-ruby@v1.321.0
         with:
           bundler-cache: true
       - name: Bundle install
