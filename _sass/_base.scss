@@ -188,14 +188,14 @@ img.album {
 /* Rock Banner: Skewed Rock Banner */
 .rock-banner-skew {
   display: inline-block;
-  background: rgba(98, 9, 20, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(12, 10, 9, 0.95);
+  border: 2px solid #a80f1d;
   transform: skewX(-12deg);
   color: #fff;
   backdrop-filter: blur(8px);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 
   .rock-banner-inner {
     display: inline-block;
@@ -204,7 +204,8 @@ img.album {
 
   &:hover {
     transform: skewX(-12deg) scale(1.03);
-    border-color: #fff;
+    border-color: #dc3545;
+    box-shadow: 0 0 12px rgba(220, 53, 69, 0.5);
     color: #fff;
   }
 }
