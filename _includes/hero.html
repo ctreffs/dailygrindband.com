@@ -28,9 +28,8 @@
       </div>
 
       {% if next_event %}
-      {% assign next_event_url = next_event.url | default: "#live" %}
       <div class="mb-4">
-        <a href="{{ next_event_url }}" class="badge rounded-pill text-bg-primary text-decoration-none px-3 py-2 fs-6 shadow">
+        <a href="#live" class="badge rounded-pill text-bg-primary text-decoration-none d-inline-block text-wrap mw-100 px-3 py-2 fs-6 shadow">
           <i class="fa-solid fa-calendar-star me-2"></i>Nächstes Konzert: {{ next_event.date | date: "%d.%m.%Y" }}{% if next_event.venue and next_event.venue != "" %} @ {{ next_event.venue }}{% endif %}
         </a>
       </div>
