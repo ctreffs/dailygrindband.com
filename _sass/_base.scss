@@ -184,3 +184,39 @@ img.album {
     margin: 0;
   }
 }
+
+/* Hero Live Badge */
+.hero-live-badge {
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.9) 0%, rgba(33, 37, 41, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.03);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #fff;
+  }
+}
+
+.hero-pulse-dot {
+  font-size: 0.65em;
+  vertical-align: middle;
+  animation: hero-pulse 1.8s infinite;
+}
+
+@keyframes hero-pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
