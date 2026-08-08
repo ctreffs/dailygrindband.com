@@ -1,5 +1,5 @@
 ---
-name: news-automation
+name: news
 description: Use when creating, drafting, or publishing news posts for Daily Grind, processing news media assets, or scaffolding new post files in _posts/.
 ---
 

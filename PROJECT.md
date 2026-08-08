@@ -54,8 +54,8 @@ Official Jekyll static website for the Nuremberg-based rock & pop band **Daily G
 
 <!-- BACKLOG_START -->
 ## 📋 Current State & Backlog
-- [ ] Phase 1: News Automation Agent Skill (`.agents/skills/news-automation/SKILL.md`)
-- [ ] Phase 2: Create New News Post (using `news-automation` skill)
+- [x] Phase 1: News Automation Agent Skill (`.agents/skills/news/SKILL.md`)
+- [ ] Phase 2: Create New News Post (using `news` skill)
 - [ ] Phase 3: Live Events CSV Audit & Hero Next-Gig Indicator (`_data/live.csv` + `_includes/hero.html`)
 - [ ] Phase 4: Analytics & Cookie Banner Cleanup (Remove GA4 and Osano consent banner)
 - [x] Completed: Behold.so Social Feed Integration (`_includes/social-feed.html` + `_config.yml`)

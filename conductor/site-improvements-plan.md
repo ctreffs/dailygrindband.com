@@ -6,18 +6,18 @@ Address user experience and content management pain points on `dailygrindband.co
 ## Scope & Implementation Steps
 
 ### Phase 1: News Automation Agent Skill
-*   **Action:** Create a dedicated Agent Skill at `.agents/skills/news-automation/SKILL.md`.
+*   **Action:** Create a dedicated Agent Skill at `.agents/skills/news/SKILL.md`.
 *   **Functionality:**
     *   Provides standardized guidelines for scaffolding new posts (`_posts/YYYY-MM-DD-title.md`).
     *   Injects standard frontmatter (`layout: page`, `title`, `assets` array).
     *   Documents asset processing workflows (`make import-image-asset` / `make import-video-asset`).
     *   Enforces brand voice (energetic German rock band) and relative links (`{{ site.url }}#live`).
 *   **Files Affected:**
-    *   `.agents/skills/news-automation/SKILL.md` (New file)
+    *   `.agents/skills/news/SKILL.md` (New file)
 *   **Status:** [x] Implemented
 
 ### Phase 2: Create New News Post
-*   **Action:** Publish a new news post using the `news-automation` skill created in Phase 1.
+*   **Action:** Publish a new news post using the `news` skill created in Phase 1.
 *   **Functionality:**
     *   Scaffold new post file in `_posts/`.
     *   Process and convert any accompanying media assets using `make import-image-asset` or `make import-video-asset`.
@@ -57,7 +57,7 @@ Address user experience and content management pain points on `dailygrindband.co
 *   **Status:** [x] Implemented
 
 ## Verification
-1.  Verify `.agents/skills/news-automation/SKILL.md` exists and is recognized by agent tools.
+1.  Verify `.agents/skills/news/SKILL.md` exists and is recognized by agent tools.
 2.  Verify the new news post renders correctly and media assets compile without errors.
 3.  Verify the Hero section displays the correct upcoming gig from the cleaned CSV.
 4.  Run `make serve` and verify no cookies are set and no banner appears.
