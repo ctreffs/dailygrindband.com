@@ -17,7 +17,7 @@
       aria-expanded="false"
       aria-controls="event-archive"
     >
-      <h3 class="fs-4 fw-normal">Archiv <span class="badge rounded-pill text-bg-secondary fs-6 align-middle ms-1">{{ archive_events.size }}</span> <i class="fas fa-chevron-down ms-2"></i></h3>
+      <h3 class="fs-4 fw-normal">Live-Archiv <span class="badge rounded-pill text-bg-secondary fs-6 align-middle ms-1">{{ archive_events.size }}</span> <i class="fas fa-chevron-down ms-2"></i></h3>
     </button>
     <div class="row collapse" id="event-archive">
       {%- include live-table.html events = archive_events -%}
