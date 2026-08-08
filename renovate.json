@@ -50,7 +50,10 @@
     "renovate"
   ],
   "reviewers": [],
-  "assignees": [
-    "ctreffs"
+  "assignees": [],
+  "suppressNotifications": [
+    "prIgnoreNotification",
+    "prEditNotification",
+    "branchAutomergeFailure"
   ]
 }
