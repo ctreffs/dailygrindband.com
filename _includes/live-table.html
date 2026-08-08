@@ -21,6 +21,12 @@
   {% if event.date < today %}
     {% assign is_past = true %}
   {% endif %}
+  {% assign next_index = forloop.index %}
+  {% assign next_event = events[next_index] %}
+  {% assign is_last_upcoming = false %}
+  {% if event.date >= today and next_event and next_event.date < today %}
+    {% assign is_last_upcoming = true %}
+  {% endif %}
   {% assign wday = event.date | date: "%w" %}
   {% case wday %}
     {% when "0" %}{% assign wday_de = "So" %}
@@ -47,7 +53,7 @@
   </thead>
   {% endif %}
   <tbody>
-    <tr class="{% if is_past %}text-body-secondary opacity-50{% endif %}">
+    <tr class="{% if is_past %}text-body-secondary opacity-50{% endif %} {% if is_last_upcoming %}border-crimson-bottom{% endif %}">
       <td class="col-3 col-sm-2">{{ wday_de }}. {{ event.date | date: "%d.%m.%y" }}</td>
       <td class="col-7 col-sm-8">{{ event.name }} {{ event.venue }}</td>
       <td class="col-2">

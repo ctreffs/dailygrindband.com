@@ -243,3 +243,8 @@ img.album {
     box-shadow: 0 0 0 rgba(220, 53, 69, 0);
   }
 }
+
+/* Red border separating upcoming and past gigs in live table */
+tr.border-crimson-bottom > td {
+  border-bottom: 2px solid #a80f1d !important;
+}
