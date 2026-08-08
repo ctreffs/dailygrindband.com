@@ -1,7 +1,6 @@
-{% assign current_year = 'now' | date: "%Y" %} {% assign live_events =
-site.data.live | where_exp:"item", "item.date >= current_year" | sort: "date" %} {% assign
-archive_events = site.data.live | where_exp:"item", "item.date < current_year"
-%}
+{% assign current_year = 'now' | date: "%Y" %}
+{% assign live_events = site.data.live | where_exp:"item", "item.date >= current_year" | sort: "date" | reverse %}
+{% assign archive_events = site.data.live | where_exp:"item", "item.date < current_year" | sort: "date" | reverse %}
 <section id="live">
   <div class="container mt-5 text-center">
     <h1>Live</h1>
