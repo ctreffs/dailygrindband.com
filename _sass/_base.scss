@@ -236,3 +236,9 @@ img.album {
 tr.border-crimson-bottom > td {
   border-bottom: 2px solid $primary !important;
 }
+
+/* News Carousel Video Border */
+.news-carousel-video {
+  border: 1px solid rgba($body-color-dark, 0.25);
+  border-radius: 4px;
+}
