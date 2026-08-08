@@ -5,7 +5,7 @@
 {%- endif -%}
 <section id="news">
   <div class="container mt-5">
-    <div class="row g-5 py-5">
+    <div class="row g-5 pt-5 pb-2">
       <div class="col-12 {% if has_assets %}col-lg-6{% endif %}">
         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">NEWS</h1>
         <article class="news-post">
@@ -61,7 +61,7 @@
       {% if site.posts.size > 1 %}
       <div class="col-12 text-center">
         <button
-          class="btn my-4"
+          class="btn"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#older-news-container"
