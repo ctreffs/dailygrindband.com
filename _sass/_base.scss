@@ -193,8 +193,8 @@ img.album {
 /* Rock Banner: Skewed Rock Banner with Rhythmic Heartbeat Pulse */
 .rock-banner-skew {
   display: inline-block;
-  background: rgba(12, 10, 9, 0.95);
-  border: 2px solid #a80f1d;
+  background: rgba($body-bg-dark, 0.95);
+  border: 2px solid $primary;
   transform: skewX(-12deg);
   color: #fff;
   backdrop-filter: blur(8px);
@@ -211,40 +211,24 @@ img.album {
   &:hover {
     animation-play-state: paused;
     transform: skewX(-12deg) scale(1.04);
-    border-color: #dc3545;
-    box-shadow: 0 0 16px rgba(220, 53, 69, 0.7);
+    border-color: lighten($primary, 15%);
+    box-shadow: 0 0 16px rgba($primary, 0.7);
     color: #fff;
   }
 }
 
 @keyframes banner-heartbeat {
-  0% {
+  0%, 20%, 40%, 100% {
     transform: skewX(-12deg) scale(1);
-    box-shadow: 0 0 0 rgba(220, 53, 69, 0);
+    box-shadow: 0 0 0 rgba($primary, 0);
   }
-  10% {
+  10%, 30% {
     transform: skewX(-12deg) scale(1.04);
-    box-shadow: 0 0 14px rgba(220, 53, 69, 0.6);
-  }
-  20% {
-    transform: skewX(-12deg) scale(1);
-    box-shadow: 0 0 0 rgba(220, 53, 69, 0);
-  }
-  30% {
-    transform: skewX(-12deg) scale(1.04);
-    box-shadow: 0 0 14px rgba(220, 53, 69, 0.6);
-  }
-  40% {
-    transform: skewX(-12deg) scale(1);
-    box-shadow: 0 0 0 rgba(220, 53, 69, 0);
-  }
-  100% {
-    transform: skewX(-12deg) scale(1);
-    box-shadow: 0 0 0 rgba(220, 53, 69, 0);
+    box-shadow: 0 0 14px rgba($primary, 0.6);
   }
 }
 
 /* Red border separating upcoming and past gigs in live table */
 tr.border-crimson-bottom > td {
-  border-bottom: 2px solid #a80f1d !important;
+  border-bottom: 2px solid $primary !important;
 }
