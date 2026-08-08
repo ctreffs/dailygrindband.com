@@ -3,7 +3,7 @@
 {% assign archive_events = site.data.live | where_exp:"item", "item.date < current_year" | sort: "name" | reverse | sort: "date" | reverse %}
 <section id="live">
   <div class="container mt-5 text-center">
-    <h1>Live</h1>
+    <h1>Live <span class="badge rounded-pill text-bg-primary fs-5 align-middle ms-1">{{ site.data.live.size }}</span></h1>
     <div class="row">{%- include live-table.html events = live_events placeholder_year = current_year -%}</div>
   </div>
   <!-- LIVE END -->
