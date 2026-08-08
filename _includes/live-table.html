@@ -48,7 +48,7 @@
   {% endif %}
   <tbody>
     <tr class="{% if is_past %}text-body-secondary opacity-50{% endif %}">
-      <td class="col-3 col-sm-2">{{ wday_de }}, {{ event.date | date: "%d.%m." }}</td>
+      <td class="col-3 col-sm-2">{{ wday_de }}. {{ event.date | date: "%d.%m." }}</td>
       <td class="col-7 col-sm-8">{{ event.name }} {{ event.venue }}</td>
       <td class="col-2">
         {% if href != "#" == true %}<a
