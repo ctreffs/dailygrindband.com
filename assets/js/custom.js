@@ -1,21 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   /**
-   * Handles loading more news posts on button click.
-   */
-  const loadMoreNews = () => {
-    const loadMoreBtn = document.getElementById("load-more-news");
-    const olderNewsContainer = document.getElementById("older-news-container");
-    if (!loadMoreBtn || !olderNewsContainer) return;
-
-    loadMoreBtn.addEventListener("click", function () {
-      // Show the container with all older news posts
-      olderNewsContainer.classList.remove("d-none");
-      // Hide the button after it's clicked
-      loadMoreBtn.classList.add("d-none");
-    });
-  };
-
-  /**
    * Handles video playback in the news carousel.
    * - Advances to the next slide when a video ends.
    * - Pauses non-visible videos and plays the active one when slides change.
@@ -247,7 +231,6 @@ document.addEventListener("DOMContentLoaded", function () {
     checkNavbarBackground();
   };
 
-  loadMoreNews();
   handleCarouselVideos();
   handleNavbarBrandVisibility();
   handleNavbarAutoclose();

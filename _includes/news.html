@@ -60,9 +60,18 @@
     <div class="row">
       {% if site.posts.size > 1 %}
       <div class="col-12 text-center">
-        <button id="load-more-news" class="btn btn-primary mb-5">Ältere News laden</button>
+        <button
+          class="btn my-4"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#older-news-container"
+          aria-expanded="false"
+          aria-controls="older-news-container"
+        >
+          <h2>Ältere News <span class="badge rounded-pill text-bg-secondary fs-6 align-middle ms-1">{{ site.posts.size | minus: 1 }}</span> <i class="fas fa-chevron-down ms-2"></i></h2>
+        </button>
       </div>
-      <div id="older-news-container" class="col-12 d-none">
+      <div id="older-news-container" class="col-12 collapse">
         {% for post in site.posts offset:1 %}
         {% assign older_has_assets = false %}
         {% if post.assets and post.assets.size > 0 %}
