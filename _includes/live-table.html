@@ -54,12 +54,12 @@
   {% endif %}
   <tbody>
     <tr class="{% if is_past %}text-body-secondary opacity-50{% endif %} {% if is_last_upcoming %}border-crimson-bottom{% endif %}">
-      <td class="col-3 col-sm-2">{{ wday_de }}. {{ event.date | date: "%d.%m.%y" }}</td>
-      <td class="col-7 col-sm-8">{{ event.name }} {{ event.venue }}</td>
-      <td class="col-2">
+      <td class="col-3 col-sm-2"><span class="d-none d-sm-inline">{{ wday_de }}. </span>{{ event.date | date: "%d.%m.%y" }}</td>
+      <td class="col-6 col-sm-8">{{ event.name }} {{ event.venue }}</td>
+      <td class="col-3 col-sm-2 text-end">
         {% if href != "#" == true %}<a
           href="{{ href }}"
-          class="btn {% if is_past %}btn-outline-secondary{% else %}btn-outline-primary{% endif %}"
+          class="btn btn-sm px-2 py-1 {% if is_past %}btn-outline-secondary{% else %}btn-outline-primary{% endif %}"
           role="button"
           target="_blank"
         >
