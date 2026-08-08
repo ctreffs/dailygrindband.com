@@ -94,11 +94,16 @@ nav.navbar-solid {
 
 #carouselHero .carousel-item img {
   object-fit: cover;
-  object-position: bottom;
-  height: clamp(420px, 70vh, 820px);
+  object-position: center;
+  height: 820px;
   aspect-ratio: 1/1;
   overflow: hidden;
   transition: height 0.3s ease-in-out, object-position 0.3s ease-in-out;
+
+  @media (max-width: 768px) {
+    height: clamp(420px, 60vh, 520px);
+    object-position: bottom;
+  }
 }
 
 #carouselHero .carousel-caption {
