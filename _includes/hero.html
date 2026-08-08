@@ -28,9 +28,23 @@
       </div>
 
       {% if next_event %}
-      <div class="mb-4">
-        <a href="#live" class="hero-live-badge badge rounded-pill text-decoration-none d-inline-block text-wrap mw-100 px-3 py-2 fs-6 shadow-lg">
-          <i class="fa-solid fa-circle text-danger me-2 hero-pulse-dot"></i>Nächster Gig: {{ next_event.date | date: "%d.%m.%y" }}{% if next_event.venue and next_event.venue != "" %} @ {{ next_event.venue }}{% endif %}
+      {% assign gig_text = next_event.date | date: "%d.%m.%y" %}
+      {% if next_event.venue and next_event.venue != "" %}{% assign gig_text = gig_text | append: " @ " | append: next_event.venue %}{% endif %}
+
+      <div class="d-flex flex-column align-items-center gap-2 mb-4">
+        <!-- Option 1: Skewed Banner -->
+        <a href="#live" class="rock-banner-skew text-decoration-none px-3 py-2 fs-6 shadow">
+          <span class="rock-banner-inner">🎸 Nächster Gig: {{ gig_text }}</span>
+        </a>
+
+        <!-- Option 2: Ticket / VIP Pass -->
+        <a href="#live" class="rock-banner-ticket text-decoration-none px-3 py-2 fs-6 shadow">
+          <span>🤘 Nächster Gig • {{ gig_text }}</span>
+        </a>
+
+        <!-- Option 3: Stenciled Crimson Glow -->
+        <a href="#live" class="rock-banner-stencil text-decoration-none px-3 py-2 fs-6 shadow">
+          <span>⚡ Nächster Gig: {{ gig_text }}</span>
         </a>
       </div>
       {% endif %}

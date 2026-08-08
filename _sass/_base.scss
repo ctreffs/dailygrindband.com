@@ -185,38 +185,64 @@ img.album {
   }
 }
 
-/* Hero Live Badge */
-.hero-live-badge {
-  background: linear-gradient(135deg, rgba(13, 110, 253, 0.9) 0%, rgba(33, 37, 41, 0.95) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(8px);
+/* Rock Banner Option 1: Skewed Rock Banner */
+.rock-banner-skew {
+  display: inline-block;
+  background: rgba(98, 9, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transform: skewX(-12deg);
   color: #fff;
-  transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  backdrop-filter: blur(8px);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+
+  .rock-banner-inner {
+    display: inline-block;
+    transform: skewX(12deg);
+  }
 
   &:hover {
-    transform: scale(1.03);
-    border-color: rgba(255, 255, 255, 0.5);
+    transform: skewX(-12deg) scale(1.03);
+    border-color: #fff;
     color: #fff;
   }
 }
 
-.hero-pulse-dot {
-  font-size: 0.65em;
-  vertical-align: middle;
-  animation: hero-pulse 1.8s infinite;
+/* Rock Banner Option 2: VIP Pass / Concert Ticket Style */
+.rock-banner-ticket {
+  display: inline-block;
+  background: rgba(12, 10, 9, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 5px solid #a80f1d;
+  color: #fff;
+  backdrop-filter: blur(8px);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    border-color: rgba(255, 255, 255, 0.4);
+    border-left-color: #dc3545;
+    color: #fff;
+  }
 }
 
-@keyframes hero-pulse {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.3;
-    transform: scale(0.85);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
+/* Rock Banner Option 3: Stenciled Crimson Glow */
+.rock-banner-stencil {
+  display: inline-block;
+  background: #000;
+  border: 1px solid #8c101c;
+  box-shadow: 0 0 12px rgba(140, 16, 28, 0.6);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 18px rgba(220, 53, 69, 0.8);
+    color: #fff;
   }
 }
