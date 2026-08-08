@@ -38,15 +38,15 @@ Address user experience and content management pain points on `dailygrindband.co
     *   `scripts/new_post.sh` (New file)
 *   **Status:** [ ] Pending
 
-### Phase 4: Native Social Feed (Point 3)
+### Phase 4: Behold.so Social Feed Integration (Point 3)
 *   **Action:** Remove the Juicer iframe integration.
-*   **Action:** Create a static, native UI grid in `_includes/social-feed.html` that reads from a new `_data/social.json` file.
-*   **Action:** Create a Ruby script (`scripts/fetch_social.rb`) to fetch recent posts and save them to `_data/social.json`. *Note: Depending on how strict Instagram's API is currently acting, we might need to use a free RSS-to-JSON proxy, but the script will be fully prepared to handle the sync.*
+*   **Action:** Add Behold.so widget embed in `_includes/social-feed.html` controlled via `behold-feed-id` setting in `_config.yml`.
+*   **Action:** Update privacy disclosures in `privacy.md`.
 *   **Files Affected:**
+    *   `_config.yml`
     *   `_includes/social-feed.html`
-    *   `scripts/fetch_social.rb` (New file)
-    *   `_data/social.json` (New file)
-*   **Status:** [ ] Pending
+    *   `privacy.md`
+*   **Status:** [x] Implemented (Awaiting feed ID configuration from user)
 
 ## Verification
 1.  Run `make serve` and verify no cookies are set and no banner appears.
