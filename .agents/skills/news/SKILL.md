@@ -15,7 +15,7 @@ This skill defines standard workflows and quality controls for creating, process
 
 ## cannot
 - NEVER place raw, unoptimized image or video files directly into `assets/images/news/` or `assets/videos/news/` without processing via the Makefile import commands.
-- NEVER hardcode absolute production URLs for live event sections; ALWAYS use `{{ site.url }}#live` for live gig references.
+- NEVER hardcode absolute production URLs for live event sections; ALWAYS use `{{ site.url }}/#live` for live gig references.
 - NEVER omit required frontmatter fields (`layout: page`, `title`, `assets`).
 - NEVER write post text in passive or unenergetic tones; post text MUST represent an energetic German rock band.
 - NEVER use raw video extensions like `.mov` or `.MOV` in the `assets` list; video assets MUST be converted and saved with an `.mp4` extension.
@@ -59,7 +59,7 @@ assets:
 Draft the content in German matching the energetic Daily Grind rock band voice:
 - Express enthusiasm, band updates, gig announcements, or release info.
 - Use rock-themed emojis appropriately (🎸, 🤘, 🔥, ⚡).
-- Reference upcoming concert dates using site URL variables: `[date & location]({{ site.url }}#live)`.
+- Reference upcoming concert dates using site URL variables: `[date & location]({{ site.url }}/#live)`.
 - End with energetic sign-offs (e.g., "Stay tuned und rock on! 🔥").
 
 ### 4. Verify Build and Links

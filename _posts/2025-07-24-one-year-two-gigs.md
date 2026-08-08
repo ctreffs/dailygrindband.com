@@ -11,7 +11,7 @@ Die Energie war der Hammer und BAMM haben ordentlich vorgelegt – richtig stark
 
 Aber das war erst der Anfang:  
 
-Unser **nächster Gig** steht schon fest – [**am 12. Dezember 2025** sind wir **wieder in der Kofferfabrik**]({{ site.url }}#live), diesmal **zusammen mit den [RAMRODS](https://www.ramrods.de)**. Das wird ein Jahresabschluss mit ordentlich Druck auf den Ohren! 🎸🔥
+Unser **nächster Gig** steht schon fest – [**am 12. Dezember 2025** sind wir **wieder in der Kofferfabrik**]({{ site.url }}/#live), diesmal **zusammen mit den [RAMRODS](https://www.ramrods.de)**. Das wird ein Jahresabschluss mit ordentlich Druck auf den Ohren! 🎸🔥
 
 Merkt euch den Termin – wir freuen uns auf euch!  
 

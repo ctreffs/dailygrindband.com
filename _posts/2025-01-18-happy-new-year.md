@@ -16,7 +16,7 @@ Besonders an diesem Gig war auch, dass Martin uns erstmals am Bass unterstützt 
 
 Für 2025 haben wir schon einiges geplant: Los geht's mit unserem
 nächsten Gig am Samstag, den
-[22.02.25 in der Kofferfabrik in Fürth]({{ site.url }}#live).   
+[22.02.25 in der Kofferfabrik in Fürth]({{ site.url }}/#live).   
 Außerdem arbeiten wir fleißig an unserem zweiten Album, das wir euch
 bald präsentieren wollen.   
 
