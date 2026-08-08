@@ -16,6 +16,8 @@ $Daily-Grind-Plymouth-Dark-5-hsla: #0c0a09;
 
 $body-color-dark: $Daily-Grind-Plymouth-Dark-2-hsla;
 $body-bg-dark: $Daily-Grind-Plymouth-Dark-5-hsla;
+$body-secondary-bg-dark: $Daily-Grind-Plymouth-Dark-5-hsla;
+$body-tertiary-bg-dark: $Daily-Grind-Plymouth-Dark-5-hsla;
 $primary: $Daily-Grind-Plymouth-Dark-1-hsla;
 
 // TODO: font-family: "Gotham Book", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
@@ -72,6 +74,10 @@ $primary: $Daily-Grind-Plymouth-Dark-1-hsla;
 // 7. Include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 // Utilities
 @import "bootstrap/bootstrap/utilities/api";
+
+html, body, footer {
+  background-color: $body-bg-dark;
+}
 
 #navbar-main {
   transition: background-color 0.3s ease-in-out;
