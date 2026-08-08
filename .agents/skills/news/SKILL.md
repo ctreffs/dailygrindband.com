@@ -18,29 +18,31 @@ This skill defines standard workflows and quality controls for creating, process
 - NEVER hardcode absolute production URLs for live event sections; ALWAYS use `{{ site.url }}#live` for live gig references.
 - NEVER omit required frontmatter fields (`layout: page`, `title`, `assets`).
 - NEVER write post text in passive or unenergetic tones; post text MUST represent an energetic German rock band.
+- NEVER use raw video extensions like `.mov` or `.MOV` in the `assets` list; video assets MUST be converted and saved with an `.mp4` extension.
+- NEVER delete or overwrite existing post files in `_posts/` when publishing a new update; older news entries MUST remain intact.
 
 ## workflow
 
 ### 1. Process Media Assets First
-Before scaffolding the markdown file, convert and optimize all attached media using the Makefile tasks:
+Before scaffolding the markdown file, convert and optimize all attached media using the Makefile tasks, adhering to the standard media naming schema (`YYYYMMDD-event-description.ext`):
 
 - **For images** (JPEG, PNG, etc.):
   ```bash
   make import-image-asset FILE="path/to/photo.jpg"
   ```
-  *(Outputs optimized WebP image to `assets/images/news/`)*
+  *(Outputs optimized WebP image to `assets/images/news/YYYYMMDD-event-description.webp`)*
 
 - **For videos** (MP4, MOV, etc.):
-  Ensure the input video uses or is saved with the `.mp4` extension (required by Jekyll carousel rendering):
+  Ensure the target video filename uses the `.mp4` extension (required by Jekyll carousel rendering):
   ```bash
   make import-video-asset FILE="path/to/video.mp4"
   ```
-  *(Outputs optimized MP4 video to `assets/videos/news/`)*
+  *(Outputs optimized MP4 video to `assets/videos/news/YYYYMMDD-event-description.mp4`)*
 
-Note the relative web path of generated files (e.g., `/assets/images/news/photo.webp` or `/assets/videos/news/video.mp4`).
+Note the relative web path of generated files (e.g., `/assets/images/news/YYYYMMDD-event-description.webp` or `/assets/videos/news/YYYYMMDD-event-description.mp4`).
 
 ### 2. Scaffold Post File
-Create a new post file in `_posts/` with the file naming convention `YYYY-MM-DD-kebab-case-title.md`.
+Create a new post file in `_posts/` with the file naming convention `YYYY-MM-DD-kebab-case-title.md`, where `YYYY-MM-DD` defaults to the current date (today) unless a specific publication date is requested.
 
 Inject the mandatory Jekyll frontmatter block:
 
@@ -68,6 +70,8 @@ make build && make check
 
 ## operating rules
 - **Frontmatter Invariant**: `layout` MUST be `page`. `title` MUST be enclosed in quotes if it contains special characters or colons. `assets` MUST be a list of root-relative paths starting with `/assets/`.
-- **Media Optimization**: Always run `make import-image-asset` or `make import-video-asset` to maintain site performance and consistent resolution. Ensure video asset paths end in `.mp4` for correct carousel tag rendering.
+- **Post Date Default**: Unless explicitly instructed otherwise, new post filenames (`YYYY-MM-DD-kebab-case-title.md`) MUST default to the current date (today).
+- **Older News Retention**: Never delete or replace existing post files in `_posts/`. The newest post becomes the primary news feature (`site.posts | first`), while older posts automatically remain accessible under the collapsible "Ältere News" section (`offset:1`).
+- **Media Optimization & Naming Schema**: Always run `make import-image-asset` or `make import-video-asset` to maintain site performance and consistent resolution. Asset filenames MUST follow the naming schema `YYYYMMDD-event-description.ext` using generic placeholders. Ensure video asset paths end in `.mp4` for correct carousel tag rendering.
 - **Language & Voice**: Posts MUST be in German, adopting the persona of an energetic Nürnberg rock band.
 - **Verification**: Post creation is not complete until `make build` and `make check` complete without errors.

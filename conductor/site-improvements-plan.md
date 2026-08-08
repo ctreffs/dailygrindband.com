@@ -25,7 +25,7 @@ Address user experience and content management pain points on `dailygrindband.co
 *   **Files Affected:**
     *   `_posts/YYYY-MM-DD-title.md` (New file)
     *   `assets/images/news/` / `assets/videos/news/`
-*   **Status:** [ ] Pending
+*   **Status:** [x] Implemented
 
 ### Phase 3: Live Events CSV Cleanup & Hero Indicator
 *   **Action (Data):** Audit and clean `_data/live.csv`. Ensure dates are standard (`YYYY-MM-DD`), remove empty columns, and sort correctly.
