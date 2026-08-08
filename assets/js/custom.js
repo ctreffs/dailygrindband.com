@@ -61,6 +61,16 @@ document.addEventListener("DOMContentLoaded", function () {
         activeVideo.play().catch((e) => console.error("Video autoplay failed:", e));
       }
     });
+
+    // Ensure active video plays on initial page load / refresh
+    const initialActiveVideo = newsCarouselElement.querySelector(".carousel-item.active .news-carousel-video");
+    if (initialActiveVideo) {
+      initialActiveVideo.play().catch(() => {
+        // If initial play failed due to browser restriction or cached 304 response, reload media stream
+        initialActiveVideo.load();
+        initialActiveVideo.play().catch((e) => console.error("Video initial play failed:", e));
+      });
+    }
   };
 
   /**
