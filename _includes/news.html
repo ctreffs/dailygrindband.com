@@ -5,7 +5,7 @@
 {%- endif -%}
 <section id="news">
   <div class="container mt-5">
-    <div class="row g-5 py-5">
+    <div class="row g-5 pt-5 pb-2">
       <div class="col-12 {% if has_assets %}col-lg-6{% endif %}">
         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">NEWS</h1>
         <article class="news-post">
@@ -21,7 +21,7 @@
             {% for asset_path in latest_post.assets %} {% assign asset_ext = asset_path | split: '.' | last | downcase %}
             <div class="carousel-item {% if forloop.first %}active{% endif %}">
               {%- if asset_ext == 'mp4' or asset_ext == 'webm' or asset_ext == 'ogv' -%}
-              <video class="d-block w-100 news-carousel-video" autoplay muted playsinline {%- if latest_post.assets.size == 1 %} loop{% endif %}>
+              <video class="d-block w-100 news-carousel-video" autoplay muted playsinline preload="metadata" {%- if latest_post.assets.size == 1 %} loop{% endif %}>
                 <source src="{{ asset_path | relative_url }}" type="video/{{ asset_ext }}" />
                 Your browser does not support the video tag.
               </video>
@@ -60,15 +60,74 @@
     <div class="row">
       {% if site.posts.size > 1 %}
       <div class="col-12 text-center">
-        <button id="load-more-news" class="btn btn-primary mb-5">Ältere News laden</button>
+        <button
+          class="btn"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#older-news-container"
+          aria-expanded="false"
+          aria-controls="older-news-container"
+        >
+          <h3 class="fs-4 fw-normal">News-Archiv <span class="badge rounded-pill text-bg-secondary fs-6 align-middle ms-1">{{ site.posts.size | minus: 1 }}</span> <i class="fas fa-chevron-down ms-2"></i></h3>
+        </button>
       </div>
-      <div id="older-news-container" class="col-12 d-none">
+      <div id="older-news-container" class="col-12 collapse">
         {% for post in site.posts offset:1 %}
+        {% assign older_has_assets = false %}
+        {% if post.assets and post.assets.size > 0 %}
+          {% assign older_has_assets = true %}
+        {% endif %}
         <article class="news-post">
-          <hr class="my-4" />
-          <h5 class="fw-bold">{{ post.title }}</h5>
-          <p class="text-body-secondary mb-3">{{ post.date | date: "%d.%m.%Y" }}</p>
-          {{ post.content }}
+          <hr class="my-5" />
+          <div class="row g-4 align-items-center">
+            <div class="col-12 {% if older_has_assets %}col-lg-6{% endif %}">
+              <h5 class="fw-bold">{{ post.title }}</h5>
+              <p class="text-body-secondary mb-3">{{ post.date | date: "%d.%m.%Y" }}</p>
+              {{ post.content }}
+            </div>
+            {% if older_has_assets %}
+            <div class="col-12 col-lg-6">
+              {% if post.assets.size == 1 %}
+                {% assign asset_path = post.assets.first %}
+                {% assign asset_ext = asset_path | split: '.' | last | downcase %}
+                {% if asset_ext == 'mp4' or asset_ext == 'webm' or asset_ext == 'ogv' %}
+                  <video class="d-block w-100 news-carousel-video" controls muted playsinline preload="metadata">
+                    <source src="{{ asset_path | relative_url }}" type="video/{{ asset_ext }}" />
+                    Your browser does not support the video tag.
+                  </video>
+                {% else %}
+                  <img src="{{ asset_path | relative_url }}" class="d-block w-100 rounded" alt="News asset for {{ post.title }}" loading="lazy" />
+                {% endif %}
+              {% else %}
+                <div id="olderCarousel-{{ forloop.index }}" class="carousel slide">
+                  <div class="carousel-inner">
+                    {% for asset_path in post.assets %}
+                    {% assign asset_ext = asset_path | split: '.' | last | downcase %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                      {% if asset_ext == 'mp4' or asset_ext == 'webm' or asset_ext == 'ogv' %}
+                        <video class="d-block w-100 news-carousel-video" controls muted playsinline preload="metadata">
+                          <source src="{{ asset_path | relative_url }}" type="video/{{ asset_ext }}" />
+                          Your browser does not support the video tag.
+                        </video>
+                      {% else %}
+                        <img src="{{ asset_path | relative_url }}" class="d-block w-100 rounded" alt="News asset for {{ post.title }}" loading="lazy" />
+                      {% endif %}
+                    </div>
+                    {% endfor %}
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#olderCarousel-{{ forloop.index }}" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#olderCarousel-{{ forloop.index }}" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              {% endif %}
+            </div>
+            {% endif %}
+          </div>
         </article>
         {% endfor %}
       </div>

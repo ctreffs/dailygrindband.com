@@ -1,3 +1,6 @@
+{% assign today = 'now' | date: "%Y-%m-%d" %}
+{% assign upcoming_events = site.data.live | where_exp: "item", "item.date >= today" | sort: "date" %}
+{% assign next_event = upcoming_events.first %}
 <section id="hero">
   <div
     id="carouselHero"
@@ -23,6 +26,17 @@
         src="assets/images/dg-logo.webp"
       />
       </div>
+
+      {% if next_event %}
+      {% assign gig_text = next_event.date | date: "%d.%m.%y" %}
+      {% if next_event.venue and next_event.venue != "" %}{% assign gig_text = gig_text | append: " @ " | append: next_event.venue %}{% endif %}
+
+      <div class="mb-4">
+        <a href="#live" class="rock-banner-skew text-decoration-none px-3 py-2 fs-6 shadow">
+          <span class="rock-banner-inner">🤘 LIVE • {{ gig_text }}</span>
+        </a>
+      </div>
+      {% endif %}
 
       <div id="scroll-down-chevron" class="animate-bounce position-fixed bottom-0 start-50 translate-middle-x">
         <a

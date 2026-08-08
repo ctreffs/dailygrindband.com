@@ -1,21 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   /**
-   * Handles loading more news posts on button click.
-   */
-  const loadMoreNews = () => {
-    const loadMoreBtn = document.getElementById("load-more-news");
-    const olderNewsContainer = document.getElementById("older-news-container");
-    if (!loadMoreBtn || !olderNewsContainer) return;
-
-    loadMoreBtn.addEventListener("click", function () {
-      // Show the container with all older news posts
-      olderNewsContainer.classList.remove("d-none");
-      // Hide the button after it's clicked
-      loadMoreBtn.classList.add("d-none");
-    });
-  };
-
-  /**
    * Handles video playback in the news carousel.
    * - Advances to the next slide when a video ends.
    * - Pauses non-visible videos and plays the active one when slides change.
@@ -61,6 +45,16 @@ document.addEventListener("DOMContentLoaded", function () {
         activeVideo.play().catch((e) => console.error("Video autoplay failed:", e));
       }
     });
+
+    // Ensure active video plays on initial page load / refresh
+    const initialActiveVideo = newsCarouselElement.querySelector(".carousel-item.active .news-carousel-video");
+    if (initialActiveVideo) {
+      initialActiveVideo.play().catch(() => {
+        // If initial play failed due to browser restriction or cached 304 response, reload media stream
+        initialActiveVideo.load();
+        initialActiveVideo.play().catch((e) => console.error("Video initial play failed:", e));
+      });
+    }
   };
 
   /**
@@ -208,9 +202,38 @@ document.addEventListener("DOMContentLoaded", function () {
     checkChevronState(); // Initial check on page load
   };
 
-  loadMoreNews();
+  /**
+   * Toggles solid background color on top menu bar when scrolled past hero section.
+   */
+  const handleNavbarBackground = () => {
+    const navbar = document.getElementById("navbar-main");
+    const heroSection = document.getElementById("hero");
+    if (!navbar) return;
+
+    if (!heroSection) {
+      navbar.classList.add("navbar-solid");
+      return;
+    }
+
+    const checkNavbarBackground = () => {
+      const heroBottom = heroSection.getBoundingClientRect().bottom;
+      const navbarHeight = navbar.offsetHeight;
+
+      if (heroBottom <= navbarHeight) {
+        navbar.classList.add("navbar-solid");
+      } else {
+        navbar.classList.remove("navbar-solid");
+      }
+    };
+
+    window.addEventListener("scroll", checkNavbarBackground);
+    window.addEventListener("resize", checkNavbarBackground);
+    checkNavbarBackground();
+  };
+
   handleCarouselVideos();
   handleNavbarBrandVisibility();
   handleNavbarAutoclose();
   handleHeroChevron();
+  handleNavbarBackground();
 });

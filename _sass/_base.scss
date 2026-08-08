@@ -16,6 +16,8 @@ $Daily-Grind-Plymouth-Dark-5-hsla: #0c0a09;
 
 $body-color-dark: $Daily-Grind-Plymouth-Dark-2-hsla;
 $body-bg-dark: $Daily-Grind-Plymouth-Dark-5-hsla;
+$body-secondary-bg-dark: $Daily-Grind-Plymouth-Dark-5-hsla;
+$body-tertiary-bg-dark: $Daily-Grind-Plymouth-Dark-5-hsla;
 $primary: $Daily-Grind-Plymouth-Dark-1-hsla;
 
 // TODO: font-family: "Gotham Book", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
@@ -73,8 +75,21 @@ $primary: $Daily-Grind-Plymouth-Dark-1-hsla;
 // Utilities
 @import "bootstrap/bootstrap/utilities/api";
 
+html, body, footer {
+  background-color: $body-bg-dark;
+}
+
+#navbar-main {
+  transition: background-color 0.3s ease-in-out;
+}
+
 nav.navbar-solid {
   background-color: $body-bg-dark;
+}
+
+#navbar-main .nav-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 #carouselHero .carousel-item img {
@@ -83,6 +98,12 @@ nav.navbar-solid {
   height: 820px;
   aspect-ratio: 1/1;
   overflow: hidden;
+  transition: height 0.3s ease-in-out, object-position 0.3s ease-in-out;
+
+  @media (max-width: 768px) {
+    height: clamp(420px, 60vh, 520px);
+    object-position: bottom;
+  }
 }
 
 #carouselHero .carousel-caption {
@@ -183,4 +204,53 @@ img.album {
   figure[data-behold-id] {
     margin: 0;
   }
+}
+
+/* Rock Banner: Skewed Rock Banner with Rhythmic Heartbeat Pulse */
+.rock-banner-skew {
+  display: inline-block;
+  background: rgba($body-bg-dark, 0.95);
+  border: 2px solid $primary;
+  transform: skewX(-12deg);
+  color: #fff;
+  backdrop-filter: blur(8px);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  animation: banner-heartbeat 3.5s infinite ease-in-out;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  .rock-banner-inner {
+    display: inline-block;
+    transform: skewX(12deg);
+  }
+
+  &:hover {
+    animation-play-state: paused;
+    transform: skewX(-12deg) scale(1.04);
+    border-color: lighten($primary, 15%);
+    box-shadow: 0 0 16px rgba($primary, 0.7);
+    color: #fff;
+  }
+}
+
+@keyframes banner-heartbeat {
+  0%, 20%, 40%, 100% {
+    transform: skewX(-12deg) scale(1);
+    box-shadow: 0 0 0 rgba($primary, 0);
+  }
+  10%, 30% {
+    transform: skewX(-12deg) scale(1.04);
+    box-shadow: 0 0 14px rgba($primary, 0.6);
+  }
+}
+
+/* Red border separating upcoming and past gigs in live table */
+tr.border-crimson-bottom > td {
+  border-bottom: 2px solid $primary !important;
+}
+
+/* News Carousel Video Border */
+.news-carousel-video {
+  border: 1px solid rgba($body-color-dark, 0.25);
+  border-radius: 4px;
 }

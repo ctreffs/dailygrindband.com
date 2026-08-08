@@ -1,7 +1,6 @@
-{% assign current_year = 'now' | date: "%Y" %} {% assign live_events =
-site.data.live | where_exp:"item", "item.date >= current_year" | sort: "date" %} {% assign
-archive_events = site.data.live | where_exp:"item", "item.date < current_year"
-%}
+{% assign current_year = 'now' | date: "%Y" %}
+{% assign live_events = site.data.live | where_exp:"item", "item.date >= current_year" | sort: "name" | reverse | sort: "date" | reverse %}
+{% assign archive_events = site.data.live | where_exp:"item", "item.date < current_year" | sort: "name" | reverse | sort: "date" | reverse %}
 <section id="live">
   <div class="container mt-5 text-center">
     <h1>Live</h1>
@@ -18,7 +17,7 @@ archive_events = site.data.live | where_exp:"item", "item.date < current_year"
       aria-expanded="false"
       aria-controls="event-archive"
     >
-      <h2>Archive <i class="fas fa-chevron-down ms-2"></i></h2>
+      <h3 class="fs-4 fw-normal">Live-Archiv <span class="badge rounded-pill text-bg-secondary fs-6 align-middle ms-1">{{ archive_events.size }}</span> <i class="fas fa-chevron-down ms-2"></i></h3>
     </button>
     <div class="row collapse" id="event-archive">
       {%- include live-table.html events = archive_events -%}
