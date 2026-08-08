@@ -98,6 +98,13 @@ nav.navbar-solid {
   height: 820px;
   aspect-ratio: 1/1;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    height: 60vh;
+    min-height: 420px;
+    max-height: 520px;
+    object-position: bottom;
+  }
 }
 
 #carouselHero .carousel-caption {
