@@ -25,7 +25,7 @@ Key commands are provided via the `Makefile`:
 
 - **Content Creation:**
   - **Homepage (`index.md`):** Imports modular components from `_includes/` (`hero`, `hero-links`, `news`, `live`, `bio`, `music`, `videos`, `social-feed`).
-  - **Posts (`_posts/`):** Named `YYYY-MM-DD-title.md` using the `page` layout.
+  - **Posts (`_posts/`):** Named `YYYY-MM-DD-title.md` using the `page` layout. Managed via the `news` agent skill (`.agents/skills/news/SKILL.md`).
   - **Live Dates (`_data/live.csv`):** Single source of truth for concert dates and event links.
 - **Assets:** Always use the `Makefile` import commands (`import-image-asset` / `import-video-asset`) to ensure assets are properly converted and scaled.
 - **Styling:** Main entry point is `assets/css/style.scss`. Create or modify SCSS partials inside `_sass/`. Do not directly modify `_sass/bootstrap/` as it is populated via `make setup-bootstrap`.
@@ -43,3 +43,4 @@ Key commands are provided via the `Makefile`:
 - `_layouts/`: Page templates (`base.html`, `main.html`, `page.html`).
 - `scripts/`: Shell and Ruby automation scripts for media imports and content tooling.
 - `conductor/site-improvements-plan.md`: Roadmap and feature specifications.
+- `.agents/skills/news/SKILL.md`: Agent skill for news post scaffolding and media automation.
