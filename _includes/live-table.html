@@ -22,9 +22,17 @@
     {% assign is_past = true %}
   {% endif %}
   {% if current_year != last_year == true %}
+  {% assign year_events = events | where_exp: "item", "item.date contains current_year" %}
   <thead>
     <tr>
-      <th class="col-12 p-4" colspan="3"><h3>{{ current_year }}</h3></th>
+      <th class="col-12 p-4" colspan="3">
+        <h3>
+          {{ current_year }}
+          <span class="badge rounded-pill {% if include.placeholder_year and current_year == include.placeholder_year %}text-bg-primary{% else %}text-bg-secondary{% endif %} fs-6 align-middle ms-1">
+            {{ year_events.size }}
+          </span>
+        </h3>
+      </th>
     </tr>
   </thead>
   {% endif %}
