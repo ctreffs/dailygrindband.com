@@ -46,7 +46,7 @@ Address user experience and content management pain points on `dailygrindband.co
     *   `_config.yml`
     *   `_includes/social-feed.html`
     *   `privacy.md`
-*   **Status:** [x] Implemented (Awaiting feed ID configuration from user)
+*   **Status:** [x] Implemented
 
 ## Verification
 1.  Run `make serve` and verify no cookies are set and no banner appears.
