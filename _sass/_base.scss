@@ -77,6 +77,11 @@ nav.navbar-solid {
   background-color: $body-bg-dark;
 }
 
+#navbar-main .nav-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 #carouselHero .carousel-item img {
   object-fit: cover;
   object-position: center;
