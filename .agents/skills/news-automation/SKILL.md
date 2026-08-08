@@ -31,6 +31,7 @@ Before scaffolding the markdown file, convert and optimize all attached media us
   *(Outputs optimized WebP image to `assets/images/news/`)*
 
 - **For videos** (MP4, MOV, etc.):
+  Ensure the input video uses or is saved with the `.mp4` extension (required by Jekyll carousel rendering):
   ```bash
   make import-video-asset FILE="path/to/video.mp4"
   ```
@@ -56,17 +57,17 @@ assets:
 Draft the content in German matching the energetic Daily Grind rock band voice:
 - Express enthusiasm, band updates, gig announcements, or release info.
 - Use rock-themed emojis appropriately (🎸, 🤘, 🔥, ⚡).
-- Reference upcoming concert dates using relative site links: `[date & location]({{ site.url }}#live)`.
+- Reference upcoming concert dates using site URL variables: `[date & location]({{ site.url }}#live)`.
 - End with energetic sign-offs (e.g., "Stay tuned und rock on! 🔥").
 
-### 4. Verify Build
-Verify that Jekyll parses the new post and assets compile cleanly:
+### 4. Verify Build and Links
+Verify that Jekyll parses the new post and link checking passes:
 ```bash
-make build
+make build && make check
 ```
 
 ## operating rules
 - **Frontmatter Invariant**: `layout` MUST be `page`. `title` MUST be enclosed in quotes if it contains special characters or colons. `assets` MUST be a list of root-relative paths starting with `/assets/`.
-- **Media Optimization**: Always run `make import-image-asset` or `make import-video-asset` to maintain site performance and consistent resolution.
+- **Media Optimization**: Always run `make import-image-asset` or `make import-video-asset` to maintain site performance and consistent resolution. Ensure video asset paths end in `.mp4` for correct carousel tag rendering.
 - **Language & Voice**: Posts MUST be in German, adopting the persona of an energetic Nürnberg rock band.
-- **Verification**: Post creation is not complete until `make build` completes without errors.
+- **Verification**: Post creation is not complete until `make build` and `make check` complete without errors.
