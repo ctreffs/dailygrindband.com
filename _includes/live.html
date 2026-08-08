@@ -4,10 +4,6 @@
 <section id="live">
   <div class="container mt-5 text-center">
     <h1>Live</h1>
-    <div class="mb-4">
-      <span class="badge rounded-pill text-bg-primary me-2">Anstehend: {{ live_events.size }}</span>
-      <span class="badge rounded-pill text-bg-secondary">Archiv: {{ archive_events.size }}</span>
-    </div>
     <div class="row">{%- include live-table.html events = live_events placeholder_year = current_year -%}</div>
   </div>
   <!-- LIVE END -->
@@ -21,7 +17,7 @@
       aria-expanded="false"
       aria-controls="event-archive"
     >
-      <h2>Archive <i class="fas fa-chevron-down ms-2"></i></h2>
+      <h2>Archive <span class="badge rounded-pill text-bg-secondary fs-6 align-middle ms-1">{{ archive_events.size }} vergangen</span> <i class="fas fa-chevron-down ms-2"></i></h2>
     </button>
     <div class="row collapse" id="event-archive">
       {%- include live-table.html events = archive_events -%}
