@@ -68,10 +68,17 @@ Verify that Jekyll parses the new post and link checking passes:
 make build && make check
 ```
 
+### 5. Local User Verification
+Serve the website locally in the background so the user can visually verify the new post, formatting, and media carousel:
+```bash
+make serve &
+```
+Provide the local URL (typically `http://localhost:4000`) for user review and confirmation.
+
 ## operating rules
 - **Frontmatter Invariant**: `layout` MUST be `page`. `title` MUST be enclosed in quotes if it contains special characters or colons. `assets` MUST be a list of root-relative paths starting with `/assets/`.
 - **Post Date Default**: Unless explicitly instructed otherwise, new post filenames (`YYYY-MM-DD-kebab-case-title.md`) MUST default to the current date (today).
 - **Older News Retention**: Never delete or replace existing post files in `_posts/`. The newest post becomes the primary news feature (`site.posts | first`), while older posts automatically remain accessible under the collapsible "Ältere News" section (`offset:1`).
 - **Media Optimization & Naming Schema**: Always run `make import-image-asset` or `make import-video-asset` to maintain site performance and consistent resolution. Asset filenames MUST follow the naming schema `YYYYMMDD-event-description.ext` using generic placeholders. Ensure video asset paths end in `.mp4` for correct carousel tag rendering.
 - **Language & Voice**: Posts MUST be in German, adopting the persona of an energetic Nürnberg rock band.
-- **Verification**: Post creation is not complete until `make build` and `make check` complete without errors.
+- **Verification**: Post creation is not complete until `make build` and `make check` complete without errors, and the local preview server is started with `make serve &` for user verification.
