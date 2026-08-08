@@ -73,6 +73,10 @@ $primary: $Daily-Grind-Plymouth-Dark-1-hsla;
 // Utilities
 @import "bootstrap/bootstrap/utilities/api";
 
+#navbar-main {
+  transition: background-color 0.3s ease-in-out;
+}
+
 nav.navbar-solid {
   background-color: $body-bg-dark;
 }

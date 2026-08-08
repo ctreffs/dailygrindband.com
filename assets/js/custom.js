@@ -208,9 +208,39 @@ document.addEventListener("DOMContentLoaded", function () {
     checkChevronState(); // Initial check on page load
   };
 
+  /**
+   * Toggles solid background color on top menu bar when scrolled past hero section.
+   */
+  const handleNavbarBackground = () => {
+    const navbar = document.getElementById("navbar-main");
+    const heroSection = document.getElementById("hero");
+    if (!navbar) return;
+
+    if (!heroSection) {
+      navbar.classList.add("navbar-solid");
+      return;
+    }
+
+    const checkNavbarBackground = () => {
+      const heroBottom = heroSection.getBoundingClientRect().bottom;
+      const navbarHeight = navbar.offsetHeight;
+
+      if (heroBottom <= navbarHeight) {
+        navbar.classList.add("navbar-solid");
+      } else {
+        navbar.classList.remove("navbar-solid");
+      }
+    };
+
+    window.addEventListener("scroll", checkNavbarBackground);
+    window.addEventListener("resize", checkNavbarBackground);
+    checkNavbarBackground();
+  };
+
   loadMoreNews();
   handleCarouselVideos();
   handleNavbarBrandVisibility();
   handleNavbarAutoclose();
   handleHeroChevron();
+  handleNavbarBackground();
 });
