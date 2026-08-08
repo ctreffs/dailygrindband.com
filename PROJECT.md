@@ -57,5 +57,5 @@ Official Jekyll static website for the Nuremberg-based rock & pop band **Daily G
 - [ ] Phase 1: Analytics & Cookie Banner Cleanup (Remove GA4 and Osano consent banner)
 - [ ] Phase 2: Live Events CSV Audit & Hero Next-Gig Indicator
 - [ ] Phase 3: News Automation CLI Tool (`make new-post` / `scripts/new_post.sh`)
-- [ ] Phase 4: Native Social Feed (`_data/social.json` + `scripts/fetch_social.rb`)
+- [x] Phase 4: Behold.so Social Feed Integration (`_includes/social-feed.html` + `_config.yml`)
 <!-- BACKLOG_END -->

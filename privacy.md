@@ -355,13 +355,10 @@ Informationen hierzu erhalten Sie vom Anbieter unter folgendem Link:
 <a href="https://www.dataprivacyframework.gov/participant/4452">https://www.dataprivacyframework.gov/participant/4452</a>.
 </p>
 
-<h4>JUICER</h4>
+<h4>BEHOLD</h4>
 
 <p>
-Auf unserer Internetseite ist eine Social Wall von Juicer integriert. Das System Juicer bietet die Möglichkeit, Social Media Aktivitäten gebündelt in einem Social Feed auszuspielen und diesen als Social Wall auf einer Website zu platzieren. Juicer bietet die Möglichkeit, Beiträge von Facebook, Instagram und zahlreichen weiteren Social Media Kanälen einzubinden. Die Social Wall ist für jedermann, also auch für Personen, die nicht bei Instagram, Twitter etc. angemeldet sind, abrufbar. Betreibergesellschaft saas.group Inc., 304 S. Jones Blvd #1205, Las Vegas NV 89107, USA Juicer und Drittanbieter, die mit Juicer zusammenarbeiten, arbeiten EU-DSGVO konform. Juicer hat zu keinem Zeitpunkt und wird zu keinem Zeitpunkt:
-persönliche Daten von Nutzern speichern oder sammeln, die den Juicer Feed (Social Wall) auf einer Seite ansehen.
-Juicer-Nutzerdaten, abgesehen von Cookies, die dem Nutzer einen besseren Gebrauch des Systems ermöglichen, weitergeben. Dabei erfasst Juicer ein Minimum an Daten und behandelt diese diskret.
-jede Art von Daten an Soziale Netzwerke weitergeben.
+Auf unserer Website ist ein Social-Media-Feed von Behold (Behold App LLC, USA) eingebunden. Behold ermöglicht die Anzeige von Instagram-Inhalten direkt auf unserer Website. Beim Laden des Widgets können technische Daten (z. B. IP-Adresse, Browser-Informationen) an Server von Behold übertragen werden, um die Inhalte darzustellen. Die Nutzung erfolgt auf Grundlage unseres berechtigten Interesses an einer ansprechenden Außendarstellung unseres Online-Angebots gemäß Art. 6 Abs. 1 lit. f DSGVO. Weitere Informationen finden Sie in der Datenschutzerklärung von Behold unter <a href="https://behold.so/privacy" target="_blank" rel="noopener noreferrer">https://behold.so/privacy</a>.
 </p>
 
 <h2>6. Plugins und Tools</h2>

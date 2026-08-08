@@ -176,3 +176,11 @@ img.album {
     transform: rotate(180deg);
   }
 }
+
+/* Behold Social Feed Widget */
+.behold-widget-wrapper {
+  min-height: 320px;
+  figure[data-behold-id] {
+    margin: 0;
+  }
+}

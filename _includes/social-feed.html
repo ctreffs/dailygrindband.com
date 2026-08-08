@@ -1,15 +1,24 @@
-<section id="social-feed">
+<section id="social-feed" class="py-5">
   <div class="container text-center">
-    <h1>Social Feed</h1>
-    <div class="row">
-      <iframe
-        title="Daily Grind Social Feed"
-        class="col"
-        src="https://www.juicer.io/api/feeds/dailygrind-rocks/iframe?truncate=6&amp;per=6&amp;overlay=true"
-        frameborder="0"
-        height="1540"
-      >
-      </iframe>
+    <h1 class="mb-4">Social Feed</h1>
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
+        {% if site.behold-feed-id != blank %}
+          <div class="behold-widget-wrapper">
+            <figure data-behold-id="{{ site.behold-feed-id }}"></figure>
+            <script type="module" src="https://w.behold.so/widget.js"></script>
+          </div>
+        {% else %}
+          <div class="p-4 p-md-5 rounded-4 bg-dark border border-secondary border-opacity-25 my-3">
+            <i class="fa-brands fa-instagram fa-3x mb-3 text-danger"></i>
+            <h3 class="h4 mb-2">Folge uns auf Instagram</h3>
+            <p class="text-body-secondary mb-4">Erhalte Einblicke hinter die Kulissen, Live-Impressionen und aktuelle News direkt auf Instagram.</p>
+            <a href="https://www.instagram.com/dailygrind.rocks" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light rounded-pill px-4 py-2">
+              <i class="fa-brands fa-instagram me-2"></i>@dailygrind.rocks besuchen
+            </a>
+          </div>
+        {% endif %}
+      </div>
     </div>
   </div>
 </section>
