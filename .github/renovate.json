@@ -8,25 +8,22 @@
   ],
   "packageRules": [
     {
-      "description": "Group all Swift package minor and patch updates together",
-      "groupName": "Swift non-major dependencies",
+      "description": "Group all Jekyll package minor and patch updates together",
+      "groupName": "Jekyll non-major dependencies",
       "matchManagers": [
-        "swift"
+        "bundler"
       ],
       "matchUpdateTypes": [
         "minor",
         "patch"
-      ]
-    },
-    {
-      "description": "Group all Mint package minor and patch updates together",
-      "groupName": "Mint non-major dependencies",
-      "matchManagers": [
-        "mint"
       ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
+      "labels": [
+        "dependencies",
+        "renovate",
+        "jekyll"
+      ],
+      "matchPackageNames": [
+        "/^jekyll/"
       ]
     },
     {
@@ -39,7 +36,12 @@
         "minor",
         "patch"
       ],
-      "automerge": true
+      "automerge": true,
+      "labels": [
+        "dependencies",
+        "renovate",
+        "ci"
+      ]
     }
   ],
   "suppressNotifications": [
