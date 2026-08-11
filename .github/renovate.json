@@ -1,19 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended",
-    ":combinePatchMinorReleases",
-    ":rebaseStalePrs",
-    ":renovatePrefix",
-    "customManagers:githubActionsVersions"
+    "config:recommended"
   ],
-  "prConcurrentLimit": 5,
+  "labels": [
+    "dependencies"
+  ],
   "packageRules": [
     {
-      "groupName": "Jekyll non-major dependencies",
       "description": "Group all Jekyll package minor and patch updates together",
+      "groupName": "Jekyll non-major dependencies",
       "matchManagers": [
-        "bundle"
+        "bundler"
       ],
       "matchUpdateTypes": [
         "minor",
@@ -29,8 +27,8 @@
       ]
     },
     {
+      "description": "Group and automerge non-major GitHub Actions updates",
       "groupName": "GitHub Actions non-major dependencies",
-      "description": "Group all GitHub Actions minor and patch updates together",
       "matchManagers": [
         "github-actions"
       ],
@@ -38,6 +36,7 @@
         "minor",
         "patch"
       ],
+      "automerge": true,
       "labels": [
         "dependencies",
         "renovate",
@@ -45,15 +44,9 @@
       ]
     }
   ],
-  "labels": [
-    "dependencies",
-    "renovate"
-  ],
-  "reviewers": [],
-  "assignees": [],
   "suppressNotifications": [
     "prIgnoreNotification",
-    "prEditNotification",
+    "prEditedNotification",
     "branchAutomergeFailure"
   ]
 }
