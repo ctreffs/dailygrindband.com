@@ -9,17 +9,25 @@ A Jekyll-based static website for the Nuremberg-based rock and pop band **Daily 
 - **Styling:** Main stylesheet in `assets/css/style.scss` importing Sass partials from `_sass/`. Bootstrap 5 SCSS resides in `_sass/bootstrap/`.
 - **Assets:** Optimized WebP images and MP4 videos stored in `assets/images/` and `assets/videos/`.
 
-## Building and Running
+## Makefile Workflows
 
-Key commands are provided via the `Makefile`:
+Use the `Makefile` targets for setup, dependencies, building, checking, serving, and asset imports. Read the relevant target and its prerequisites before running it; do not replace it with individual underlying commands. If a target fails, report the error rather than bypassing it. Ask before removing an existing dependency bundle or updating locked dependencies.
 
-- **Setup Environment:** `make setup-env` (Installs rbenv, ruby-build, Git LFS, and Bundler dependencies).
-- **Install Dependencies:** `make install` (Runs `bundle install`).
-- **Development Server:** `make serve` (Cleans and runs `jekyll serve` locally).
-- **Production Build:** `make build` (Cleans and runs `jekyll build`).
-- **Quality Check:** `make check` (Runs `htmlproofer` on `_site/`).
-- **Import Image Asset:** `make import-image-asset FILE="path/to/photo.jpg"` (Converts to WebP, resizes to max width 1024px, and places in `assets/images/news/`).
-- **Import Video Asset:** `make import-video-asset FILE="path/to/video.mp4"` (Optimizes to MP4/AAC, resizes to max width 1024px, and places in `assets/videos/news/`).
+For a local validation and preview, run `make setup-env` when setup is needed, then `make build`, `make check`, and `make serve`. The available targets are:
+
+- `make set-local-path`: Configure Bundler to install gems in `vendor/bundle`.
+- `make setup-env`: Install missing rbenv, ruby-build, and Git LFS; ensure the Ruby version in `.ruby-version` is installed; install Bundler and the project gems; and enable Git LFS. If the selected Ruby version differs, this target upgrades ruby-build and removes `vendor/bundle` before reinstalling dependencies.
+- `make clean-vendor`: Remove `vendor/bundle` and `.bundle/config`.
+- `make install`: Set the local Bundler path and install project gems.
+- `make setup-bootstrap`: Copy Bootstrap styles and JavaScript and Popper JavaScript from the installed gems into the project's asset directories.
+- `make update`: Update bundled gem dependencies, potentially changing the lockfile.
+- `make clean`: Set the local Bundler path and remove generated Jekyll output.
+- `make serve`: Clean generated output and start the Jekyll development server.
+- `make build`: Clean generated output and build the Jekyll site.
+- `make doctor`: Set the local Bundler path and run Jekyll's diagnostic checks.
+- `make check`: Install project gems and run HTMLProofer against `_site/`; build the site first.
+- `make import-image-asset FILE="path/to/photo.jpg"`: Convert an image to WebP at 1024 pixels wide and save it in `assets/images/news/`.
+- `make import-video-asset FILE="path/to/video.mp4"`: Convert a video to H.264/AAC MP4 at 1024 pixels wide and save it in `assets/videos/news/`.
 
 ## Development Conventions
 
