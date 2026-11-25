@@ -114,6 +114,7 @@ exclude:
   - Icon.png
   - LICENSE
   - Makefile
+  - PROJECT.md
   - node_modules/
   - README.md
   - renovate.json
