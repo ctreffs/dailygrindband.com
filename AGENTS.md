@@ -16,7 +16,7 @@ Use the `Makefile` targets for setup, dependencies, building, checking, serving,
 For a local validation and preview, run `make setup-env` when setup is needed, then `make build`, `make check`, and `make serve`. The available targets are:
 
 - `make set-local-path`: Configure Bundler to install gems in `vendor/bundle`.
-- `make setup-env`: Install missing rbenv, ruby-build, and Git LFS; ensure the Ruby version in `.ruby-version` is installed; install Bundler and the project gems; and enable Git LFS. If the selected Ruby version differs, this target upgrades ruby-build and removes `vendor/bundle` before reinstalling dependencies.
+- `make setup-env`: Install missing rbenv, ruby-build, and Git LFS; ensure the Ruby version in `.ruby-version` is installed; install Bundler and the project gems; and enable Git LFS. If the selected Ruby version differs, this target upgrades ruby-build and installs the required Ruby before removing `vendor/bundle`; a failed upgrade or Ruby install stops setup without removing the bundle.
 - `make clean-vendor`: Remove `vendor/bundle` and `.bundle/config`.
 - `make install`: Set the local Bundler path and install project gems.
 - `make setup-bootstrap`: Copy Bootstrap styles and JavaScript and Popper JavaScript from the installed gems into the project's asset directories.

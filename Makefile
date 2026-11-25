@@ -14,8 +14,8 @@ setup-env:
 	
 	@if [ "$(INSTALLED_RUBY_VERSION)" != "$(REQUIRED_RUBY_VERSION)" ]; then \
 		echo "Updating ruby and cleaning vendor/bundle to ensure compatibility"; \
-		brew upgrade ruby-build; \
-		rbenv install -s; \
+		brew upgrade ruby-build && \
+		rbenv install -s && \
 		rm -rf vendor/bundle; \
 	fi
 
