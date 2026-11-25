@@ -13,7 +13,16 @@ A Jekyll-based static website for the Nuremberg-based rock and pop band **Daily 
 
 Use the `Makefile` targets for setup, dependencies, building, checking, serving, and asset imports. Read the relevant target and its prerequisites before running it; do not replace it with individual underlying commands. If a target fails, report the error rather than bypassing it. Ask before removing an existing dependency bundle or updating locked dependencies.
 
-For a local validation and preview, run `make setup-env` when setup is needed, then `make build`, `make check`, and `make serve`. The available targets are:
+### Set up and preview the site
+
+1. For a fresh environment, ensure Homebrew is available and run `make setup-env`. This installs the required Ruby and project dependencies. The target can remove `vendor/bundle` when the selected Ruby version differs; ask before removing an existing bundle.
+2. Run `make install` to install the locked gems. This is also the setup step to use when Ruby and Bundler are already available but the gems are missing.
+3. Run `make serve` and open <http://127.0.0.1:4000/>. Keep the command running while previewing the site.
+4. To validate the site, run `make build` followed by `make check`. The check needs the generated `_site/` directory.
+
+If setup reports that an rbenv rehash lock already exists, stop and report it. Do not start overlapping installs or remove the lock automatically; it may belong to an active process.
+
+### Targets
 
 - `make set-local-path`: Configure Bundler to install gems in `vendor/bundle`.
 - `make setup-env`: Install missing rbenv, ruby-build, and Git LFS; ensure the Ruby version in `.ruby-version` is installed; install Bundler and the project gems; and enable Git LFS. If the selected Ruby version differs, this target upgrades ruby-build and installs the required Ruby before removing `vendor/bundle`; a failed upgrade or Ruby install stops setup without removing the bundle.
