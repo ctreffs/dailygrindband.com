@@ -405,7 +405,7 @@ Google verarbeitet die Daten in unserem Auftrag und ist vertraglich verpflichtet
 <h5>Speicherdauer</h5>
 
 <p>
-Die von Google Analytics 4 erhobenen Daten werden für maximal [z. B. 14 Monate] gespeichert. Nach Ablauf dieser Frist werden die Daten automatisch gelöscht.
+Die Speicherdauer richtet sich nach der in Google Analytics für diese Website konfigurierten Aufbewahrungsfrist.
 </p>
 
 <h5>Ihre Rechte</h5>
@@ -427,7 +427,7 @@ Um diese Rechte auszuüben, kontaktieren Sie uns bitte unter den oben genannten 
 <h5>Opt-out und Cookie-Einstellungen</h5>
 
 <p>
-Sie können die Erfassung Ihrer Daten durch Google Analytics 4 verhindern, indem Sie die Verwendung von Cookies ablehnen oder Ihre Einwilligung widerrufen. Dies können Sie über unser [Cookie-Banner oder die Cookie-Einstellungen] tun.
+Sie können die Erfassung Ihrer Daten durch Google Analytics 4 verhindern, indem Sie im Cookie-Banner die Schaltfläche „Ablehnen“ wählen.
 </p>
 <p>
 Zusätzlich bietet Google ein Browser-Add-on zur Deaktivierung von Google Analytics, das Sie hier herunterladen können:
@@ -439,9 +439,6 @@ Zusätzlich bietet Google ein Browser-Add-on zur Deaktivierung von Google Analyt
 <p>
 Weitere Informationen zur Datenverarbeitung durch Google finden Sie in der Datenschutzerklärung von Google:
 <a href="https://policies.google.com/privacy?hl=de">https://policies.google.com/privacy?hl=de</a>
-</p>
-<p>
-Diese Datenschutzerklärung bietet eine gute Grundlage, um die Anforderungen der DSGVO zu erfüllen. Stellen Sie sicher, dass die Erklärung regelmäßig überprüft und an Änderungen der rechtlichen oder technischen Rahmenbedingungen angepasst wird.
 </p>
 
 <h3>YouTube mit erweitertem Datenschutz</h3>
