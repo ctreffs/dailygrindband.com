@@ -37,12 +37,12 @@ GEM
       fiber-storage
     fiber-storage (1.0.1)
     forwardable-extended (2.6.0)
-    google-protobuf (4.31.1)
+    google-protobuf (4.36.2)
       bigdecimal
-      rake (>= 13)
-    google-protobuf (4.31.1-arm64-darwin)
+      rake (~> 13.3)
+    google-protobuf (4.36.2-arm64-darwin)
       bigdecimal
-      rake (>= 13)
+      rake (~> 13.3)
     hashery (2.1.2)
     html-proofer (5.2.3)
       addressable (~> 2.3)
@@ -139,7 +139,7 @@ GEM
     zeitwerk (2.7.5)
 
 PLATFORMS
-  arm64-darwin-23
+  arm64-darwin
   ruby
 
 DEPENDENCIES
