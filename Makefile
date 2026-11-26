@@ -66,13 +66,53 @@ doctor: set-local-path
 
 .PHONY: check
 check: install
-	bundle exec htmlproofer \
-		--enforce_https \
-		--ignore-status-codes "301,403,405,429" \
-		--ignore-urls "/googletagmanager\.com/" \
-		--swap-urls "^https\://dailygrindband\.com:" \
-		--typhoeus '{"timeout": 60, "connecttimeout": 30}' \
-		./_site
+	@cache_dir=$$(mktemp -d "$${TMPDIR:-/tmp}/htmlproofer.XXXXXX"); \
+	trap 'rm -rf "$$cache_dir"' EXIT; \
+	cache_config="{\"timeframe\":{\"external\":\"1h\"},\"storage_dir\":\"$$cache_dir\"}"; \
+	deadline=$$(( $$(date +%s) + 120 )); \
+	delay=5; \
+	attempt=1; \
+	while :; do \
+		now=$$(date +%s); \
+		remaining=$$((deadline - now)); \
+		if [ "$$attempt" -gt 1 ] && [ "$$remaining" -le 0 ]; then \
+			echo "HTMLProofer still has transient link failures after 120 seconds."; \
+			exit 1; \
+		fi; \
+		request_timeout=60; \
+		connect_timeout=30; \
+		if [ "$$remaining" -lt "$$request_timeout" ]; then request_timeout=$$remaining; fi; \
+		if [ "$$remaining" -lt "$$connect_timeout" ]; then connect_timeout=$$remaining; fi; \
+		typhoeus="{\"timeout\": $$request_timeout, \"connecttimeout\": $$connect_timeout}"; \
+		output=$$(bundle exec htmlproofer \
+			--enforce_https \
+			--ignore-status-codes "301,403,405,429" \
+			--ignore-urls "/googletagmanager\.com/" \
+			--swap-urls "^https\://dailygrindband\.com:" \
+			--cache "$$cache_config" \
+			--typhoeus "$$typhoeus" \
+			./_site 2>&1); \
+		status=$$?; \
+		printf '%s\n' "$$output"; \
+		if [ "$$status" -eq 0 ]; then exit 0; fi; \
+		failure_lines=$$(printf '%s\n' "$$output" | grep -iE 'External link .* failed' || true); \
+		if [ -z "$$failure_lines" ]; then exit "$$status"; fi; \
+		nonretryable_failures=$$(printf '%s\n' "$$failure_lines" | grep -Evi 'status code (408|5[0-9][0-9])|response code 0|time.?out|failed with something very wrong' || true); \
+		if [ -n "$$nonretryable_failures" ]; then exit "$$status"; fi; \
+		now=$$(date +%s); \
+		remaining=$$((deadline - now)); \
+		if [ "$$remaining" -le 0 ]; then \
+			echo "HTMLProofer still has transient link failures after 120 seconds."; \
+			exit "$$status"; \
+		fi; \
+		wait=$$delay; \
+		if [ "$$wait" -gt "$$remaining" ]; then wait=$$remaining; fi; \
+		echo "Transient external-link failure; retrying in $${wait}s (120s limit)."; \
+		sleep "$$wait"; \
+		delay=$$((delay * 2)); \
+		if [ "$$delay" -gt 30 ]; then delay=30; fi; \
+		attempt=$$((attempt + 1)); \
+	done
 
 .PHONY: import-video-asset
 import-video-asset:
