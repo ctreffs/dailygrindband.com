@@ -7,7 +7,7 @@ AMAZON_HOSTS = ["amazon.de", "www.amazon.de"].freeze
 AMAZON_USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 TYPHOEUS_OPTIONS = { timeout: 60, connecttimeout: 30, followlocation: true }.freeze
 # Amazon and Instagram throttle CI runner IPs intermittently; a later request often succeeds.
-RETRY_BUDGET_SECONDS = 300
+RETRY_BUDGET_SECONDS = 30
 RETRY_MAX_DELAY_SECONDS = 60
 
 def amazon?(url)
@@ -17,7 +17,7 @@ rescue URI::InvalidURIError
 end
 
 def retryable?(failure)
-  failure.status.nil? || failure.status.zero? || failure.status == 408 || failure.status == 429 || failure.status >= 500
+  failure.status.nil? || failure.status.zero? || failure.status == 408 || failure.status >= 500
 end
 
 def retry_delay(response, fallback)
@@ -68,7 +68,8 @@ end
 
 proofer = HTMLProofer.check_directory("./_site", {
   enforce_https: true,
-  ignore_status_codes: [301, 403, 405],
+  # 429: Instagram rate-limits CI runner IPs for longer than any retry budget.
+  ignore_status_codes: [301, 403, 405, 429],
   ignore_urls: [/googletagmanager\.com/],
   swap_urls: { %r{\Ahttps://dailygrindband\.com} => "" },
   typhoeus: TYPHOEUS_OPTIONS,
