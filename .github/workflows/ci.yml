@@ -60,6 +60,8 @@ jobs:
             Gemfile
             Gemfile.lock
             Makefile
+            scripts/check_external_links.rb
+          sparse-checkout-cone-mode: false
       - name: Setup env
         uses: ruby/setup-ruby@v1.345.0
         with:
